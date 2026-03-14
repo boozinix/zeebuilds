@@ -24,7 +24,9 @@ export default function WorkPage() {
     <div className="mx-auto max-w-6xl px-4 pb-20 pt-16">
       <header className="mb-16 text-center">
         <div className="inline-flex items-center gap-3 mb-6">
-          <Briefcase className="h-10 w-10 text-sky-400" />
+          <span className="work-icon-spin inline-flex">
+            <Briefcase className="h-10 w-10 text-sky-400" />
+          </span>
           <h1 className="text-5xl font-bold tracking-tight sm:text-6xl text-slate-50">
             My <span className="bg-gradient-to-r from-sky-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent animate-gradient">Work</span>
           </h1>

@@ -68,14 +68,17 @@ h1, h2, h3, h4, h5, h6 {
 .animate-shimmer-in-delay-6 { opacity: 0; animation: var(--animate-shimmer-in-delay-6); }
 .animate-shimmer-in-delay-7 { opacity: 0; animation: var(--animate-shimmer-in-delay-7); }
 
-/* Z logo: spin once on load, extra spin on hover */
-.z-logo-spin {
-  animation: var(--animate-z-spin);
-  transition: transform 0.5s ease-in-out;
-}
-.z-logo-spin:hover {
-  animation: none;
-  transform: rotate(720deg);
+/* Z logo & work icon: spin once on load (CSS so it runs on mobile; Framer was disabled by prefers-reduced-motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .z-logo-spin,
+  .work-icon-spin {
+    animation: var(--animate-z-spin);
+    transition: transform 0.5s ease-in-out;
+  }
+  .z-logo-spin:hover {
+    animation: none;
+    transform: rotate(720deg);
+  }
 }
 
 /* Custom scrollbar */
