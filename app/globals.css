@@ -46,6 +46,12 @@ body {
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", 
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Safe area for notched devices (e.g. iPhone) */
+.safe-area-inset-top {
+  padding-top: env(safe-area-inset-top, 0);
 }
 
 /* Enhanced typography scale */

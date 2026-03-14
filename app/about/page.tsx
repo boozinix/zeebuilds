@@ -74,21 +74,21 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-4xl px-4 pb-16 pt-12">
-      <header className="mb-12">
+    <div className="mx-auto max-w-4xl px-4 pb-12 pt-8 sm:pb-16 sm:pt-12">
+      <header className="mb-8 sm:mb-12">
         <div className="flex items-center gap-3 mb-2">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-violet-500">
-            <User className="h-6 w-6 text-white" />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-violet-500 sm:h-12 sm:w-12">
+            <User className="h-5 w-5 text-white sm:h-6 sm:w-6" />
           </div>
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-slate-50">
+          <h1 className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl sm:text-4xl">
             About
           </h1>
         </div>
       </header>
 
       {/* Intro */}
-      <section className="mb-12 rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/80 to-slate-950/80 p-8 backdrop-blur">
-        <div className="space-y-4 text-base text-slate-300 leading-relaxed">
+      <section className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900/80 to-slate-950/80 p-5 backdrop-blur sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
+        <div className="space-y-3 text-sm text-slate-300 leading-relaxed sm:space-y-4 sm:text-base">
           <p>
             I am a product manager and builder focused on AI-powered consumer tools in
             careers and fintech. I use hands-on prototyping to de‑risk ideas and ship
@@ -108,28 +108,28 @@ export default function AboutPage() {
       </section>
 
       {/* Skills */}
-      <section className="mb-12">
-        <div className="mb-6">
-          <h2 className="text-xl font-semibold text-slate-100 flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-sky-400" />
+      <section className="mb-8 sm:mb-12">
+        <div className="mb-4 sm:mb-6">
+          <h2 className="text-lg font-semibold text-slate-100 flex items-center gap-2 sm:text-xl">
+            <Sparkles className="h-4 w-4 text-sky-400 sm:h-5 sm:w-5" />
             Skills
           </h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
           {skills.map((skill) => (
             <div
               key={skill.title}
-              className="group rounded-xl border border-slate-800 bg-slate-950/60 p-6 hover:border-sky-500/50 transition-all hover:-translate-y-1"
+              className="group rounded-xl border border-slate-800 bg-slate-950/60 p-4 hover:border-sky-500/50 transition-all hover:-translate-y-1 sm:p-6"
             >
-              <div className="mb-4 flex items-center gap-3">
-                <div className={`flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${skill.color}`}>
-                  <skill.icon className="h-5 w-5 text-white" />
+              <div className="mb-3 flex items-center gap-3 sm:mb-4">
+                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${skill.color} sm:h-10 sm:w-10`}>
+                  <skill.icon className="h-4 w-4 text-white sm:h-5 sm:w-5" />
                 </div>
                 <h3 className="text-sm font-semibold text-sky-300">
                   {skill.title}
                 </h3>
               </div>
-              <ul className="space-y-2.5 text-sm text-slate-300">
+              <ul className="space-y-2 text-xs text-slate-300 sm:space-y-2.5 sm:text-sm">
                 {skill.items.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <span className="mt-1.5 flex h-1.5 w-1.5 shrink-0 rounded-full bg-sky-400" />
@@ -143,37 +143,37 @@ export default function AboutPage() {
       </section>
 
       {/* Experience */}
-      <section className="mb-12">
-        <div className="mb-6">
-          <h2 className="text-xl font-semibold text-slate-100 flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-violet-400" />
+      <section className="mb-8 sm:mb-12">
+        <div className="mb-4 sm:mb-6">
+          <h2 className="text-lg font-semibold text-slate-100 flex items-center gap-2 sm:text-xl">
+            <TrendingUp className="h-4 w-4 text-violet-400 sm:h-5 sm:w-5" />
             Experience
           </h2>
         </div>
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {experiences.map((exp) => (
             <div
               key={exp.title}
-              className="group rounded-xl border border-slate-800 bg-slate-950/60 p-6 hover:border-sky-500/50 transition-all hover:translate-x-1"
+              className="group rounded-xl border border-slate-800 bg-slate-950/60 p-4 hover:border-sky-500/50 transition-all hover:translate-x-1 sm:p-6"
             >
-              <div className="flex items-start gap-4">
-                <div className={`mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${exp.color}`}>
-                  <exp.icon className="h-6 w-6 text-white" />
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${exp.color} sm:mt-1 sm:h-12 sm:w-12`}>
+                  <exp.icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />
                 </div>
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-2">
-                    <h3 className="text-base font-semibold text-slate-100">
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:mb-2">
+                    <h3 className="text-sm font-semibold text-slate-100 sm:text-base">
                       {exp.title}
                     </h3>
-                    <span className="inline-flex items-center gap-2 text-sm text-slate-400">
-                      <div className="h-1 w-1 rounded-full bg-sky-400" />
+                    <span className="inline-flex items-center gap-2 text-xs text-slate-400 sm:text-sm">
+                      <div className="h-1 w-1 shrink-0 rounded-full bg-sky-400" />
                       {exp.period}
                     </span>
                   </div>
-                  <p className="text-sm text-sky-300 mb-3 font-medium">
+                  <p className="text-xs text-sky-300 mb-2 font-medium sm:mb-3 sm:text-sm">
                     {exp.role}
                   </p>
-                  <p className="text-sm text-slate-400 leading-relaxed">
+                  <p className="text-xs text-slate-400 leading-relaxed sm:text-sm">
                     {exp.description}
                   </p>
                 </div>
@@ -184,24 +184,24 @@ export default function AboutPage() {
       </section>
 
       {/* Resume & Contact */}
-      <section className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-950/50 p-8 text-center backdrop-blur">
+      <section className="relative overflow-hidden rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-950/50 p-5 text-center backdrop-blur sm:rounded-2xl sm:p-6 lg:p-8">
         {/* Animated background gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 via-violet-500/10 to-fuchsia-500/10 animate-gradient opacity-50" />
         
         <div className="relative">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-sky-500 to-violet-500 mb-4">
-            <Sparkles className="h-8 w-8 text-white" />
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-sky-500 to-violet-500 mb-3 sm:mb-4 sm:h-16 sm:w-16">
+            <Sparkles className="h-6 w-6 text-white sm:h-8 sm:w-8" />
           </div>
-          <h2 className="text-xl font-semibold text-slate-100 mb-2">
+          <h2 className="text-lg font-semibold text-slate-100 mb-1 sm:mb-2 sm:text-xl">
             Let's work together
           </h2>
-          <p className="text-sm text-slate-300 mb-6 max-w-md mx-auto">
+          <p className="text-xs text-slate-300 mb-4 max-w-md mx-auto sm:mb-6 sm:text-sm">
             I'm open to AI PM roles, product collaboration, and advisory opportunities.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
             <a
               href="/resume.pdf"
-              className="group inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-900/50 px-6 py-3 text-sm font-medium text-slate-300 backdrop-blur hover:border-slate-500 hover:text-slate-200 hover:bg-slate-800/50 transition-all"
+              className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-slate-600 bg-slate-900/50 px-5 py-3 text-sm font-medium text-slate-300 backdrop-blur hover:border-slate-500 hover:text-slate-200 hover:bg-slate-800/50 active:scale-[0.98] transition-all sm:min-h-0 sm:px-6"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -210,7 +210,7 @@ export default function AboutPage() {
             </a>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/40 hover:scale-105 transition-all"
+              className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/40 active:scale-[0.98] transition-all sm:min-h-0 sm:px-6"
             >
               <Mail className="h-4 w-4 group-hover:rotate-12 transition-transform" />
               Get in touch
