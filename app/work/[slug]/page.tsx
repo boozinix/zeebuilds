@@ -1,10 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { notFound } from 'next/navigation';
 import { projects, ProjectId } from '@/lib/projects';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Target, Zap, Users } from 'lucide-react';
 
 interface ProjectPageProps {
@@ -38,10 +36,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <div className="mx-auto max-w-4xl px-4 pb-20 pt-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
+      <div>
         <Link
           href="/work"
           className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-sky-400 transition-colors mb-8"
@@ -87,18 +82,15 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         {project.metrics && (
           <div className="mb-12 grid gap-6 sm:grid-cols-3">
             {project.metrics.map((metric, index) => (
-              <motion.div
+              <div
                 key={metric.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
                 className="rounded-xl border border-slate-800 bg-slate-900/50 p-6 text-center"
               >
                 <div className="text-3xl font-bold text-sky-400 mb-2">
                   {metric.value}
                 </div>
                 <div className="text-sm text-slate-400">{metric.label}</div>
-              </motion.div>
+              </div>
             ))}
           </div>
         )}
@@ -145,22 +137,16 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               'Scalable architecture supporting thousands of active users',
               'Production-grade implementation with modern tech stack'
             ].map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="flex items-start gap-3"
-              >
+              <div key={index} className="flex items-start gap-3">
                 <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sky-500/10 border border-sky-500/20">
                   <div className="h-2 w-2 rounded-full bg-sky-400" />
                 </div>
                 <p className="text-slate-300">{feature}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

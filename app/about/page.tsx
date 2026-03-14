@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { 
   User, 
   Lightbulb, 
@@ -12,30 +11,10 @@ import {
   Mail,
   Sparkles,
   TrendingUp,
-  Database,
   Rocket
 } from 'lucide-react';
 
 export default function AboutPage() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-
   const skills = [
     {
       title: 'Product',
@@ -96,33 +75,19 @@ export default function AboutPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 pb-16 pt-12">
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-12"
-      >
+      <header className="mb-12">
         <div className="flex items-center gap-3 mb-2">
-          <motion.div
-            initial={{ rotate: -180, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            transition={{ duration: 0.6, type: 'spring' }}
-            className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-violet-500"
-          >
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-violet-500">
             <User className="h-6 w-6 text-white" />
-          </motion.div>
+          </div>
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-slate-50">
             About
           </h1>
         </div>
-      </motion.header>
+      </header>
 
       {/* Intro */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="mb-12 rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/80 to-slate-950/80 p-8 backdrop-blur"
-      >
+      <section className="mb-12 rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/80 to-slate-950/80 p-8 backdrop-blur">
         <div className="space-y-4 text-base text-slate-300 leading-relaxed">
           <p>
             I am a product manager and builder focused on AI-powered consumer tools in
@@ -140,29 +105,21 @@ export default function AboutPage() {
             deep understanding of user pain points, not just technical capability.
           </p>
         </div>
-      </motion.section>
+      </section>
 
       {/* Skills */}
-      <motion.section
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        className="mb-12"
-      >
-        <motion.div variants={itemVariants} className="mb-6">
+      <section className="mb-12">
+        <div className="mb-6">
           <h2 className="text-xl font-semibold text-slate-100 flex items-center gap-2">
             <Sparkles className="h-5 w-5 text-sky-400" />
             Skills
           </h2>
-        </motion.div>
+        </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {skills.map((skill, index) => (
-            <motion.div
+          {skills.map((skill) => (
+            <div
               key={skill.title}
-              variants={itemVariants}
-              whileHover={{ y: -4 }}
-              className="group rounded-xl border border-slate-800 bg-slate-950/60 p-6 hover:border-sky-500/50 transition-all"
+              className="group rounded-xl border border-slate-800 bg-slate-950/60 p-6 hover:border-sky-500/50 transition-all hover:-translate-y-1"
             >
               <div className="mb-4 flex items-center gap-3">
                 <div className={`flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${skill.color}`}>
@@ -174,45 +131,30 @@ export default function AboutPage() {
               </div>
               <ul className="space-y-2.5 text-sm text-slate-300">
                 {skill.items.map((item, idx) => (
-                  <motion.li
-                    key={idx}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + idx * 0.05 }}
-                    className="flex items-start gap-2"
-                  >
+                  <li key={idx} className="flex items-start gap-2">
                     <span className="mt-1.5 flex h-1.5 w-1.5 shrink-0 rounded-full bg-sky-400" />
                     <span>{item}</span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.section>
+      </section>
 
       {/* Experience */}
-      <motion.section
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        className="mb-12"
-      >
-        <motion.div variants={itemVariants} className="mb-6">
+      <section className="mb-12">
+        <div className="mb-6">
           <h2 className="text-xl font-semibold text-slate-100 flex items-center gap-2">
             <TrendingUp className="h-5 w-5 text-violet-400" />
             Experience
           </h2>
-        </motion.div>
+        </div>
         <div className="space-y-6">
-          {experiences.map((exp, index) => (
-            <motion.div
+          {experiences.map((exp) => (
+            <div
               key={exp.title}
-              variants={itemVariants}
-              whileHover={{ x: 4 }}
-              className="group rounded-xl border border-slate-800 bg-slate-950/60 p-6 hover:border-sky-500/50 transition-all"
+              className="group rounded-xl border border-slate-800 bg-slate-950/60 p-6 hover:border-sky-500/50 transition-all hover:translate-x-1"
             >
               <div className="flex items-start gap-4">
                 <div className={`mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${exp.color}`}>
@@ -236,19 +178,13 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.section>
+      </section>
 
       {/* Resume & Contact */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-950/50 p-8 text-center backdrop-blur"
-      >
+      <section className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-950/50 p-8 text-center backdrop-blur">
         {/* Animated background gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 via-violet-500/10 to-fuchsia-500/10 animate-gradient opacity-50" />
         
@@ -281,7 +217,7 @@ export default function AboutPage() {
             </Link>
           </div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 }

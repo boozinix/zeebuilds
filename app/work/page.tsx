@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { projects } from '@/lib/projects';
 import { ArrowRight, Briefcase, Filter } from 'lucide-react';
 import { useState } from 'react';
@@ -15,47 +14,17 @@ export default function WorkPage() {
   const filteredProjects = activeFilter === 'All Projects' 
     ? allProjects 
     : allProjects.filter(project => {
-        // Map project types to categories
         if (activeFilter === 'AI Tools') return project.id === 'resume-tailor';
         if (activeFilter === 'Fintech') return project.id === 'card-scout';
         if (activeFilter === 'Career Tools') return project.id === 'resume-tailor';
         return true;
       });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-
   return (
     <div className="mx-auto max-w-6xl px-4 pb-20 pt-16">
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-16 text-center"
-      >
+      <header className="mb-16 text-center">
         <div className="inline-flex items-center gap-3 mb-6">
-          <motion.div
-            initial={{ rotate: -180, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            transition={{ duration: 0.6, type: 'spring' }}
-          >
-            <Briefcase className="h-10 w-10 text-sky-400" />
-          </motion.div>
+          <Briefcase className="h-10 w-10 text-sky-400" />
           <h1 className="text-5xl font-bold tracking-tight sm:text-6xl text-slate-50">
             My <span className="bg-gradient-to-r from-sky-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent animate-gradient">Work</span>
           </h1>
@@ -63,26 +32,20 @@ export default function WorkPage() {
         <p className="mx-auto max-w-3xl text-lg text-slate-300 sm:text-xl leading-relaxed">
           Selected products I designed and built end‑to‑end. Each represents a complete journey from problem identification to production deployment.
         </p>
-      </motion.header>
+      </header>
 
       {/* Filter Pills */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="mb-12 flex flex-wrap justify-center gap-3"
-      >
+      <div className="mb-12 flex flex-wrap justify-center gap-3">
         <div className="inline-flex items-center gap-2 mr-2 text-sm text-slate-400">
           <Filter className="h-4 w-4" />
           <span className="hidden sm:inline">Filter:</span>
         </div>
         {categories.map((category) => (
-          <motion.button
+          <button
             key={category}
+            type="button"
             onClick={() => setActiveFilter(category)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`relative rounded-full px-4 py-2 text-sm font-semibold transition-all backdrop-blur ${
+            className={`relative rounded-full px-4 py-2 text-sm font-semibold transition-all backdrop-blur hover:scale-105 active:scale-95 ${
               activeFilter === category
                 ? 'bg-gradient-to-r from-sky-500/20 to-violet-500/20 border border-sky-500/40 text-sky-300 shadow-lg shadow-sky-500/20'
                 : 'border border-slate-700 bg-slate-900/50 text-slate-400 hover:border-slate-600 hover:text-slate-300 hover:bg-slate-800/50'
@@ -90,30 +53,18 @@ export default function WorkPage() {
           >
             {category}
             {activeFilter === category && (
-              <motion.div
-                layoutId="activeFilter"
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-500/10 to-violet-500/10 -z-10"
-                transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-              />
+              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-500/10 to-violet-500/10 -z-10" />
             )}
-          </motion.button>
+          </button>
         ))}
-      </motion.div>
+      </div>
 
       {/* Project Grid */}
-      <motion.div
-        key={activeFilter}
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="grid gap-10 lg:grid-cols-2"
-      >
-        {filteredProjects.map((project, index) => (
-          <motion.div
+      <div className="grid gap-10 lg:grid-cols-2">
+        {filteredProjects.map((project) => (
+          <div
             key={project.id}
-            variants={itemVariants}
-            whileHover={{ y: -8 }}
-            transition={{ duration: 0.3 }}
+            className="transition-transform duration-300 hover:-translate-y-2"
           >
             <Link
               href={`/work/${project.id}`}
@@ -200,24 +151,20 @@ export default function WorkPage() {
                   </div>
                 </div>
               </div>
-            </Link>
-          </motion.div>
-        ))}
-      </motion.div>
+              </Link>
+            </div>
+          ))}
+      </div>
 
       {/* Empty State */}
       {filteredProjects.length === 0 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center py-16"
-        >
+        <div className="text-center py-16">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-800/50 mb-4">
             <Briefcase className="h-8 w-8 text-slate-600" />
           </div>
           <h3 className="text-xl font-semibold text-slate-400 mb-2">No projects found</h3>
           <p className="text-slate-500 text-sm">Try selecting a different filter</p>
-        </motion.div>
+        </div>
       )}
     </div>
   );

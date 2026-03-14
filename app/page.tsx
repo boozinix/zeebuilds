@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { projects } from '@/lib/projects';
 import { Pill } from '@/components/Pill';
 import { ArrowRight, Sparkles, Rocket, Mail, User } from 'lucide-react';
@@ -9,62 +8,29 @@ import { ArrowRight, Sparkles, Rocket, Mail, User } from 'lucide-react';
 export default function HomePage() {
   const featuredProjects = [projects['resume-tailor'], projects['card-scout']];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-
   return (
     <div className="mx-auto max-w-6xl px-4 pb-20 pt-16">
       {/* Hero Section */}
-      <motion.section
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-        className="mb-20 text-center"
-      >
-        <motion.div variants={itemVariants}>
+      <section className="mb-20 text-center">
+        <div>
           <Pill>AI product portfolio</Pill>
-        </motion.div>
+        </div>
         
-        <motion.h1
-          variants={itemVariants}
-          className="mt-6 text-balance text-5xl font-bold tracking-tight text-slate-50 sm:text-6xl lg:text-7xl"
-        >
+        <h1 className="mt-6 text-balance text-5xl font-bold tracking-tight text-slate-50 sm:text-6xl lg:text-7xl">
           I build and ship{' '}
           <span className="bg-gradient-to-r from-sky-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent animate-gradient">
             AI-powered tools
           </span>{' '}
           for careers and finance.
-        </motion.h1>
+        </h1>
         
-        <motion.p
-          variants={itemVariants}
-          className="mt-6 mx-auto max-w-3xl text-lg text-slate-300 sm:text-xl leading-relaxed"
-        >
+        <p className="mt-6 mx-auto max-w-3xl text-lg text-slate-300 sm:text-xl leading-relaxed">
           I design and build consumer products end‑to‑end— from uncovering real
           problems to shipping production‑grade experiences. Below are two live
           applications I own.
-        </motion.p>
+        </p>
         
-        <motion.div
-          variants={itemVariants}
-          className="mt-8 flex flex-wrap justify-center gap-4"
-        >
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link
             href="/work"
             className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/40 hover:scale-105 transition-all"
@@ -80,19 +46,12 @@ export default function HomePage() {
             <User className="h-4 w-4" />
             About me
           </Link>
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
 
       {/* Featured Projects */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-        id="projects"
-        className="space-y-8"
-      >
-        <motion.div variants={itemVariants} className="text-center">
+      <section id="projects" className="space-y-8">
+        <div className="text-center">
           <div className="inline-flex items-center gap-2 mb-3">
             <Rocket className="h-6 w-6 text-sky-400" />
             <h2 className="text-3xl font-bold text-slate-100">Featured projects</h2>
@@ -100,15 +59,13 @@ export default function HomePage() {
           <p className="text-slate-400 max-w-2xl mx-auto">
             Two live products that solve real problems for thousands of users
           </p>
-        </motion.div>
+        </div>
         
         <div className="grid gap-8 lg:grid-cols-2">
-          {featuredProjects.map((project, index) => (
-            <motion.div
+          {featuredProjects.map((project) => (
+            <div
               key={project.id}
-              variants={itemVariants}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.3 }}
+              className="transition-transform duration-300 hover:-translate-y-2"
             >
               <Link
                 href={`/work/${project.id}`}
@@ -172,19 +129,13 @@ export default function HomePage() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.section>
+      </section>
 
       {/* Call to Action */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="mt-20 relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-950/50 p-12 text-center backdrop-blur"
-      >
+      <section className="mt-20 relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-950/50 p-12 text-center backdrop-blur">
         {/* Animated background gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 via-violet-500/10 to-fuchsia-500/10 animate-gradient opacity-50" />
         
@@ -212,7 +163,7 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 }
