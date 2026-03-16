@@ -6,7 +6,7 @@ import { Pill } from '@/components/Pill';
 import { ArrowRight, Sparkles, Rocket, Mail, User } from 'lucide-react';
 
 export default function HomePage() {
-  const featuredProjects = [projects['resume-tailor'], projects['card-scout']];
+  const featuredProjects = [projects['apply-studio'], projects['card-scout']];
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:pb-20 sm:pt-16">

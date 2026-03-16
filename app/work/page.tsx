@@ -14,9 +14,9 @@ export default function WorkPage() {
   const filteredProjects = activeFilter === 'All Projects' 
     ? allProjects 
     : allProjects.filter(project => {
-        if (activeFilter === 'AI Tools') return project.id === 'resume-tailor';
+        if (activeFilter === 'AI Tools') return project.id === 'apply-studio';
         if (activeFilter === 'Fintech') return project.id === 'card-scout';
-        if (activeFilter === 'Career Tools') return project.id === 'resume-tailor';
+        if (activeFilter === 'Career Tools') return project.id === 'apply-studio';
         return true;
       });
 

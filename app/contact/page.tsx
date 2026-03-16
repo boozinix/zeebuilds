@@ -1,10 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Metadata } from 'next';
-
-// Note: Metadata export doesn't work in client components, so we'll add it to layout or use a wrapper
-// For now, we'll handle this in the root layout or create a server component wrapper
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -17,17 +13,19 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
-    
-    // For now, simulate form submission with mailto
-    const subject = encodeURIComponent(`zeebuilds Contact: ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    
-    window.location.href = `mailto:zubair.nizami@yahoo.com?subject=${subject}&body=${body}`;
-    
-    setStatus('success');
-    setFormData({ name: '', email: '', message: '' });
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } else {
+      setStatus('error');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -111,7 +109,12 @@ export default function ContactPage() {
             
             {status === 'success' && (
               <p className="text-sm text-emerald-400">
-                Message sent! Your email client should have opened with the message.
+                Message sent! I'll get back to you within 24–48 hours.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="text-sm text-red-400">
+                Something went wrong. Try emailing me directly at zubair.nizami@yahoo.com
               </p>
             )}
           </form>

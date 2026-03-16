@@ -1,5 +1,5 @@
 // lib/projects.ts
-export type ProjectId = 'resume-tailor' | 'card-scout';
+export type ProjectId = 'apply-studio' | 'card-scout';
 
 export type Project = {
   id: ProjectId;
@@ -23,59 +23,61 @@ export type Project = {
 };
 
 export const projects: Record<ProjectId, Project> = {
-  'resume-tailor': {
-    id: 'resume-tailor',
-    name: 'Resume Tailor',
-    tagline: 'AI-powered resume tailoring for each job in under 30 seconds.',
+  'apply-studio': {
+    id: 'apply-studio',
+    name: 'ApplyStudio',
+    tagline: 'AI-powered job application platform: resume tailoring, cover letters, ATS scoring — across 20+ jobs at once.',
     role: 'Product Manager & Solo Builder',
     timeframe: '2024 – Present',
-    stack: ['Next.js', 'TypeScript', 'Vercel', 'OpenAI', 'Anthropic'],
+    stack: ['Next.js', 'TypeScript', 'Vercel', 'GPT-5.1', 'Multi-agent AI'],
     links: [
-      { label: 'Live app', href: 'https://resume-tailor-psi.vercel.app/resume-tailor' },
+      { label: 'Live app', href: 'https://applystudio.app' },
       { label: 'GitHub', href: 'https://github.com/boozinix' }
     ],
     metrics: [
-      { value: '500+', label: 'Resumes tailored' },
-      { value: '90%', label: 'Time reduction' },
-      { value: '4.8/5', label: 'User rating' }
+      { value: '20+', label: 'Jobs processed simultaneously' },
+      { value: '20%', label: 'Faster than ScrapingBee' },
+      { value: 'Real-time', label: 'ATS fit scoring' }
     ],
-    description: 'Resume Tailor transforms the tedious process of customizing resumes for each job application into a 30-second AI-powered workflow. By analyzing job descriptions and mapping requirements to existing experience, it generates targeted bullet points while maintaining the candidate\'s authentic voice and giving them full control over the final output.',
+    description: 'ApplyStudio is a full-stack job application platform that replaces hours of manual work with a multi-agent AI workflow. It scrapes job postings, tailors resumes bullet-by-bullet, generates cover letters and application answers, and scores ATS fit across 20+ simultaneous jobs — giving candidates full control over every output.',
     problem:
-      'Most job seekers send generic resumes that fail ATS filters and do not clearly align to the target role, costing them interviews.',
+      'Job seekers spend hours per application customizing resumes, writing cover letters, and answering application questions — all manually, for each role — while still missing ATS keywords that filter them out.',
     whyNow:
-      'With AI models good enough to do nuanced rewriting, it became possible to compress hours of manual tailoring into seconds while still sounding like the candidate.',
+      'GPT-5.1 and multi-agent orchestration make it possible to parallelize complex rewriting tasks across dozens of job postings at once, compressing what used to take days into minutes.',
     solution:
-      'Resume Tailor ingests a resume and a job description, identifies gaps and key themes, and rewrites bullet points with targeted keywords, while showing a diff so users keep control.',
+      'ApplyStudio built an in-house job scraper outperforming commercial solutions, then layered a multi-agent AI workflow for resume tailoring (bullet-by-bullet accept/edit/reject UI), cover letter generation, application Q&A, and comprehensive ATS scoring — all running in parallel across 20+ jobs.',
     outcomes: [
-      'Reduced tailoring time from 2–3 hours per role to under a minute.',
-      'Enables users to confidently apply to 5–10x more roles per week.',
-      'Improves alignment to job requirements via explicit keyword coverage and impact-focused bullet rewrites.'
+      'Scraped job descriptions more accurately than ScrapingBee (20% improvement on difficult sites).',
+      'Enabled candidates to process 20+ simultaneous job postings with full AI-tailored applications.',
+      'Reduced per-application work from hours to minutes while maintaining candidate voice and control.',
+      'Real-time ATS fit scoring surfaces high-fit opportunities and surfaces skill gaps proactively.'
     ],
     responsibilities: [
-      'Identified problem through own job search and interviews with peers.',
-      'Defined product scope, UX flow, and success criteria (time-to-first-tailored-resume).',
-      'Implemented full-stack app, multi-model prompt strategy, and PDF/DOCX handling.',
-      'Launched, iterated on copy and UX based on user feedback.'
+      'Built in-house web scraper extracting job descriptions, requirements, and application questions.',
+      'Designed multi-agent AI workflow using GPT-5.1 for resume tailoring with bullet-by-bullet accept/edit/reject UI.',
+      'Implemented cover letter generation and application question answering at scale.',
+      'Built real-time job fit scoring engine combining ATS keyword matching, skill gap analysis, and ranking algorithms.',
+      'Owned full product lifecycle: problem discovery, UX design, full-stack development, and iterative launch.'
     ],
     architecture: {
       overview:
-        'The app is a server-first Next.js application using edge-friendly APIs to orchestrate multiple LLM calls and document parsing.',
+        'ApplyStudio separates job ingestion, AI orchestration, and user review into distinct layers — enabling parallel processing across dozens of jobs while keeping the human in control of every output.',
       bullets: [
-        'Upload & Parsing layer: extracts clean text from PDF / DOCX resumes and normalizes job descriptions.',
-        'Analysis & Planning: LLM pass to map job requirements to existing bullets and identify gaps.',
-        'Rewrite Engine: second LLM pass generates revised bullets and suggested new bullets per section.',
-        'Diff Presentation: front-end computes inline diff between original and tailored text for transparency.',
-        'Export: renders final version to downloadable DOCX/PDF for direct use in applications.'
+        'Scraping Layer: in-house crawler outperforms commercial solutions on difficult job sites, extracting descriptions, requirements, and application questions.',
+        'Multi-agent AI Orchestration: GPT-5.1 agents run in parallel — one per job — for resume tailoring, cover letters, and application Q&A.',
+        'Bullet-by-Bullet UI: accept/edit/reject interface gives users granular control over every AI-rewritten resume bullet.',
+        'ATS Scoring Engine: real-time keyword matching, skill gap analysis, and ranking across 20+ jobs simultaneously.',
+        'Local Persistence: draft state and preferences are persisted locally to support non-linear application workflows.'
       ]
     }
   },
   'card-scout': {
     id: 'card-scout',
     name: 'Card Scout',
-    tagline: 'An intelligent engine to find the most valuable credit cards for your specific spending and goals.',
+    tagline: 'AI-assisted credit card discovery with multi-model recommendations and automated data ingestion.',
     role: 'Product Manager & Solo Builder',
     timeframe: '2024 – Present',
-    stack: ['Next.js', 'TypeScript', 'Vercel', 'Playwright', 'Postgres', 'LLMs'],
+    stack: ['Next.js', 'TypeScript', 'Vercel', 'GPT-5', 'Claude', 'DeepSeek', 'Postgres'],
     links: [
       { label: 'Live app', href: 'https://thecardscout.app' },
       { label: 'GitHub', href: 'https://github.com/boozinix' }
@@ -85,33 +87,35 @@ export const projects: Record<ProjectId, Project> = {
       { value: '$2,500', label: 'Avg. annual value' },
       { value: '2 min', label: 'Research time' }
     ],
-    description: 'Card Scout cuts through the complexity of 100+ credit cards to deliver personalized recommendations based on your actual spending patterns and financial goals. Using a structured database and intelligent calculators, it ranks cards by real expected value rather than flashy marketing bonuses, helping users maximize their rewards potential.',
+    description: 'Card Scout cuts through the complexity of 100+ credit cards using multi-model AI orchestration (GPT-5, Claude, DeepSeek) and automated data ingestion pipelines with bank-specific crawlers. A guided workflow UX with autocomplete and local persistence delivers personalized recommendations ranked by real expected value — not affiliate-driven marketing bonuses.',
     problem:
-      'Consumers face analysis paralysis choosing among 100+ credit cards, often leaving thousands of dollars in rewards and benefits unused.',
+      'Consumers face analysis paralysis choosing among 100+ credit cards, leaving thousands of dollars in rewards unused — while most comparison sites are affiliate-driven and ignore individual spending patterns.',
     whyNow:
-      'Issuers keep launching complex premium cards, while most comparison sites are affiliate-driven and generic, ignoring individual spending patterns.',
+      'Multi-model LLM orchestration now makes it possible to combine structured valuation logic with AI reasoning to personalize recommendations at a level no static comparison site can match.',
     solution:
-      'Card Scout combines a 3-question preference quiz with a structured card database and calculators to rank cards based on real expected value, not just bonuses.',
+      'Card Scout combines multi-model AI orchestration (GPT-5, Claude, DeepSeek) with automated data ingestion using bank-specific crawlers, a guided quiz UX, and a valuation engine that ranks cards by real expected annual value for your specific spending profile.',
     outcomes: [
-      'Cuts research time from hours of blog reading to a 2-minute flow.',
-      'Surfaces card combinations worth hundreds to thousands of dollars a year in net rewards for typical users.',
-      'Makes tradeoffs transparent via value calculators and clear explanation of why each card is recommended.'
+      'Cuts card research time from hours to under 2 minutes.',
+      'Surfaces card combinations worth hundreds to thousands of dollars annually in net rewards.',
+      'Multi-model orchestration improves recommendation quality by leveraging model-specific strengths.',
+      'SEO-optimized architecture for issuer rules, transfer partners, and calculator pages drives organic discovery.'
     ],
     responsibilities: [
-      'Designed the core decision model and UX for quiz → recommendations.',
-      'Built a web-crawler to keep card data (fees, multipliers, perks) fresh.',
-      'Implemented calculators for net annual value and signup bonus planning.',
-      'Continuously refined copy and ranking logic based on test users.'
+      'Built automated data ingestion pipelines using bank-specific crawlers with validation scripts to keep card data fresh.',
+      'Implemented multi-model orchestration (GPT-5, Claude, DeepSeek) for recommendation quality.',
+      'Designed guided workflow UX with autocomplete, local persistence, and mobile-first principles.',
+      'Built valuation engine computing expected annual value from spend profile, multipliers, and perk valuations.',
+      'Implemented SEO-optimized architecture for issuer rules, transfer partners, and calculator pages.'
     ],
     architecture: {
       overview:
-        'Card Scout separates data collection, valuation logic, and the user-facing quiz into distinct layers, making it easy to extend to new issuers or geos.',
+        'Card Scout separates data ingestion, valuation logic, multi-model AI orchestration, and the user-facing quiz into distinct layers — making it easy to extend to new issuers or geographies.',
       bullets: [
-        'Data Pipeline: Playwright-based crawler pulls card terms from issuer sites into a structured JSON/DB schema.',
-        'Valuation Engine: pure TypeScript functions compute expected value from spend profile, multipliers, and perk valuations.',
-        'Recommendation Engine: scores each card (and multi-card combos) against user goals and constraints.',
-        'Front-end Quiz: 3-step flow collects priorities and constraints (spend, travel vs cashback, tolerance for annual fees).',
-        'Results UI: ranks cards with explanation, key perks, and deep links to further calculators.'
+        'Data Pipeline: bank-specific Playwright crawlers with validation scripts pull card terms into a structured Postgres schema.',
+        'Multi-model Orchestration: GPT-5, Claude, and DeepSeek used in combination for recommendation reasoning and explanation.',
+        'Valuation Engine: pure TypeScript functions compute expected annual value from spend profile, multipliers, and perk valuations.',
+        'Guided Quiz UX: autocomplete-enabled flow collects priorities and constraints with local persistence for non-linear sessions.',
+        'SEO Architecture: dedicated pages for issuer rules, transfer partners, and calculators optimized for organic discovery.'
       ]
     }
   }

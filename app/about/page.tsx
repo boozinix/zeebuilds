@@ -56,28 +56,36 @@ export default function AboutPage() {
 
   const experiences = [
     {
-      title: 'Independent Builder',
-      role: 'AI Product Manager & Full-Stack Developer',
-      period: '2024 – Present',
-      description: 'Built and launched Resume Tailor and Card Scout from concept to production. Responsible for product strategy, technical architecture, and user acquisition.',
-      icon: Rocket,
+      title: 'AWS',
+      role: 'Senior Partner Manager',
+      period: 'May 2025 – Present',
+      description: 'Led product strategy for AWS Marketplace partnerships, driving 157% revenue growth ($84M → $216M) and improving customer retention by 20% through a new License Switching feature.',
+      icon: Briefcase,
       color: 'from-emerald-500 to-emerald-600'
     },
     {
       title: 'Meta',
-      role: 'Senior Technical Product Manager',
-      period: '2022 – 2024',
-      description: 'Led product initiatives for infrastructure and platform, focusing on user experience, data-driven decisions, and cross-functional collaboration.',
+      role: 'Product Manager, Infrastructure & Data Centers',
+      period: 'Jun 2024 – Apr 2025',
+      description: 'Owned the Digital Twin platform for AI data centers — redesigned the UI (60% adoption increase), cut costs by $250M per region, and shipped two 0→1 tools including an ML-enabled alerting system.',
       icon: Briefcase,
       color: 'from-sky-500 to-sky-600'
     },
     {
-      title: 'AWS',
-      role: 'Product Manager',
-      period: '2020 – 2022',
-      description: 'Shipped product capabilities for data centers and infrastructure, working with engineering and stakeholders to deliver customer value.',
+      title: 'Zoox',
+      role: 'Senior Technical Product Manager',
+      period: 'Feb 2022 – Jun 2024',
+      description: 'Built 0→1 robotaxi tools including remote diagnostics, autonomous braking, and a 3D rider visualization app, while cutting ML infrastructure costs by 25% across 200+ engineers.',
       icon: Briefcase,
       color: 'from-violet-500 to-violet-600'
+    },
+    {
+      title: 'Apple',
+      role: 'Product Design Lead',
+      period: 'May 2015 – Feb 2022',
+      description: 'Led NPI programs for four iPhone generations and Vision Pro\'s 4K display testing line. Built Apple\'s first OLED chip-level testing platform, improving yield by 50% and securing $2M in investment.',
+      icon: Rocket,
+      color: 'from-fuchsia-500 to-fuchsia-600'
     }
   ];
 
@@ -101,7 +109,7 @@ export default function AboutPage() {
             I'm obsessed with AI-powered consumer products that solve real problems—especially in careers and fintech. I'd rather de‑risk ideas by shipping than by deck. That means going from problem to prototype to production myself, so I can speak from experience when I lead product: I've felt the tradeoffs, the latency, and the joy of watching something work in users' hands.
           </p>
           <p>
-            Resume Tailor and Card Scout are the proof. I identified both problems from my own experience, validated them with others, then built and launched the full stack—product, UX, and backend. I learned how fast you can iterate when you own the whole loop: discovery, hypothesis, build, ship, learn. That PM arc—problem, insight, decision, outcome—is what I care about, whether I'm building solo or with a team.
+            ApplyStudio and Card Scout are the proof. I identified both problems from my own experience, validated them with others, then built and launched the full stack—product, UX, and backend. I learned how fast you can iterate when you own the whole loop: discovery, hypothesis, build, ship, learn. That PM arc—problem, insight, decision, outcome—is what I care about, whether I'm building solo or with a team.
           </p>
           <p>
             I'm looking for my next AI PM role at a company that ships. I want to own a product or area where AI is central to the value proposition, and where I can combine product sense with hands-on building. I'm also open to product collaboration and advisory work for teams betting on AI-powered consumer or fintech products.
