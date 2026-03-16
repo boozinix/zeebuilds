@@ -11,12 +11,14 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:pb-20 sm:pt-16">
       {/* Hero Section */}
-      <section className="mb-12 text-center sm:mb-20">
-        <div>
+      <section className="relative mb-12 text-center sm:mb-20 overflow-hidden rounded-2xl">
+        {/* Subtle gradient background shift */}
+        <div className="hero-gradient-bg absolute inset-0 -z-10 rounded-2xl" aria-hidden />
+        <div className="animate-shimmer-in">
           <Pill>AI product portfolio</Pill>
         </div>
         
-        <h1 className="mt-4 text-balance text-3xl font-bold tracking-tight text-slate-50 sm:mt-6 sm:text-5xl lg:text-6xl lg:text-7xl">
+        <h1 className="mt-4 text-balance text-3xl font-bold tracking-tight text-slate-50 sm:mt-6 sm:text-5xl lg:text-6xl lg:text-7xl animate-shimmer-in-delay-1">
           I build and ship{' '}
           <span className="bg-gradient-to-r from-sky-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent animate-gradient">
             AI-powered tools
@@ -24,13 +26,13 @@ export default function HomePage() {
           for careers and finance.
         </h1>
         
-        <p className="mt-4 mx-auto max-w-3xl text-base text-slate-300 sm:mt-6 sm:text-lg sm:text-xl leading-relaxed">
+        <p className="mt-4 mx-auto max-w-3xl text-base text-slate-300 sm:mt-6 sm:text-lg sm:text-xl leading-relaxed animate-shimmer-in-delay-2">
           I design and build consumer products end‑to‑end— from uncovering real
           problems to shipping production‑grade experiences. Below are two live
           applications I own.
         </p>
         
-        <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
+        <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 animate-shimmer-in-delay-3">
           <Link
             href="/work"
             className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/40 active:scale-[0.98] transition-all sm:min-h-0"
@@ -144,14 +146,14 @@ export default function HomePage() {
             Ready to work together?
           </h2>
           <p className="text-sm text-slate-300 mb-6 max-w-2xl mx-auto sm:text-base sm:mb-8 lg:text-lg">
-            I'm open to AI PM roles, product collaboration opportunities, and interesting conversations about building consumer products.
+            Actively looking for full-time AI PM roles. Let's talk.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
             <Link
               href="/contact"
               className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/40 active:scale-[0.98] transition-all sm:min-h-0 sm:px-8 sm:py-4"
             >
-              Get in touch
+              Open to AI PM roles — let's talk
               <Mail className="h-4 w-4 group-hover:rotate-12 transition-transform" />
             </Link>
             <a

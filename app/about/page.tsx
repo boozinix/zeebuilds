@@ -64,12 +64,20 @@ export default function AboutPage() {
       color: 'from-emerald-500 to-emerald-600'
     },
     {
-      title: 'Previous Experience',
-      role: 'Product Manager at Tech Companies',
-      period: '2020 – 2024',
-      description: 'Led product initiatives at growth-stage companies, focusing on user experience, data-driven decision making, and cross-functional collaboration.',
+      title: 'Meta',
+      role: 'Senior Technical Product Manager',
+      period: '2022 – 2024',
+      description: 'Led product initiatives for infrastructure and platform, focusing on user experience, data-driven decisions, and cross-functional collaboration.',
       icon: Briefcase,
       color: 'from-sky-500 to-sky-600'
+    },
+    {
+      title: 'AWS',
+      role: 'Product Manager',
+      period: '2020 – 2022',
+      description: 'Shipped product capabilities for data centers and infrastructure, working with engineering and stakeholders to deliver customer value.',
+      icon: Briefcase,
+      color: 'from-violet-500 to-violet-600'
     }
   ];
 
@@ -86,23 +94,17 @@ export default function AboutPage() {
         </div>
       </header>
 
-      {/* Intro */}
+      {/* Narrative: who you are → what you've shipped → what's next */}
       <section className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900/80 to-slate-950/80 p-5 backdrop-blur sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
         <div className="space-y-3 text-sm text-slate-300 leading-relaxed sm:space-y-4 sm:text-base">
           <p>
-            I am a product manager and builder focused on AI-powered consumer tools in
-            careers and fintech. I use hands-on prototyping to de‑risk ideas and ship
-            real value quickly.
+            I'm obsessed with AI-powered consumer products that solve real problems—especially in careers and fintech. I'd rather de‑risk ideas by shipping than by deck. That means going from problem to prototype to production myself, so I can speak from experience when I lead product: I've felt the tradeoffs, the latency, and the joy of watching something work in users' hands.
           </p>
           <p>
-            Resume Tailor and Card Scout started as scratch‑your‑own‑itch projects and
-            evolved into full production apps that combine UX, data, and AI in
-            opinionated ways.
+            Resume Tailor and Card Scout are the proof. I identified both problems from my own experience, validated them with others, then built and launched the full stack—product, UX, and backend. I learned how fast you can iterate when you own the whole loop: discovery, hypothesis, build, ship, learn. That PM arc—problem, insight, decision, outcome—is what I care about, whether I'm building solo or with a team.
           </p>
           <p>
-            My approach is to identify real problems through personal experience, validate them with others, 
-            then build and iterate rapidly to find product-market fit. I believe the best products come from 
-            deep understanding of user pain points, not just technical capability.
+            I'm looking for my next AI PM role at a company that ships. I want to own a product or area where AI is central to the value proposition, and where I can combine product sense with hands-on building. I'm also open to product collaboration and advisory work for teams betting on AI-powered consumer or fintech products.
           </p>
         </div>
       </section>
@@ -196,7 +198,7 @@ export default function AboutPage() {
             Let's work together
           </h2>
           <p className="text-xs text-slate-300 mb-4 max-w-md mx-auto sm:mb-6 sm:text-sm">
-            I'm open to AI PM roles, product collaboration, and advisory opportunities.
+            Actively looking for full-time AI PM roles. Let's talk.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
             <a
@@ -213,7 +215,7 @@ export default function AboutPage() {
               className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/40 active:scale-[0.98] transition-all sm:min-h-0 sm:px-6"
             >
               <Mail className="h-4 w-4 group-hover:rotate-12 transition-transform" />
-              Get in touch
+              Open to AI PM roles — let's talk
             </Link>
           </div>
         </div>

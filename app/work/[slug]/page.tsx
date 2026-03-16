@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { projects, ProjectId } from '@/lib/projects';
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink, Target, Zap, Users } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Zap, Lightbulb, Layers, TrendingUp, AlertCircle } from 'lucide-react';
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -78,32 +78,89 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        {/* Metrics */}
-        {project.metrics && (
-          <div className="mb-8 grid gap-4 sm:mb-12 sm:grid-cols-3 sm:gap-6">
-            {project.metrics.map((metric) => (
-              <div
-                key={metric.label}
-                className="rounded-xl border border-slate-800 bg-slate-900/50 p-4 text-center sm:p-6"
-              >
-                <div className="text-2xl font-bold text-sky-400 mb-1 sm:mb-2 sm:text-3xl">
-                  {metric.value}
-                </div>
-                <div className="text-xs text-slate-400 sm:text-sm">{metric.label}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Overview */}
+        {/* The problem (and why now) */}
         <div className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-5 sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
           <h2 className="text-xl font-bold text-slate-50 mb-3 flex items-center gap-2 sm:mb-4 sm:text-2xl">
-            <Target className="h-5 w-5 text-sky-400 sm:h-6 sm:w-6" />
-            Overview
+            <AlertCircle className="h-5 w-5 text-amber-400 sm:h-6 sm:w-6" />
+            The problem
           </h2>
-          <p className="text-sm text-slate-300 leading-relaxed sm:text-base lg:text-lg">
-            {project.description}
+          <p className="text-sm text-slate-300 leading-relaxed sm:text-base lg:text-lg mb-3">
+            {project.problem}
           </p>
+          {project.whyNow && (
+            <p className="text-sm text-slate-400 leading-relaxed sm:text-base">
+              <span className="font-medium text-slate-400">Why now:</span> {project.whyNow}
+            </p>
+          )}
+        </div>
+
+        {/* Insight / approach */}
+        <div className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-5 sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
+          <h2 className="text-xl font-bold text-slate-50 mb-3 flex items-center gap-2 sm:mb-4 sm:text-2xl">
+            <Lightbulb className="h-5 w-5 text-sky-400 sm:h-6 sm:w-6" />
+            Insight & approach
+          </h2>
+          <p className="text-sm text-slate-300 leading-relaxed sm:text-base lg:text-lg mb-4">
+            {project.solution}
+          </p>
+          <ul className="space-y-2 text-sm text-slate-400 sm:text-base">
+            {project.responsibilities.slice(0, 3).map((item, idx) => (
+              <li key={idx} className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-400" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* What we built / shipped */}
+        <div className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-5 sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
+          <h2 className="text-xl font-bold text-slate-50 mb-3 flex items-center gap-2 sm:mb-4 sm:text-2xl">
+            <Layers className="h-5 w-5 text-violet-400 sm:h-6 sm:w-6" />
+            What we built
+          </h2>
+          <p className="text-sm text-slate-300 leading-relaxed sm:text-base lg:text-lg mb-4">
+            {project.architecture.overview}
+          </p>
+          <ul className="space-y-2 text-sm text-slate-400 sm:text-base">
+            {project.architecture.bullets.map((bullet, idx) => (
+              <li key={idx} className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" />
+                {bullet}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Results (outcomes + metrics) */}
+        <div className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-5 sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
+          <h2 className="text-xl font-bold text-slate-50 mb-3 flex items-center gap-2 sm:mb-4 sm:text-2xl">
+            <TrendingUp className="h-5 w-5 text-emerald-400 sm:h-6 sm:w-6" />
+            Result
+          </h2>
+          <ul className="space-y-2 text-sm text-slate-300 leading-relaxed sm:text-base mb-6">
+            {project.outcomes.map((outcome, idx) => (
+              <li key={idx} className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                {outcome}
+              </li>
+            ))}
+          </ul>
+          {project.metrics && project.metrics.length > 0 && (
+            <div className="grid gap-4 sm:grid-cols-3 sm:gap-6 pt-4 border-t border-slate-700/50">
+              {project.metrics.map((metric) => (
+                <div
+                  key={metric.label}
+                  className="rounded-lg bg-slate-800/50 p-4 text-center"
+                >
+                  <div className="text-2xl font-bold text-emerald-400 mb-1 sm:text-3xl">
+                    {metric.value}
+                  </div>
+                  <div className="text-xs text-slate-400 sm:text-sm">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Tech Stack */}
@@ -120,29 +177,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               >
                 {tech}
               </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Key Features */}
-        <div className="rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-5 sm:rounded-2xl sm:p-6 lg:p-8">
-          <h2 className="text-xl font-bold text-slate-50 mb-4 flex items-center gap-2 sm:mb-6 sm:text-2xl">
-            <Users className="h-5 w-5 text-emerald-400 sm:h-6 sm:w-6" />
-            Key Features
-          </h2>
-          <div className="space-y-3 sm:space-y-4">
-            {[
-              'End-to-end product ownership from research to deployment',
-              'User-centric design with iterative testing and refinement',
-              'Scalable architecture supporting thousands of active users',
-              'Production-grade implementation with modern tech stack'
-            ].map((feature, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-500/10 border border-sky-500/20 sm:h-6 sm:w-6">
-                  <div className="h-1.5 w-1.5 rounded-full bg-sky-400 sm:h-2 sm:w-2" />
-                </div>
-                <p className="text-sm text-slate-300 sm:text-base">{feature}</p>
-              </div>
             ))}
           </div>
         </div>

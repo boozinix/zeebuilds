@@ -4,10 +4,27 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageTransition } from '@/components/PageTransition';
 
+const SITE_URL = 'https://zeebuilds.com';
+
 export const metadata: Metadata = {
   title: 'zeebuilds – AI Product Manager & Builder',
   description:
-    'Portfolio of AI-powered consumer products: Resume Tailor and Card Scout. Product manager and full-stack builder focused on careers and fintech.',
+    'AI PM & builder. Shipped Resume Tailor and Card Scout. Open to AI PM roles and product collaboration. zeebuilds.',
+  openGraph: {
+    title: 'zeebuilds – AI Product Manager & Builder',
+    description:
+      'AI PM & builder. Shipped Resume Tailor and Card Scout. Open to AI PM roles and product collaboration. zeebuilds.',
+    url: SITE_URL,
+    siteName: 'zeebuilds',
+    images: [{ url: `${SITE_URL}/og.png`, width: 1200, height: 630, alt: 'Zubair Nizami – AI PM & Builder' }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'zeebuilds – AI Product Manager & Builder',
+    description:
+      'AI PM & builder. Shipped Resume Tailor and Card Scout. Open to AI PM roles and product collaboration. zeebuilds.',
+  },
 };
 
 export default function RootLayout({
