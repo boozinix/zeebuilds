@@ -48,7 +48,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         {/* Header */}
         <div className="mb-8 sm:mb-12">
           <div className="mb-3 flex flex-wrap items-center gap-2 sm:mb-4 sm:gap-3">
-            <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs text-emerald-400 font-medium border border-emerald-500/20 sm:px-4 sm:py-1.5 sm:text-sm">
+            <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-[13px] text-emerald-400 font-medium border border-emerald-500/20 sm:px-4 sm:py-1.5 sm:text-sm">
               Live Product
             </span>
             <span className="text-sm text-slate-400 sm:text-base">{project.role}</span>

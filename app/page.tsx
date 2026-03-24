@@ -78,7 +78,7 @@ export default function HomePage() {
                 
                 {/* Content */}
                 <div className="relative">
-                  <div className="mb-3 inline-flex flex-wrap items-center gap-2 text-xs text-slate-400 sm:mb-4 sm:gap-3 sm:text-sm">
+                  <div className="mb-3 inline-flex flex-wrap items-center gap-2 text-[13px] text-slate-400 sm:mb-4 sm:gap-3 sm:text-sm">
                     <span className="relative">
                       <span className="absolute inset-0 animate-pulse rounded-full bg-emerald-500/20 blur-md"></span>
                       <span className="relative rounded-full bg-emerald-500/10 px-3 py-1 text-emerald-400 font-medium border border-emerald-500/20">

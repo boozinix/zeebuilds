@@ -4,26 +4,31 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageTransition } from '@/components/PageTransition';
 
-const SITE_URL = 'https://zeebuilds.com';
+const SITE_URL = 'https://zubairnizami.com';
 
 export const metadata: Metadata = {
-  title: 'zeebuilds – AI Product Manager & Builder',
+  title: 'Zubair Nizami – AI Product Manager & Builder',
   description:
-    'AI PM & builder. Shipped Resume Tailor and Card Scout. Open to AI PM roles and product collaboration. zeebuilds.',
+    'AI PM & builder. Shipped ApplyStudio and Card Scout. Open to AI PM roles and product collaboration.',
   openGraph: {
-    title: 'zeebuilds – AI Product Manager & Builder',
+    title: 'Zubair Nizami – AI Product Manager & Builder',
     description:
-      'AI PM & builder. Shipped Resume Tailor and Card Scout. Open to AI PM roles and product collaboration. zeebuilds.',
+      'AI PM & builder. Shipped ApplyStudio and Card Scout. Open to AI PM roles and product collaboration.',
     url: SITE_URL,
-    siteName: 'zeebuilds',
+    siteName: "Zubair Nizami's Portfolio",
     images: [{ url: `${SITE_URL}/og.png`, width: 1200, height: 630, alt: 'Zubair Nizami – AI PM & Builder' }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'zeebuilds – AI Product Manager & Builder',
+    title: 'Zubair Nizami – AI Product Manager & Builder',
     description:
-      'AI PM & builder. Shipped Resume Tailor and Card Scout. Open to AI PM roles and product collaboration. zeebuilds.',
+      'AI PM & builder. Shipped ApplyStudio and Card Scout. Open to AI PM roles and product collaboration.',
+  },
+  icons: {
+    icon: [{ url: '/icon', type: 'image/png', sizes: '32x32' }],
+    shortcut: [{ url: '/icon', type: 'image/png' }],
+    apple: [{ url: '/icon', type: 'image/png', sizes: '32x32' }],
   },
 };
 

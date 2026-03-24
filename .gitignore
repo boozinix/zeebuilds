@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local-only: crawler/scraper scripts never go online
+crawlers/
+scripts/
+
+# local git tracker (personal, not for remote)
+git_tracker.csv

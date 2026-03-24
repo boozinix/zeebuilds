@@ -1,9 +1,46 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { projects } from '@/lib/projects';
 import { ArrowRight, Briefcase, Filter } from 'lucide-react';
 import { useState } from 'react';
+
+function ProjectScreenshot({ src, alt }: { src: string; alt: string }) {
+  const [error, setError] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  if (error) return null;
+  return (
+    <div className="border-b border-slate-800 bg-slate-900 px-4 pt-4 pb-0 sm:px-6 sm:pt-5">
+      {/* Browser chrome */}
+      <div className="flex items-center gap-1.5 mb-2.5 sm:mb-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+        <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+        <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+        <div className="ml-2 flex-1 rounded-full bg-slate-800 px-3 py-1 text-[10px] text-slate-500 font-mono truncate">
+          {alt.toLowerCase().includes('apply') ? 'applystudio.app' : 'thecardscout.app'}
+        </div>
+      </div>
+      {/* Screenshot */}
+      <div className="relative h-40 w-full overflow-hidden rounded-t-lg sm:h-48">
+        {!loaded && (
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-900/30 to-violet-900/30 animate-pulse rounded-t-lg" />
+        )}
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className={`object-cover object-top transition-all duration-500 group-hover:scale-[1.02] ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          onLoad={() => setLoaded(true)}
+          onError={() => setError(true)}
+        />
+        {/* Fade to card background */}
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-slate-900" />
+      </div>
+    </div>
+  );
+}
 
 export default function WorkPage() {
   const allProjects = Object.values(projects);
@@ -70,16 +107,21 @@ export default function WorkPage() {
           >
             <Link
               href={`/work/${project.id}`}
-              className="group relative block h-full overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 p-5 shadow-xl shadow-black/20 hover:border-sky-500/50 transition-all sm:rounded-3xl sm:p-6 lg:p-8"
+              className="group relative block h-full overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 shadow-xl shadow-black/20 hover:border-sky-500/50 transition-all sm:rounded-3xl"
             >
               {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              
+              <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+
+              {/* Screenshot preview */}
+              {project.screenshot && (
+                <ProjectScreenshot src={project.screenshot} alt={`${project.name} screenshot`} />
+              )}
+
               {/* Content */}
-              <div className="relative">
+              <div className="relative p-5 sm:p-6 lg:p-8">
                 {/* Header */}
                 <div className="mb-3 flex flex-wrap items-center justify-between gap-2 sm:mb-4">
-                  <div className="inline-flex items-center gap-2 text-xs">
+                  <div className="inline-flex items-center gap-2 text-[13px]">
                     <span className="relative">
                       <span className="absolute inset-0 animate-pulse rounded-full bg-emerald-500/20 blur-md"></span>
                       <span className="relative rounded-full bg-emerald-500/10 px-2.5 py-1 text-emerald-400 font-medium border border-emerald-500/20">
@@ -87,7 +129,7 @@ export default function WorkPage() {
                       </span>
                     </span>
                   </div>
-                  <span className="text-xs text-slate-500 font-medium">
+                  <span className="text-[13px] text-slate-500 font-medium">
                     {project.role}
                   </span>
                 </div>

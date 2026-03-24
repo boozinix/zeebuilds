@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Home, Briefcase, User, Mail } from 'lucide-react';
 
@@ -16,6 +16,11 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  // Fix 5: close hamburger menu on navigation
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
     <header className="sticky top-0 z-50 border-b border-slate-800/50 bg-slate-950/90 backdrop-blur-xl safe-area-inset-top">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:py-4">
@@ -26,7 +31,7 @@ export const Navbar = () => {
           >
             <span className="text-lg font-bold text-white">Z</span>
           </div>
-          <span className="hidden sm:block text-lg font-semibold text-slate-100 group-hover:text-violet-400 transition-colors">
+          <span className="text-lg font-semibold text-slate-100 group-hover:text-violet-400 transition-colors">
             Zubair
           </span>
         </Link>

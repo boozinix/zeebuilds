@@ -20,6 +20,7 @@ export type Project = {
   };
   metrics?: { value: string; label: string }[];
   description?: string;
+  screenshot?: string;
 };
 
 export const projects: Record<ProjectId, Project> = {
@@ -34,6 +35,7 @@ export const projects: Record<ProjectId, Project> = {
       { label: 'Live app', href: 'https://applystudio.app' },
       { label: 'GitHub', href: 'https://github.com/boozinix' }
     ],
+    screenshot: '/screenshots/apply-studio.jpg',
     metrics: [
       { value: '20+', label: 'Jobs processed simultaneously' },
       { value: '20%', label: 'Faster than ScrapingBee' },
@@ -80,8 +82,9 @@ export const projects: Record<ProjectId, Project> = {
     stack: ['Next.js', 'TypeScript', 'Vercel', 'GPT-5', 'Claude', 'DeepSeek', 'Postgres'],
     links: [
       { label: 'Live app', href: 'https://thecardscout.app' },
-      { label: 'GitHub', href: 'https://github.com/boozinix' }
+      { label: 'GitHub', href: 'https://github.com/boozinix/the-card-scout' }
     ],
+    screenshot: '/screenshots/card-scout.jpg',
     metrics: [
       { value: '100+', label: 'Cards analyzed' },
       { value: '$2,500', label: 'Avg. annual value' },

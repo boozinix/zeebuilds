@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { projects } from '@/lib/projects';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://zeebuilds.com';
+  const baseUrl = 'https://zubairnizami.com';
   
   // Static routes
   const staticRoutes = [

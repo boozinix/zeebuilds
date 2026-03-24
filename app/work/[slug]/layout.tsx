@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: ProjectLayoutProps): Promise<
   }
 
   return {
-    title: `${project.name} - zeebuilds`,
+    title: `${project.name} – Zubair Nizami`,
     description: project.tagline,
   };
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   User, 
   Lightbulb, 
@@ -61,7 +62,8 @@ export default function AboutPage() {
       period: 'May 2025 – Present',
       description: 'Led product strategy for AWS Marketplace partnerships, driving 157% revenue growth ($84M → $216M) and improving customer retention by 20% through a new License Switching feature.',
       icon: Briefcase,
-      color: 'from-emerald-500 to-emerald-600'
+      color: 'from-emerald-500 to-emerald-600',
+      logo: '/aws.svg.png'
     },
     {
       title: 'Meta',
@@ -69,7 +71,8 @@ export default function AboutPage() {
       period: 'Jun 2024 – Apr 2025',
       description: 'Owned the Digital Twin platform for AI data centers — redesigned the UI (60% adoption increase), cut costs by $250M per region, and shipped two 0→1 tools including an ML-enabled alerting system.',
       icon: Briefcase,
-      color: 'from-sky-500 to-sky-600'
+      color: 'from-sky-500 to-sky-600',
+      logo: '/meta.png'
     },
     {
       title: 'Zoox',
@@ -77,7 +80,8 @@ export default function AboutPage() {
       period: 'Feb 2022 – Jun 2024',
       description: 'Built 0→1 robotaxi tools including remote diagnostics, autonomous braking, and a 3D rider visualization app, while cutting ML infrastructure costs by 25% across 200+ engineers.',
       icon: Briefcase,
-      color: 'from-violet-500 to-violet-600'
+      color: 'from-violet-500 to-violet-600',
+      logo: '/zoox.png'
     },
     {
       title: 'Apple',
@@ -85,7 +89,8 @@ export default function AboutPage() {
       period: 'May 2015 – Feb 2022',
       description: 'Led NPI programs for four iPhone generations and Vision Pro\'s 4K display testing line. Built Apple\'s first OLED chip-level testing platform, improving yield by 50% and securing $2M in investment.',
       icon: Rocket,
-      color: 'from-fuchsia-500 to-fuchsia-600'
+      color: 'from-fuchsia-500 to-fuchsia-600',
+      logo: '/apple.png'
     }
   ];
 
@@ -167,8 +172,18 @@ export default function AboutPage() {
               className="group rounded-xl border border-slate-800 bg-slate-950/60 p-4 hover:border-sky-500/50 transition-all hover:translate-x-1 sm:p-6"
             >
               <div className="flex items-start gap-3 sm:gap-4">
-                <div className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${exp.color} sm:mt-1 sm:h-12 sm:w-12`}>
-                  <exp.icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />
+                <div className="relative mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-slate-800 sm:mt-1 sm:h-12 sm:w-12">
+                  {'logo' in exp && exp.logo ? (
+                    <Image
+                      src={exp.logo}
+                      alt={`${exp.title} logo`}
+                      fill
+                      className="object-contain p-1"
+                      sizes="48px"
+                    />
+                  ) : (
+                    <exp.icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />
+                  )}
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:mb-2">

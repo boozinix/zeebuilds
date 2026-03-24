@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Work - zeebuilds',
+  title: 'Work – Zubair Nizami',
   description: 'Selected AI-powered products I designed and built end-to-end: Resume Tailor and Card Scout. Full case studies with technical details and outcomes.',
 };
 
