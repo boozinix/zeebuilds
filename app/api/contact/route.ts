@@ -2,8 +2,6 @@ import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // In-memory rate limiter: max 3 submissions per IP per 10 minutes
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 3;
@@ -75,6 +73,9 @@ export async function POST(request: Request) {
   }
 
   const { name, email, message } = parsed.data;
+
+  // Instantiate Resend inside the handler so it only runs at request time
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   // #3 — Recipient email from environment variable
   const toEmail = process.env.CONTACT_EMAIL;
