@@ -18,7 +18,7 @@ import {
 export default function AboutPage() {
   const skills = [
     {
-      title: 'Product',
+      title: 'Product Management',
       icon: Lightbulb,
       color: 'from-sky-500 to-sky-600',
       items: [
@@ -30,19 +30,21 @@ export default function AboutPage() {
       ]
     },
     {
-      title: 'Technical',
+      title: 'Technical Skills',
       icon: Code2,
       color: 'from-violet-500 to-violet-600',
       items: [
         'TypeScript & Next.js',
-        'AI/LLM integration (OpenAI, Anthropic)',
+        'LLM APIs & integration (OpenAI, Anthropic, Google Gemini)',
+        'Multi-agent orchestration & prompt engineering',
+        'AI dev tooling (Claude, Antigravity, Cursor, Lovable, Codex)',
         'Web scraping & data pipelines',
         'Database design (Postgres, JSON)',
         'Deployment & DevOps (Vercel, AWS)'
       ]
     },
     {
-      title: 'Domain',
+      title: 'Domain Expertise',
       icon: Target,
       color: 'from-fuchsia-500 to-fuchsia-600',
       items: [
@@ -50,7 +52,8 @@ export default function AboutPage() {
         'Job search & career tools',
         'AI-powered workflows',
         'Consumer product strategy',
-        'B2C growth & retention'
+        'B2C growth & retention',
+        'AI data centers & GPU infrastructure'
       ]
     }
   ];
@@ -60,7 +63,7 @@ export default function AboutPage() {
       title: 'AWS',
       role: 'Senior Partner Manager',
       period: 'May 2025 – Present',
-      description: 'Led product strategy for AWS Marketplace partnerships, driving 157% revenue growth ($84M → $216M) and improving customer retention by 20% through a new License Switching feature.',
+      description: 'Led product strategy for AWS Marketplace partnerships. Drove 157% revenue growth ($84M → $216M) and improved customer retention by 20% through a new License Switching feature. Owned partner roadmap across 50+ ISV relationships.',
       icon: Briefcase,
       color: 'from-emerald-500 to-emerald-600',
       logo: '/aws.svg.png'
@@ -69,7 +72,7 @@ export default function AboutPage() {
       title: 'Meta',
       role: 'Product Manager, Infrastructure & Data Centers',
       period: 'Jun 2024 – Apr 2025',
-      description: 'Owned the Digital Twin platform for AI data centers — redesigned the UI (60% adoption increase), cut costs by $250M per region, and shipped two 0→1 tools including an ML-enabled alerting system.',
+      description: 'Owned the Digital Twin platform for AI data center infrastructure. Redesigned the core UI (60% adoption increase), cut infrastructure costs by $250M per region, and shipped two 0→1 internal tools including an ML-enabled alerting system for real-time anomaly detection.',
       icon: Briefcase,
       color: 'from-sky-500 to-sky-600',
       logo: '/meta.png'
@@ -78,7 +81,7 @@ export default function AboutPage() {
       title: 'Zoox',
       role: 'Senior Technical Product Manager',
       period: 'Feb 2022 – Jun 2024',
-      description: 'Built 0→1 robotaxi tools including remote diagnostics, autonomous braking, and a 3D rider visualization app, while cutting ML infrastructure costs by 25% across 200+ engineers.',
+      description: 'Built 0→1 robotaxi tools including remote vehicle diagnostics, autonomous emergency braking UI, and a 3D rider-facing visualization app. Cut ML infrastructure costs by 25% across a 200+ engineer org.',
       icon: Briefcase,
       color: 'from-violet-500 to-violet-600',
       logo: '/zoox.png'
@@ -87,7 +90,7 @@ export default function AboutPage() {
       title: 'Apple',
       role: 'Product Design Lead',
       period: 'May 2015 – Feb 2022',
-      description: 'Led NPI programs for four iPhone generations and Vision Pro\'s 4K display testing line. Built Apple\'s first OLED chip-level testing platform, improving yield by 50% and securing $2M in investment.',
+      description: 'Led NPI (New Product Introduction) programs across four iPhone generations and Vision Pro\'s 4K display testing line. Built Apple\'s first OLED chip-level testing platform from scratch — improved manufacturing yield by 50% and secured $2M in internal investment.',
       icon: Rocket,
       color: 'from-fuchsia-500 to-fuchsia-600',
       logo: '/apple.png'
@@ -111,13 +114,10 @@ export default function AboutPage() {
       <section className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900/80 to-slate-950/80 p-5 backdrop-blur sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
         <div className="space-y-3 text-sm text-slate-300 leading-relaxed sm:space-y-4 sm:text-base">
           <p>
-            I'm obsessed with AI-powered consumer products that solve real problems—especially in careers and fintech. I'd rather de‑risk ideas by shipping than by deck. That means going from problem to prototype to production myself, so I can speak from experience when I lead product: I've felt the tradeoffs, the latency, and the joy of watching something work in users' hands.
+            I'm a Senior AI Product Manager with a decade of experience shipping products at Apple, Zoox, Meta, and AWS — and three live consumer AI products I built completely solo. I don't just roadmap AI features. I write the prompts, build the pipelines, debug the edge cases, and talk to users. I know what it takes to go from zero to production because I've done it repeatedly, in both large orgs and alone at a laptop.
           </p>
           <p>
-            ApplyStudio, Card Scout, and Neural Mob are the proof. I identified problems from my own experience, validated them with others, then built and launched the full stack—product, UX, and backend. I learned how fast you can iterate when you own the whole loop: discovery, hypothesis, build, ship, learn. That PM arc—problem, insight, decision, outcome—is what I care about, whether I'm building solo or with a team.
-          </p>
-          <p>
-            I'm looking for my next AI PM role at a company that ships. I want to own a product or area where AI is central to the value proposition, and where I can combine product sense with hands-on building. I'm also open to product collaboration and advisory work for teams betting on AI-powered consumer or fintech products.
+            ApplyStudio, Card Scout, and Neural Mob aren't side projects for show — they have real users, real feedback loops, and real technical decisions I made and owned. That kind of full-loop ownership — problem, insight, build, ship, learn — is what I bring to any AI PM role. I'm looking for my next role at a company where AI is central to the value proposition, and where I'll be expected to think deeply and build fast.
           </p>
         </div>
       </section>
@@ -231,14 +231,14 @@ export default function AboutPage() {
               rel="noopener noreferrer"
             >
               <Download className="h-4 w-4 group-hover:translate-y-0.5 transition-transform" />
-              Download resume
+              Download Resume
             </a>
             <Link
               href="/contact"
               className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/40 active:scale-[0.98] transition-all sm:min-h-0 sm:px-6"
             >
               <Mail className="h-4 w-4 group-hover:rotate-12 transition-transform" />
-              Open to AI PM roles — let's talk
+              Get In Touch
             </Link>
           </div>
         </div>

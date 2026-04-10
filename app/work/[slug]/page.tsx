@@ -113,11 +113,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </ul>
         </div>
 
-        {/* What we built / shipped */}
+        {/* What I built / shipped */}
         <div className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-5 sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
           <h2 className="text-xl font-bold text-slate-50 mb-3 flex items-center gap-2 sm:mb-4 sm:text-2xl">
             <Layers className="h-5 w-5 text-violet-400 sm:h-6 sm:w-6" />
-            What we built
+            What I built
           </h2>
           <p className="text-sm text-slate-300 leading-relaxed sm:text-base lg:text-lg mb-4">
             {project.architecture.overview}

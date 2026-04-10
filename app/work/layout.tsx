@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Work – Zubair Nizami',
+  title: 'Work – Zubair Nizami | AI PM Portfolio',
   description:
-    'Selected AI-powered products I designed and built end-to-end: ApplyStudio, Card Scout, and Neural Mob. Full case studies with technical details and outcomes.',
+    'Portfolio of live AI products built solo: ApplyStudio, Card Scout, and Neural Mob.',
 };
 
 export default function WorkLayout({

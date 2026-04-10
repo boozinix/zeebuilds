@@ -78,7 +78,7 @@ export default function WorkPage() {
           </h1>
         </div>
         <p className="mx-auto max-w-3xl px-1 text-base text-slate-300 sm:px-0 sm:text-lg sm:text-xl leading-relaxed">
-          Selected products I designed and built end‑to‑end. Each represents a complete journey from problem identification to production deployment.
+          Three live products. Built solo. Each started with a real problem I had — and ended with something people actually use.
         </p>
       </header>
 

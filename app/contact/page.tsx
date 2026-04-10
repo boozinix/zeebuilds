@@ -39,11 +39,12 @@ export default function ContactPage() {
     <div className="mx-auto max-w-4xl px-4 pb-12 pt-8 sm:pb-16 sm:pt-12">
       <header className="mb-8 sm:mb-12">
         <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl sm:text-4xl">
-          Contact
+          Let's Talk
         </h1>
         <p className="mt-3 max-w-2xl text-sm text-slate-300 sm:mt-4 sm:text-base">
-          Best way to reach me is email. I'm open to AI PM roles, product collaboration, 
-          and interesting conversations about building consumer products.
+          I'm actively looking for my next AI PM role. I'm also open to product
+          collaboration and advisory work for teams building consumer AI or fintech
+          products. Best way to reach me is email or LinkedIn — I respond fast.
         </p>
       </header>
 
@@ -168,30 +169,29 @@ export default function ContactPage() {
             <ul className="space-y-2 text-sm text-slate-300">
               <li className="flex items-start gap-2">
                 <span className="text-sky-400 mt-0.5">•</span>
-                AI Product Manager roles at growth-stage companies
+                AI PM roles at companies where AI is core to the product — not a feature
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-sky-400 mt-0.5">•</span>
-                Product collaboration on consumer fintech or career tools
+                Founding/early-stage PM opportunities in consumer AI or fintech
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-sky-400 mt-0.5">•</span>
-                Advisory opportunities for AI-powered products
+                Product collaboration or advisory for teams building AI-powered tools
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-sky-400 mt-0.5">•</span>
-                Conversations about building and scaling consumer products
+                Conversations about multi-agent systems, fintech UX, or job-tech
               </li>
             </ul>
           </div>
 
           <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4 sm:p-6">
             <h3 className="text-base font-semibold text-slate-100 mb-1.5 sm:mb-2 sm:text-lg">
-              Response time
+              Availability
             </h3>
             <p className="text-sm text-slate-300">
-              I typically respond within 24-48 hours. For urgent matters, 
-              feel free to mention it in your message.
+              Actively interviewing. Available to start within 2–4 weeks. Response time: typically same day.
             </p>
           </div>
         </div>

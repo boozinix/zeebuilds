@@ -310,8 +310,8 @@ def build_project(story, styles, project):
         story.append(bullet(item, styles))
     story.append(Spacer(1, 0.08 * inch))
 
-    # ── What we built ─────────────────────────────────────────────────────────
-    story.append(Paragraph('⬡  What We Built', styles['SectionHeading']))
+    # ── What I built ─────────────────────────────────────────────────────────
+    story.append(Paragraph('⬡  What I Built', styles['SectionHeading']))
     story.append(hr(SLATE_700))
     story.append(Paragraph(project['architecture']['overview'], styles['Body']))
     story.append(Spacer(1, 4))
@@ -362,10 +362,17 @@ def build_project(story, styles, project):
 PROJECTS = [
     {
         'name': 'ApplyStudio',
-        'tagline': 'AI-powered job application platform: resume tailoring, cover letters, ATS scoring — across 20+ jobs at once.',
+        'tagline': 'AI-powered job application platform: resume tailoring, cover letters, ATS scoring — per application in under 90 seconds, across 20+ jobs at once.',
         'role': 'Product Manager & Solo Builder',
         'timeframe': '2026 – Present',
-        'stack': ['Next.js', 'TypeScript', 'Vercel', 'GPT-5.1', 'Multi-agent AI'],
+        'stack': [
+            'Next.js',
+            'TypeScript',
+            'Vercel',
+            'Multi-agent AI',
+            'LLM APIs (OpenAI, Anthropic, Google Gemini)',
+            'GPT-5.1',
+        ],
         'links': [
             {'label': 'Live app', 'href': 'https://applystudio.net'},
             {'label': 'GitHub',   'href': 'https://github.com/boozinix'},
@@ -381,15 +388,15 @@ PROJECTS = [
             'take days into minutes.'
         ),
         'solution': (
-            'ApplyStudio built an in-house job scraper outperforming commercial solutions, then '
-            'layered a multi-agent AI workflow for resume tailoring (bullet-by-bullet '
-            'accept/edit/reject UI), cover letter generation, application Q&A, and comprehensive '
-            'ATS scoring — all running in parallel across 20+ jobs.'
+            'I built an in-house job scraper outperforming commercial solutions, then '
+            'layered a multi-agent AI workflow (OpenAI, Anthropic, Google Gemini) for resume tailoring '
+            '(bullet-by-bullet accept/edit/reject UI), cover letter generation, application Q&A, and '
+            'comprehensive ATS scoring — all running in parallel across 20+ jobs.'
         ),
         'outcomes': [
             'Scraped job descriptions more accurately than ScrapingBee (20% improvement on difficult sites).',
             'Enabled candidates to process 20+ simultaneous job postings with full AI-tailored applications.',
-            'Reduced per-application work from hours to minutes while maintaining candidate voice and control.',
+            'Reduced per-application work from hours to under 90 seconds while maintaining candidate voice and control.',
             'Real-time ATS fit scoring surfaces high-fit opportunities and skill gaps proactively.',
         ],
         'responsibilities': [
@@ -413,7 +420,7 @@ PROJECTS = [
         },
         'metrics': [
             {'value': '20+',       'label': 'Jobs processed simultaneously'},
-            {'value': '20%',       'label': 'Faster than ScrapingBee'},
+            {'value': '<90s',      'label': 'Per-application time'},
             {'value': 'Real-time', 'label': 'ATS fit scoring'},
         ],
     },

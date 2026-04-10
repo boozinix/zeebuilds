@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact – Zubair Nizami',
-  description: 'Get in touch about AI PM roles, product collaboration, or interesting conversations about building consumer products.',
+  title: "Let's Talk – Zubair Nizami",
+  description:
+    'Contact Zubair Nizami — AI PM actively looking for roles in consumer AI and fintech.',
 };
 
 export default function ContactLayout({

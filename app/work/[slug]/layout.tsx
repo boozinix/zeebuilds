@@ -22,8 +22,15 @@ export async function generateMetadata({ params }: ProjectLayoutProps): Promise<
     };
   }
 
+  const subtitleMap: Record<string, string> = {
+    'apply-studio': 'AI Job Application Platform',
+    'card-scout': 'Credit Card Optimizer',
+    'neural-mob': 'Multi-Agent AI Debate Engine',
+  };
+  const subtitle = subtitleMap[slug] ?? project.name;
+
   return {
-    title: `${project.name} – Zubair Nizami`,
+    title: `${project.name} – ${subtitle} | Zubair Nizami`,
     description: project.tagline,
   };
 }

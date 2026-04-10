@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About – Zubair Nizami',
-  description: 'AI Product Manager and full-stack builder focused on careers and fintech. Learn about my background, skills, and experience building consumer products.',
+  title: 'About – Zubair Nizami | AI PM at AWS, Meta, Zoox',
+  description:
+    'Senior AI PM with a decade at Apple, Zoox, Meta, and AWS. Now building and shipping consumer AI tools independently.',
 };
 
 export default function AboutLayout({
