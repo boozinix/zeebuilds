@@ -114,7 +114,7 @@ export default function AboutPage() {
             I'm obsessed with AI-powered consumer products that solve real problems—especially in careers and fintech. I'd rather de‑risk ideas by shipping than by deck. That means going from problem to prototype to production myself, so I can speak from experience when I lead product: I've felt the tradeoffs, the latency, and the joy of watching something work in users' hands.
           </p>
           <p>
-            ApplyStudio and Card Scout are the proof. I identified both problems from my own experience, validated them with others, then built and launched the full stack—product, UX, and backend. I learned how fast you can iterate when you own the whole loop: discovery, hypothesis, build, ship, learn. That PM arc—problem, insight, decision, outcome—is what I care about, whether I'm building solo or with a team.
+            ApplyStudio, Card Scout, and Neural Mob are the proof. I identified problems from my own experience, validated them with others, then built and launched the full stack—product, UX, and backend. I learned how fast you can iterate when you own the whole loop: discovery, hypothesis, build, ship, learn. That PM arc—problem, insight, decision, outcome—is what I care about, whether I'm building solo or with a team.
           </p>
           <p>
             I'm looking for my next AI PM role at a company that ships. I want to own a product or area where AI is central to the value proposition, and where I can combine product sense with hands-on building. I'm also open to product collaboration and advisory work for teams betting on AI-powered consumer or fintech products.

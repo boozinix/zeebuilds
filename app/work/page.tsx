@@ -2,11 +2,19 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { projects } from '@/lib/projects';
+import { projects, projectPreviewHost } from '@/lib/projects';
 import { ArrowRight, Briefcase, Filter } from 'lucide-react';
 import { useState } from 'react';
 
-function ProjectScreenshot({ src, alt }: { src: string; alt: string }) {
+function ProjectScreenshot({
+  src,
+  alt,
+  host,
+}: {
+  src: string;
+  alt: string;
+  host: string;
+}) {
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
   if (error) return null;
@@ -18,7 +26,7 @@ function ProjectScreenshot({ src, alt }: { src: string; alt: string }) {
         <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
         <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
         <div className="ml-2 flex-1 rounded-full bg-slate-800 px-3 py-1 text-[10px] text-slate-500 font-mono truncate">
-          {alt.toLowerCase().includes('apply') ? 'applystudio.app' : 'thecardscout.app'}
+          {host || '—'}
         </div>
       </div>
       {/* Screenshot */}
@@ -51,7 +59,8 @@ export default function WorkPage() {
   const filteredProjects = activeFilter === 'All Projects' 
     ? allProjects 
     : allProjects.filter(project => {
-        if (activeFilter === 'AI Tools') return project.id === 'apply-studio';
+        if (activeFilter === 'AI Tools')
+          return project.id === 'apply-studio' || project.id === 'neural-mob';
         if (activeFilter === 'Fintech') return project.id === 'card-scout';
         if (activeFilter === 'Career Tools') return project.id === 'apply-studio';
         return true;
@@ -99,7 +108,7 @@ export default function WorkPage() {
       </div>
 
       {/* Project Grid */}
-      <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-10">
+      <div className="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-3 lg:gap-10">
         {filteredProjects.map((project) => (
           <div
             key={project.id}
@@ -114,7 +123,11 @@ export default function WorkPage() {
 
               {/* Screenshot preview */}
               {project.screenshot && (
-                <ProjectScreenshot src={project.screenshot} alt={`${project.name} screenshot`} />
+                <ProjectScreenshot
+                  src={project.screenshot}
+                  alt={`${project.name} screenshot`}
+                  host={projectPreviewHost(project)}
+                />
               )}
 
               {/* Content */}

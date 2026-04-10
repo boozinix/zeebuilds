@@ -6,7 +6,11 @@ import { Pill } from '@/components/Pill';
 import { ArrowRight, Sparkles, Rocket, Mail, User } from 'lucide-react';
 
 export default function HomePage() {
-  const featuredProjects = [projects['apply-studio'], projects['card-scout']];
+  const featuredProjects = [
+    projects['apply-studio'],
+    projects['card-scout'],
+    projects['neural-mob'],
+  ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:pb-20 sm:pt-16">
@@ -28,8 +32,8 @@ export default function HomePage() {
         
         <p className="mt-4 mx-auto max-w-3xl text-base text-slate-300 sm:mt-6 sm:text-lg sm:text-xl leading-relaxed animate-shimmer-in-delay-2">
           I design and build consumer products end‑to‑end— from uncovering real
-          problems to shipping production‑grade experiences. Below are two live
-          applications I own.
+          problems to shipping production‑grade experiences. Below are live
+          products and sites I own.
         </p>
         
         <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 animate-shimmer-in-delay-3">
@@ -59,11 +63,11 @@ export default function HomePage() {
             <h2 className="text-2xl font-bold text-slate-100 sm:text-3xl">Featured projects</h2>
           </div>
           <p className="text-sm text-slate-400 max-w-2xl mx-auto sm:text-base">
-            Two live products that solve real problems for thousands of users
+            ApplyStudio, Card Scout, and Neural Mob — shipped end to end
           </p>
         </div>
         
-        <div className="grid gap-6 lg:gap-8 lg:grid-cols-2">
+        <div className="grid gap-6 lg:gap-8 lg:grid-cols-3">
           {featuredProjects.map((project) => (
             <div
               key={project.id}

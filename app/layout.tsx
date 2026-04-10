@@ -9,11 +9,11 @@ const SITE_URL = 'https://zubairnizami.com';
 export const metadata: Metadata = {
   title: 'Zubair Nizami – AI Product Manager & Builder',
   description:
-    'AI PM & builder. Shipped ApplyStudio and Card Scout. Open to AI PM roles and product collaboration.',
+    'AI PM & builder. Shipped ApplyStudio, Card Scout, and Neural Mob. Open to AI PM roles and product collaboration.',
   openGraph: {
     title: 'Zubair Nizami – AI Product Manager & Builder',
     description:
-      'AI PM & builder. Shipped ApplyStudio and Card Scout. Open to AI PM roles and product collaboration.',
+      'AI PM & builder. Shipped ApplyStudio, Card Scout, and Neural Mob. Open to AI PM roles and product collaboration.',
     url: SITE_URL,
     siteName: "Zubair Nizami's Portfolio",
     images: [{ url: `${SITE_URL}/og.png`, width: 1200, height: 630, alt: 'Zubair Nizami – AI PM & Builder' }],
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Zubair Nizami – AI Product Manager & Builder',
     description:
-      'AI PM & builder. Shipped ApplyStudio and Card Scout. Open to AI PM roles and product collaboration.',
+      'AI PM & builder. Shipped ApplyStudio, Card Scout, and Neural Mob. Open to AI PM roles and product collaboration.',
   },
   icons: {
     icon: [{ url: '/icon', type: 'image/png', sizes: '32x32' }],

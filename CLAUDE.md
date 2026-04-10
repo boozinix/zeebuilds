@@ -37,7 +37,7 @@ Every time a `git commit` is made, the `git_tracker.csv` file in the project roo
 
 | Path | Purpose |
 |------|---------|
-| `lib/projects.ts` | **Source of truth** for all project data (ApplyStudio, Card Scout) |
+| `lib/projects.ts` | **Source of truth** for all project data (ApplyStudio, Card Scout, Neural Mob) |
 | `app/page.tsx` | Home — hero, featured projects, CTA |
 | `app/work/page.tsx` | Work index — project grid |
 | `app/work/[slug]/page.tsx` | Project detail / case study |
@@ -72,7 +72,8 @@ Every time a `git commit` is made, the `git_tracker.csv` file in the project roo
 
 | Product | Stack | URL |
 |---------|-------|-----|
-| **ApplyStudio** | Next.js, GPT-5.1, Multi-agent AI | applystudio.app |
+| **ApplyStudio** | Next.js, GPT-5.1, Multi-agent AI | applystudio.net |
+| **Neural Mob** | Next.js, TypeScript, AI-forward site | neuralmob.xyz |
 | **Card Scout** | Next.js, GPT-5, Claude, DeepSeek, Postgres | thecardscout.app |
 
 ---

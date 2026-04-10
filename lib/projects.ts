@@ -1,5 +1,5 @@
 // lib/projects.ts
-export type ProjectId = 'apply-studio' | 'card-scout';
+export type ProjectId = 'apply-studio' | 'card-scout' | 'neural-mob';
 
 export type Project = {
   id: ProjectId;
@@ -23,16 +23,28 @@ export type Project = {
   screenshot?: string;
 };
 
+/** Hostname for mock browser chrome on work cards (from live URL). */
+export function projectPreviewHost(project: Project): string {
+  const link =
+    project.links.find((l) => /live|app|site/i.test(l.label)) ?? project.links[0];
+  if (!link?.href) return '';
+  try {
+    return new URL(link.href).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
 export const projects: Record<ProjectId, Project> = {
   'apply-studio': {
     id: 'apply-studio',
     name: 'ApplyStudio',
     tagline: 'AI-powered job application platform: resume tailoring, cover letters, ATS scoring — across 20+ jobs at once.',
     role: 'Product Manager & Solo Builder',
-    timeframe: '2024 – Present',
+    timeframe: '2026 – Present',
     stack: ['Next.js', 'TypeScript', 'Vercel', 'GPT-5.1', 'Multi-agent AI'],
     links: [
-      { label: 'Live app', href: 'https://applystudio.app' },
+      { label: 'Live app', href: 'https://applystudio.net' },
       { label: 'GitHub', href: 'https://github.com/boozinix' }
     ],
     screenshot: '/screenshots/apply-studio.jpg',
@@ -73,12 +85,54 @@ export const projects: Record<ProjectId, Project> = {
       ]
     }
   },
+  'neural-mob': {
+    id: 'neural-mob',
+    name: 'Neural Mob',
+    tagline: 'An AI-forward web experience focused on craft, motion, and clear product storytelling.',
+    role: 'Product Manager & Solo Builder',
+    timeframe: '2026 – Present',
+    stack: ['Next.js', 'TypeScript', 'Vercel', 'AI'],
+    links: [{ label: 'Live site', href: 'https://neuralmob.xyz/' }],
+    screenshot: '/screenshots/neural-mob.jpg',
+    metrics: [
+      { value: 'Live', label: 'Production site' },
+      { value: 'AI', label: 'Core experience' },
+      { value: 'Mobile', label: 'Responsive UX' }
+    ],
+    description:
+      'Neural Mob is a live product site that showcases how I approach AI-native interfaces: intentional layout, subtle motion, and a narrative that reads like a product—not a template. It complements my larger shipped apps by showing taste and technical execution in a focused surface.',
+    problem:
+      'Many AI product sites feel generic or overloaded; visitors struggle to see the builder behind the product or trust that the experience was designed with care.',
+    whyNow:
+      'As AI PM hiring emphasizes both product judgment and builder credibility, a dedicated live site can signal craft and speed of execution alongside larger case studies.',
+    solution:
+      'Shipped neuralmob.xyz as a standalone experience: clear positioning, responsive layout, and performance-minded delivery so the first impression matches how I build consumer products.',
+    outcomes: [
+      'Live destination recruiters and collaborators can open in seconds to see current work and visual/product sensibility.',
+      'Demonstrates end-to-end ownership from concept to deployed experience on a custom domain.',
+      'Pairs with ApplyStudio and Card Scout as a lighter-weight proof of taste and execution.'
+    ],
+    responsibilities: [
+      'Defined positioning, IA, and primary user path for the site.',
+      'Implemented responsive UI, motion, and content structure for clarity on first visit.',
+      'Deployed and iterated on performance, accessibility, and shareability (OG-friendly structure).'
+    ],
+    architecture: {
+      overview:
+        'Neural Mob is built as a modern, deployable front-end with a small surface area so changes ship quickly and the site stays easy to maintain.',
+      bullets: [
+        'Presentation layer: component-driven layout with consistent typography and spacing.',
+        'Motion & feedback: subtle transitions that reinforce hierarchy without distracting from the message.',
+        'Deployment: production hosting on a custom domain with fast cold loads for link-in-bio and hiring contexts.'
+      ]
+    }
+  },
   'card-scout': {
     id: 'card-scout',
     name: 'Card Scout',
     tagline: 'AI-assisted credit card discovery with multi-model recommendations and automated data ingestion.',
     role: 'Product Manager & Solo Builder',
-    timeframe: '2024 – Present',
+    timeframe: '2026 – Present',
     stack: ['Next.js', 'TypeScript', 'Vercel', 'GPT-5', 'Claude', 'DeepSeek', 'Postgres'],
     links: [
       { label: 'Live app', href: 'https://thecardscout.app' },

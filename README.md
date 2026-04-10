@@ -6,8 +6,9 @@ Personal portfolio and project showcase for **Zubair Nizami** — AI Product Man
 
 ## Projects featured
 
-- **Resume Tailor** — AI-powered resume tailoring for each job in under 30 seconds
-- **Card Scout** — Intelligent credit card recommendations based on your spending and goals
+- **ApplyStudio** — AI job application platform (applystudio.net)
+- **Card Scout** — Intelligent credit card recommendations (thecardscout.app)
+- **Neural Mob** — AI-forward product site (neuralmob.xyz)
 
 ## Tech stack
 
@@ -74,7 +75,7 @@ Open [http://localhost:3000](http://localhost:3000).
 │   └── robots.ts
 ├── components/         # Navbar, Footer, Pill, Section, etc.
 ├── lib/
-│   └── projects.ts     # Project data (Resume Tailor, Card Scout)
+│   └── projects.ts     # Project data (ApplyStudio, Card Scout, Neural Mob)
 └── public/
 ```
 
