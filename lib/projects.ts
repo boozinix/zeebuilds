@@ -58,9 +58,8 @@ export const projects: Record<ProjectId, Project> = {
       { label: 'Live app', href: 'https://applystudio.net' },
       { label: 'GitHub', href: 'https://github.com/boozinix' }
     ],
-    screenshot: '/screenshots/apply-studio.jpg',
+    screenshot: '/screenshots/apply-studio-1.jpg',
     screenshots: [
-      '/screenshots/apply-studio.jpg',
       '/screenshots/apply-studio-1.jpg',
       '/screenshots/apply-studio-2.jpg',
       '/screenshots/apply-studio-3.jpg',
@@ -167,9 +166,8 @@ export const projects: Record<ProjectId, Project> = {
       { label: 'Live app', href: 'https://thecardscout.app' },
       { label: 'GitHub', href: 'https://github.com/boozinix/the-card-scout' }
     ],
-    screenshot: '/screenshots/card-scout.jpg',
+    screenshot: '/screenshots/card-scout-1.jpg',
     screenshots: [
-      '/screenshots/card-scout.jpg',
       '/screenshots/card-scout-1.jpg',
       '/screenshots/card-scout-2.jpg',
       '/screenshots/card-scout-3.jpg',
