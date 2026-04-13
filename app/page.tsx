@@ -2,207 +2,356 @@
 
 import Link from 'next/link';
 import { projects } from '@/lib/projects';
-import { Pill } from '@/components/Pill';
-import { ArrowRight, Rocket, Mail, Download, Zap } from 'lucide-react';
+import { ArrowRight, Download, MapPin } from 'lucide-react';
+import { Reveal } from '@/components/Reveal';
+import { ImageCarousel } from '@/components/ImageCarousel';
 
+/* ── Live pulse dot ────────────────────────────────────────────── */
+function LiveDot() {
+  return (
+    <span aria-hidden="true" className="relative flex h-1.5 w-1.5 shrink-0">
+      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75" />
+      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-sky-400" />
+    </span>
+  );
+}
+
+/* ── Page ──────────────────────────────────────────────────────── */
 export default function HomePage() {
-  const featuredProjects = [
-    projects['apply-studio'],
-    projects['card-scout'],
-    projects['neural-mob'],
-  ];
+  const applyStudio = projects['apply-studio'];
+  const cardScout   = projects['card-scout'];
+  const neuralMob   = projects['neural-mob'];
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:pb-20 sm:pt-16">
-      {/* Hero Section */}
-      <section className="relative mb-8 text-center sm:mb-12 overflow-hidden rounded-2xl">
-        {/* Subtle gradient background shift */}
-        <div className="hero-gradient-bg absolute inset-0 -z-10 rounded-2xl" aria-hidden />
-        <div className="animate-shimmer-in">
-          <Pill>AI product portfolio</Pill>
+    <div className="mx-auto max-w-5xl px-4 pb-24 pt-16 sm:pt-24">
+
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="mb-24 sm:mb-32 text-center">
+
+        {/* Badge + role subtitle */}
+        <div className="animate-fade-up flex flex-col items-center gap-2 mb-8">
+          <span className="inline-flex items-center border border-slate-600/60 text-slate-400 text-sm px-4 py-1.5 rounded-md">
+            AI product portfolio
+          </span>
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-400">
+            Senior AI Product Manager · Consumer · Infra · Fintech
+          </p>
         </div>
 
-        <h1 className="mt-4 text-balance text-3xl font-bold tracking-tight text-slate-50 sm:mt-6 sm:text-5xl lg:text-6xl animate-shimmer-in-delay-1">
+        {/* Headline */}
+        <h1 className="animate-fade-up-1 font-display font-black leading-[1.05] text-[clamp(2.2rem,6.5vw,5.5rem)] text-white mb-5">
           AI Product Manager.{' '}
-          <span className="bg-gradient-to-r from-sky-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent animate-gradient">
+          <span
+            style={{
+              background: 'linear-gradient(90deg, #38bdf8, #a78bfa)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
             Solo Builder.
-          </span>{' '}
-          I ship.
+          </span>
         </h1>
 
-        <p className="mt-4 mx-auto max-w-3xl text-base text-slate-300 sm:mt-6 sm:text-lg sm:text-xl leading-relaxed animate-shimmer-in-delay-2">
-          I've shipped AI products at AWS, Meta, and Zoox — and I build consumer
-          AI tools solo on the side. Three live products. Real users. No co-founder.
+        {/* Richer proof line */}
+        <p className="animate-fade-up-2 mx-auto max-w-2xl text-slate-200 text-xl leading-relaxed mb-4 sm:text-2xl font-medium">
+          I ship AI products from{' '}
+          <span className="text-white font-bold">zero → revenue</span>{' '}
+          in weeks, not quarters.
         </p>
 
-        <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 animate-shimmer-in-delay-3">
-          <Link
-            href="/work"
-            className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/40 active:scale-[0.98] transition-all sm:min-h-0"
-          >
-            See My Work
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+        <p className="animate-fade-up-2 mx-auto max-w-xl text-slate-400 text-base leading-relaxed mb-10">
+          Built and shipped at AWS, Meta, Zoox, and Apple — plus three live consumer
+          AI tools solo. Code, taste, and relentless follow-through.
+        </p>
+
+        {/* CTAs — Resume is primary for recruiters */}
+        <div className="animate-fade-up-3 flex flex-wrap items-center justify-center gap-4">
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-slate-600 bg-slate-900/50 px-6 py-3.5 text-base font-medium text-slate-300 backdrop-blur hover:border-slate-500 hover:text-slate-200 hover:bg-slate-800/50 active:scale-[0.98] transition-all sm:min-h-0"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-md font-semibold text-white text-sm transition-opacity duration-200 hover:opacity-90"
+            style={{ background: 'linear-gradient(135deg, #38bdf8, #a78bfa, #e879f9)' }}
           >
             <Download className="h-4 w-4" />
-            Download Resume
+            Download 1-page resume (PDF)
           </a>
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 border-2 border-slate-500 text-slate-200 px-7 py-3 rounded-md font-semibold text-sm hover:border-slate-300 hover:text-white transition-all duration-200"
+          >
+            See my work <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
-      {/* Stat row */}
-      <section className="mb-12 sm:mb-20">
-        <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-16">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-slate-50 sm:text-4xl">3</div>
-            <div className="mt-1 text-xs uppercase tracking-widest text-slate-500 sm:text-sm">Live Products</div>
-          </div>
-          <div className="hidden sm:block h-8 w-px bg-slate-800" aria-hidden />
-          <div className="text-center">
-            <div className="text-3xl font-bold text-slate-50 sm:text-4xl">$250M+</div>
-            <div className="mt-1 text-xs uppercase tracking-widest text-slate-500 sm:text-sm">Cost savings shipped at Meta</div>
-          </div>
-          <div className="hidden sm:block h-8 w-px bg-slate-800" aria-hidden />
-          <div className="text-center">
-            <div className="text-3xl font-bold text-slate-50 sm:text-4xl">157%</div>
-            <div className="mt-1 text-xs uppercase tracking-widest text-slate-500 sm:text-sm">Revenue growth at AWS</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Projects */}
-      <section id="projects" className="space-y-6 sm:space-y-8">
-        <div className="text-center">
-          <div className="inline-flex items-center gap-2 mb-2 sm:mb-3">
-            <Rocket className="h-5 w-5 text-sky-400 sm:h-6 sm:w-6" />
-            <h2 className="text-2xl font-bold text-slate-100 sm:text-3xl">Featured projects</h2>
-          </div>
-          <p className="text-sm text-slate-400 max-w-2xl mx-auto sm:text-base">
-            ApplyStudio, Card Scout, and Neural Mob — shipped end to end
-          </p>
-        </div>
-
-        <div className="grid gap-6 lg:gap-8 lg:grid-cols-3">
-          {featuredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="transition-transform duration-300 hover:-translate-y-2 active:translate-y-0"
-            >
-              <Link
-                href={`/work/${project.id}`}
-                className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 p-5 shadow-xl shadow-black/20 hover:border-sky-500/50 transition-all sm:rounded-2xl sm:p-6 lg:p-8"
+      {/* ── METRICS — with company context ───────────────────── */}
+      <Reveal>
+        <section className="mb-24 sm:mb-32">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {[
+              {
+                value: '157%',
+                label: 'Revenue Growth',
+                context: 'AWS Marketplace',
+                sub: '$84M → $216M',
+                gradient: 'from-sky-400 to-violet-400',
+              },
+              {
+                value: '$250M+',
+                label: 'Cost Savings',
+                context: 'Meta · Digital Twin',
+                sub: 'Per-region infrastructure',
+                gradient: 'from-violet-400 to-fuchsia-400',
+              },
+              {
+                value: '3',
+                label: 'Live Products',
+                context: 'Solo-built',
+                sub: 'Real users. No co-founder.',
+                gradient: 'from-sky-400 to-violet-400',
+              },
+            ].map(stat => (
+              <div
+                key={stat.label}
+                className="rounded-xl border-2 border-slate-700/70 bg-slate-900/60 px-6 py-7"
               >
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <p
+                  className="font-display font-black leading-none text-5xl sm:text-6xl mb-3"
+                  style={{
+                    background: `linear-gradient(135deg, #38bdf8, #a78bfa)`,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  {stat.value}
+                </p>
+                <p className="font-semibold text-white text-base mb-0.5">{stat.label}</p>
+                <p className="font-mono text-xs text-sky-400 uppercase tracking-[0.12em] mb-1">
+                  {stat.context}
+                </p>
+                <p className="font-mono text-xs text-slate-500">{stat.sub}</p>
+              </div>
+            ))}
+          </div>
 
-                {/* Content */}
-                <div className="relative flex flex-col flex-1">
-                  <div className="mb-3 inline-flex flex-wrap items-center gap-2 text-[13px] text-slate-400 sm:mb-4 sm:gap-3 sm:text-sm">
-                    <span className="relative">
-                      <span className="absolute inset-0 animate-pulse rounded-full bg-emerald-500/20 blur-md"></span>
-                      <span className="relative rounded-full bg-emerald-500/10 px-3 py-1 text-emerald-400 font-medium border border-emerald-500/20">
-                        Live Product
+          {/* Company wordmarks */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-600 mr-2">Experience at</span>
+            {['AWS', 'Meta', 'Zoox', 'Apple'].map(co => (
+              <span
+                key={co}
+                className="font-display font-bold text-slate-500 text-sm tracking-tight hover:text-slate-300 transition-colors duration-200"
+              >
+                {co}
+              </span>
+            ))}
+          </div>
+        </section>
+      </Reveal>
+
+      {/* ── PROJECTS ─────────────────────────────────────────── */}
+      <section className="mb-24 sm:mb-32">
+        <Reveal>
+          <div className="flex items-center justify-between mb-10">
+            <span className="font-mono text-xs uppercase tracking-[0.22em] text-slate-500">Selected work</span>
+            <Link
+              href="/work"
+              className="group font-mono text-xs uppercase tracking-[0.18em] text-slate-400 hover:text-sky-400 transition-colors duration-200 flex items-center gap-1.5"
+            >
+              All projects <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
+        </Reveal>
+
+        {/* ApplyStudio — featured horizontal card */}
+        <Reveal delay={0.04}>
+          <Link href="/work/apply-studio" className="group block mb-5">
+            <div className="overflow-hidden rounded-xl border-2 border-slate-700/70 bg-slate-900/60 group-hover:border-violet-500/60 group-hover:-translate-y-2 transition-all duration-300">
+              <div className="grid grid-cols-1 lg:grid-cols-[55%_45%]">
+                <div className="h-60 sm:h-72 lg:h-[320px] border-b border-slate-800 lg:border-b-0 lg:border-r lg:border-slate-800">
+                  <ImageCarousel
+                    images={applyStudio.screenshots ?? [applyStudio.screenshot!]}
+                    alt="ApplyStudio AI job application dashboard"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 55vw"
+                  />
+                </div>
+                <div className="p-7 flex flex-col justify-between">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2.5 mb-5">
+                      <LiveDot />
+                      <span className="font-mono text-xs uppercase tracking-[0.15em] text-slate-400">Live · 2026</span>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-violet-300 bg-violet-500/10 border border-violet-500/40 px-2.5 py-1 rounded-sm">
+                        Career AI
                       </span>
-                    </span>
-                    <span className="text-slate-500">•</span>
-                    <span>{project.role}</span>
-                  </div>
+                    </div>
+                    <h3 className="font-display text-3xl font-black text-white group-hover:text-sky-400 transition-colors duration-300 mb-2">
+                      {applyStudio.name}
+                    </h3>
 
-                  <h3 className="text-xl font-bold text-slate-50 mb-2 group-hover:text-sky-400 transition-colors sm:mb-3 sm:text-2xl">
-                    {project.name}
-                  </h3>
-
-                  <p className="text-sm text-slate-300 mb-4 leading-relaxed sm:mb-6 sm:text-base">
-                    {project.tagline}
-                  </p>
-
-                  <div className="mb-3 flex flex-wrap gap-1.5 sm:mb-4 sm:gap-2">
-                    {project.stack.slice(0, 4).map(tech => (
-                      <span
-                        key={tech}
-                        className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300 border border-slate-700"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.stack.length > 4 && (
-                      <span className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-400 border border-slate-700">
-                        +{project.stack.length - 4} more
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Impact badge */}
-                  {project.impact && (
-                    <p className="mb-4 text-xs text-violet-400 italic sm:mb-5">
-                      {project.impact}
+                    {/* Why it matters */}
+                    <p className="text-slate-200 text-sm leading-relaxed mb-4 font-medium">
+                      {applyStudio.whyItMatters}
                     </p>
-                  )}
 
-                  <div className="mt-auto flex items-center justify-between">
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-sky-400">
-                      View case study
-                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                    <div className="flex gap-2">
-                      {project.links.slice(0, 1).map(link => (
-                        <span key={link.href} className="text-xs text-slate-500 flex items-center gap-1">
-                          {link.label}
-                          <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
+                    <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                      Multi-agent AI across OpenAI, Anthropic & Gemini — 20+ jobs processed in parallel.
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {['GPT-5.1', 'Multi-agent AI', 'Next.js'].map(t => (
+                        <span key={t} className="font-mono text-[10px] text-slate-400 border border-slate-600 px-2.5 py-1 rounded-sm">
+                          {t}
                         </span>
                       ))}
                     </div>
                   </div>
+
+                  {/* Key result — consistent across all cards */}
+                  <div className="pt-5 border-t border-slate-800">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-sky-400 text-sm font-bold shrink-0">→</span>
+                      <p className="font-mono text-xs text-sky-300">{applyStudio.keyResult}</p>
+                    </div>
+                    <div className="flex items-center justify-end">
+                      <span className="font-mono text-xs uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors duration-200 flex items-center gap-1.5">
+                        Case study <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </Link>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </Link>
+        </Reveal>
 
-      {/* Currently building signal */}
-      <p className="mt-10 text-center text-xs text-slate-500 sm:mt-14">
-        <Zap className="inline h-3 w-3 mr-1 text-yellow-500/70" aria-hidden />
-        Currently shipping: ApplyStudio v2 — adding interview prep + agent memory
-      </p>
-
-      {/* Call to Action */}
-      <section className="mt-8 relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-950/50 p-6 text-center backdrop-blur sm:mt-12 sm:rounded-3xl sm:p-8 lg:p-12">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 via-violet-500/10 to-fuchsia-500/10 animate-gradient opacity-50" />
-
-        <div className="relative">
-          <h2 className="text-2xl font-bold text-slate-100 mb-3 sm:mb-4 sm:text-3xl">
-            Ready to work together?
-          </h2>
-          <p className="text-sm text-slate-300 mb-6 max-w-2xl mx-auto sm:text-base sm:mb-8 lg:text-lg">
-            Actively looking for full-time AI PM roles. Let's talk.
-          </p>
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
-            <Link
-              href="/contact"
-              className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/40 active:scale-[0.98] transition-all sm:min-h-0 sm:px-8 sm:py-4"
-            >
-              Open to AI PM roles — let's talk
-              <Mail className="h-4 w-4 group-hover:rotate-12 transition-transform" />
+        {/* Card Scout + Neural Mob */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <Reveal delay={0.06}>
+            <Link href="/work/card-scout" className="group block h-full">
+              <div className="overflow-hidden rounded-xl border-2 border-slate-700/70 bg-slate-900/60 group-hover:border-violet-500/60 group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                <div className="h-48 border-b border-slate-800 shrink-0">
+                  <ImageCarousel
+                    images={cardScout.screenshots ?? [cardScout.screenshot!]}
+                    alt="Card Scout AI credit card optimizer"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex flex-wrap items-center gap-2.5 mb-4">
+                    <LiveDot />
+                    <span className="font-mono text-xs uppercase tracking-[0.15em] text-slate-400">Live · 2026</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-fuchsia-300 bg-fuchsia-500/10 border border-fuchsia-500/40 px-2.5 py-1 rounded-sm">
+                      Fintech AI
+                    </span>
+                  </div>
+                  <h3 className="font-display text-2xl font-black text-white group-hover:text-sky-400 transition-colors duration-300 mb-2">
+                    {cardScout.name}
+                  </h3>
+                  <p className="text-slate-200 text-sm font-medium leading-relaxed mb-2">
+                    {cardScout.whyItMatters}
+                  </p>
+                  <p className="text-slate-500 text-sm leading-relaxed mb-4">
+                    100+ cards analyzed per session via multi-model AI (GPT-5, Claude, DeepSeek).
+                  </p>
+                  <div className="mt-auto pt-4 border-t border-slate-800">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-sky-400 text-sm font-bold shrink-0">→</span>
+                      <p className="font-mono text-xs text-sky-300">{cardScout.keyResult}</p>
+                    </div>
+                    <div className="flex items-center justify-end">
+                      <span className="font-mono text-xs uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors flex items-center gap-1.5">
+                        Case study <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Link>
-            <a
-              href="mailto:zubair.nizami@yahoo.com"
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-slate-600 bg-slate-900/50 px-6 py-3.5 text-base font-medium text-slate-300 backdrop-blur hover:border-slate-500 hover:text-slate-200 hover:bg-slate-800/50 active:scale-[0.98] transition-all sm:min-h-0 sm:px-8 sm:py-4"
-            >
-              Email me
-              <Mail className="h-4 w-4" />
-            </a>
-          </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <Link href="/work/neural-mob" className="group block h-full">
+              <div className="overflow-hidden rounded-xl border-2 border-slate-700/70 bg-slate-900/60 group-hover:border-violet-500/60 group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                <div className="h-48 border-b border-slate-800 shrink-0">
+                  <ImageCarousel
+                    images={neuralMob.screenshots ?? [neuralMob.screenshot!]}
+                    alt="Neural Mob multi-agent AI debate engine"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex flex-wrap items-center gap-2.5 mb-4">
+                    <LiveDot />
+                    <span className="font-mono text-xs uppercase tracking-[0.15em] text-slate-400">Live · 2026</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-violet-300 bg-violet-500/10 border border-violet-500/40 px-2.5 py-1 rounded-sm">
+                      Research AI
+                    </span>
+                  </div>
+                  <h3 className="font-display text-2xl font-black text-white group-hover:text-sky-400 transition-colors duration-300 mb-2">
+                    {neuralMob.name}
+                  </h3>
+                  <p className="text-slate-200 text-sm font-medium leading-relaxed mb-2">
+                    {neuralMob.whyItMatters}
+                  </p>
+                  <p className="text-slate-500 text-sm leading-relaxed mb-4">
+                    Adversarial multi-agent debate — N models argue, scoring agent picks the winner.
+                  </p>
+                  <div className="mt-auto pt-4 border-t border-slate-800">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-sky-400 text-sm font-bold shrink-0">→</span>
+                      <p className="font-mono text-xs text-sky-300">{neuralMob.keyResult}</p>
+                    </div>
+                    <div className="flex items-center justify-end">
+                      <span className="font-mono text-xs uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors flex items-center gap-1.5">
+                        Case study <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </Reveal>
         </div>
       </section>
+
+      {/* ── FOR RECRUITERS ───────────────────────────────────── */}
+      <Reveal>
+        <section className="mb-24 sm:mb-32 rounded-xl border-2 border-slate-700/60 bg-slate-900/40 px-7 py-8">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">For recruiters</span>
+            <div className="flex-1 h-px bg-slate-800" />
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-sky-400 mb-2">Target role</p>
+              <p className="text-slate-200 text-sm leading-relaxed">Senior or Staff AI PM — where AI is core to the product, not a feature bolt-on.</p>
+            </div>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-sky-400 mb-2">Best-fit problems</p>
+              <p className="text-slate-200 text-sm leading-relaxed">LLM orchestration · AI-native consumer products · Search & ranking · Data infra at scale</p>
+            </div>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-sky-400 mb-2">Location & timing</p>
+              <p className="text-slate-200 text-sm leading-relaxed flex items-start gap-1.5">
+                <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0 text-slate-500" />
+                SF Bay Area · Open to remote · Available within 2–4 weeks
+              </p>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* ── STATUS ───────────────────────────────────────────── */}
+      <Reveal>
+        <p className="font-mono text-xs text-slate-500 border-t border-slate-800/40 pt-8">
+          <span className="text-violet-500/60">●</span>{' '}
+          Currently shipping: ApplyStudio v2 — interview prep + agent memory
+        </p>
+      </Reveal>
     </div>
   );
 }
