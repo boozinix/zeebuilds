@@ -65,6 +65,7 @@ export const projects: Record<ProjectId, Project> = {
       '/screenshots/apply-studio-2.jpg',
       '/screenshots/apply-studio-3.jpg',
       '/screenshots/apply-studio-4.jpg',
+      '/screenshots/apply-studio-5.jpg',
     ],
     impact: '20+ tailored resumes in under an hour',
     whyItMatters: 'Cuts time-to-apply by 80% — job seekers go from hours of manual work to a tailored application in 90 seconds.',
@@ -167,7 +168,13 @@ export const projects: Record<ProjectId, Project> = {
       { label: 'GitHub', href: 'https://github.com/boozinix/the-card-scout' }
     ],
     screenshot: '/screenshots/card-scout.jpg',
-    screenshots: ['/screenshots/card-scout.jpg'],
+    screenshots: [
+      '/screenshots/card-scout.jpg',
+      '/screenshots/card-scout-1.jpg',
+      '/screenshots/card-scout-2.jpg',
+      '/screenshots/card-scout-3.jpg',
+      '/screenshots/card-scout-4.jpg',
+    ],
     impact: 'Surfaces $2,500+ in annual rewards per user',
     whyItMatters: 'Surfaces $2,500+ in unclaimed rewards per session — real personalized math, not affiliate-ranked noise.',
     keyResult: 'Average session surfaces $2,500+ in net annual card value',
