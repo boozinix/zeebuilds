@@ -5,6 +5,7 @@ import { projects } from '@/lib/projects';
 import { ArrowRight, Download, MapPin } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { ImageCarousel } from '@/components/ImageCarousel';
+import { HeroTypewriter } from '@/components/HeroTypewriter';
 
 /* ── Live pulse dot ────────────────────────────────────────────── */
 function LiveDot() {
@@ -40,17 +41,7 @@ export default function HomePage() {
 
         {/* Headline */}
         <h1 className="animate-fade-up-1 font-display font-black leading-[1.05] text-[clamp(2.2rem,6.5vw,5.5rem)] text-white mb-5">
-          AI Product Manager.{' '}
-          <span
-            style={{
-              background: 'linear-gradient(90deg, #38bdf8, #a78bfa)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            Solo Builder.
-          </span>
+          <HeroTypewriter />
         </h1>
 
         {/* Richer proof line */}
