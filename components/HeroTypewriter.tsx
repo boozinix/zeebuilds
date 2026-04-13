@@ -9,7 +9,7 @@ const MAX_STEPS = Math.max(LEFT.length, RIGHT.length); // 19
 
 const TYPE_MS   = 38;   // ms per character (typing)
 const DELETE_MS = 18;   // ms per character (deleting — faster)
-const PAUSE_MS  = 1800; // ms to hold when both fully typed
+const PAUSE_MS  = 15000; // ms to hold when both fully typed
 
 /**
  * Dual typewriter — left phrase types L→R, right phrase types R→L.
