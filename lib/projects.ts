@@ -21,7 +21,10 @@ export type Project = {
   metrics?: { value: string; label: string }[];
   description?: string;
   screenshot?: string;
+  screenshots?: string[];   // multiple images for the carousel; falls back to [screenshot]
   impact?: string;
+  whyItMatters?: string;    // recruiter-facing one-liner on outcome
+  keyResult?: string;       // consistent impact line surfaced on cards
 };
 
 /** Hostname for mock browser chrome on work cards (from live URL). */
@@ -56,7 +59,16 @@ export const projects: Record<ProjectId, Project> = {
       { label: 'GitHub', href: 'https://github.com/boozinix' }
     ],
     screenshot: '/screenshots/apply-studio.jpg',
+    screenshots: [
+      '/screenshots/apply-studio.jpg',
+      '/screenshots/apply-studio-1.jpg',
+      '/screenshots/apply-studio-2.jpg',
+      '/screenshots/apply-studio-3.jpg',
+      '/screenshots/apply-studio-4.jpg',
+    ],
     impact: '20+ tailored resumes in under an hour',
+    whyItMatters: 'Cuts time-to-apply by 80% — job seekers go from hours of manual work to a tailored application in 90 seconds.',
+    keyResult: 'Users generate 20+ tailored resumes per hour on average',
     metrics: [
       { value: '20+', label: 'Jobs processed simultaneously' },
       { value: '<90s', label: 'Per-application time' },
@@ -104,7 +116,10 @@ export const projects: Record<ProjectId, Project> = {
     stack: ['Next.js', 'TypeScript', 'Vercel', 'Multi-agent AI', 'GPT-5', 'Claude'],
     links: [{ label: 'Live site', href: 'https://neuralmob.xyz/' }],
     screenshot: '/screenshots/neural-mob.jpg',
+    screenshots: ['/screenshots/neural-mob.jpg'],
     impact: 'Multi-agent adversarial reasoning engine',
+    whyItMatters: 'Proves the core AI PM skill — multi-agent orchestration, scoring non-deterministic outputs, building trust through transparency.',
+    keyResult: 'N agents debate in parallel; scored reasoning surfaces the strongest answer',
     metrics: [
       { value: 'N agents', label: 'Parallel model debate' },
       { value: 'Scored', label: 'Reasoning traces ranked' },
@@ -152,7 +167,10 @@ export const projects: Record<ProjectId, Project> = {
       { label: 'GitHub', href: 'https://github.com/boozinix/the-card-scout' }
     ],
     screenshot: '/screenshots/card-scout.jpg',
+    screenshots: ['/screenshots/card-scout.jpg'],
     impact: 'Surfaces $2,500+ in annual rewards per user',
+    whyItMatters: 'Surfaces $2,500+ in unclaimed rewards per session — real personalized math, not affiliate-ranked noise.',
+    keyResult: 'Average session surfaces $2,500+ in net annual card value',
     metrics: [
       { value: '100+', label: 'Cards analyzed' },
       { value: '$2,500+', label: 'Avg. annual value surfaced' },

@@ -3,6 +3,22 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageTransition } from '@/components/PageTransition';
+import { ParallaxBackground } from '@/components/ParallaxBackground';
+import { Sora, JetBrains_Mono } from 'next/font/google';
+
+const sora = Sora({
+  subsets: ['latin'],
+  variable: '--font-sora',
+  weight: ['400', '600', '700', '800'],
+  display: 'swap',
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+  weight: ['400', '500'],
+  display: 'swap',
+});
 
 const SITE_URL = 'https://zubairnizami.com';
 
@@ -38,16 +54,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="bg-slate-950 text-slate-50 antialiased">
+    <html lang="en" className={`${sora.variable} ${jetbrains.variable}`}>
+      <body className="bg-zinc-950 text-zinc-50 antialiased">
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
-        <div className="min-h-screen flex flex-col">
+        <ParallaxBackground />
+        <div className="relative min-h-screen flex flex-col bg-[#080d1a]" style={{ zIndex: 1 }}>
           <Navbar />
           <main id="main-content" className="flex-1">
-          <PageTransition>{children}</PageTransition>
-        </main>
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </div>
       </body>

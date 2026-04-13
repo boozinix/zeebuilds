@@ -3,184 +3,209 @@
 import React, { useState } from 'react';
 import { projects, ProjectId } from '@/lib/projects';
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink, Zap, Lightbulb, Layers, TrendingUp, AlertCircle } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { Reveal } from '@/components/Reveal';
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
+/* ── Chapter accent colours ────────────────────────────────────── */
+const CHAPTER_CONFIG = [
+  { num: '01', label: 'The Problem',      accent: 'text-amber-400',   bar: 'bg-amber-400/50'   },
+  { num: '02', label: 'Insight & Approach', accent: 'text-sky-400',   bar: 'bg-sky-400/50'     },
+  { num: '03', label: 'What I Built',     accent: 'text-violet-400',  bar: 'bg-violet-400/50'  },
+  { num: '04', label: 'Results',          accent: 'text-emerald-400', bar: 'bg-emerald-400/50' },
+] as const;
+
 export default function ProjectPage({ params }: ProjectPageProps) {
   const [slug, setSlug] = useState<string>('');
-  
-  // Get slug from params
+
   React.useEffect(() => {
     params.then(p => setSlug(p.slug));
   }, [params]);
 
   const project = slug ? projects[slug as ProjectId] : null;
 
-  if (slug && !project) {
+  /* Loading state */
+  if (!slug) {
+    return <div className="min-h-screen" />;
+  }
+
+  /* Not found */
+  if (!project) {
     return (
-      <div className="mx-auto max-w-6xl px-4 py-12 text-center sm:py-20">
-        <h1 className="text-2xl font-bold text-slate-50 mb-4 sm:text-3xl">Project not found</h1>
-        <Link href="/work" className="inline-flex min-h-[44px] items-center justify-center text-sky-400 hover:text-sky-300 sm:min-h-0">
+      <div className="mx-auto max-w-4xl px-4 py-20 text-center">
+        <h1 className="font-display text-3xl text-zinc-50 mb-6">Project not found</h1>
+        <Link href="/work" className="font-mono text-xs uppercase tracking-widest text-zinc-500 hover:text-sky-400 transition-colors">
           ← Back to work
         </Link>
       </div>
     );
   }
 
-  if (!project) {
-    return <div>Loading...</div>;
-  }
+  /* Chapter content definitions */
+  const chapters = [
+    {
+      ...CHAPTER_CONFIG[0],
+      body:    project.problem,
+      note:    project.whyNow ? `Why now — ${project.whyNow}` : null,
+      bullets: null,
+    },
+    {
+      ...CHAPTER_CONFIG[1],
+      body:    project.solution,
+      note:    null,
+      bullets: project.responsibilities.slice(0, 3),
+    },
+    {
+      ...CHAPTER_CONFIG[2],
+      body:    project.architecture.overview,
+      note:    null,
+      bullets: project.architecture.bullets,
+    },
+    {
+      ...CHAPTER_CONFIG[3],
+      body:    null,
+      note:    null,
+      bullets: project.outcomes,
+    },
+  ];
 
   return (
-    <div className="mx-auto max-w-4xl px-4 pb-12 pt-8 sm:pb-20 sm:pt-12">
-      <div>
-        <Link
-          href="/work"
-          className="inline-flex min-h-[44px] items-center gap-2 rounded-lg py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors active:bg-slate-800/50 mb-6 sm:mb-8 sm:min-h-0 sm:py-0"
-        >
-          <ArrowLeft className="h-4 w-4 shrink-0" />
-          Back to work
-        </Link>
+    <div className="mx-auto max-w-3xl px-4 pb-24 pt-12 sm:pt-16">
 
-        {/* Header */}
-        <div className="mb-8 sm:mb-12">
-          <div className="mb-3 flex flex-wrap items-center gap-2 sm:mb-4 sm:gap-3">
-            <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-[13px] text-emerald-400 font-medium border border-emerald-500/20 sm:px-4 sm:py-1.5 sm:text-sm">
-              Live Product
+      {/* ── BACK ─────────────────────────────────────────────── */}
+      <Link
+        href="/work"
+        className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-slate-300 hover:text-sky-400 transition-colors duration-200 mb-14 min-h-[44px]"
+      >
+        <ArrowLeft className="h-3 w-3" />
+        Work
+      </Link>
+
+      {/* ── HEADER ───────────────────────────────────────────── */}
+      <Reveal>
+        <div className="mb-12 sm:mb-16">
+          <div className="flex items-center gap-2.5 mb-5">
+            <span aria-hidden="true" className="relative flex h-2 w-2 shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-sky-400" />
             </span>
-            <span className="text-sm text-slate-400 sm:text-base">{project.role}</span>
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-slate-300">
+              Live · {project.timeframe} · {project.role}
+            </span>
           </div>
 
-          <h1 className="text-2xl font-bold text-slate-50 mb-3 sm:mb-4 sm:text-4xl sm:text-5xl">
+          <h1 className="font-display font-black text-white mb-4 leading-tight text-[clamp(2.5rem,8vw,4.5rem)]">
             {project.name}
           </h1>
 
-          <p className="text-base text-slate-300 leading-relaxed sm:text-lg lg:text-xl">
+          <p className="text-zinc-300 leading-relaxed max-w-2xl text-base sm:text-lg lg:text-xl">
             {project.tagline}
           </p>
 
-          <div className="mt-4 flex flex-wrap gap-2 sm:mt-6 sm:gap-3">
+          <div className="flex flex-wrap gap-3 mt-7">
             {project.links.map(link => (
               <a
                 key={link.href}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-500 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl active:scale-[0.98] transition-all sm:min-h-0 sm:px-6"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] border-2 border-slate-600 text-slate-200 px-4 py-2.5 rounded-md hover:border-sky-500/60 hover:text-sky-400 transition-all duration-200 min-h-[44px]"
               >
-                <ExternalLink className="h-4 w-4" />
+                <ExternalLink className="h-3 w-3" />
                 {link.label}
               </a>
             ))}
           </div>
         </div>
+      </Reveal>
 
-        {/* The problem (and why now) */}
-        <div className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-5 sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
-          <h2 className="text-xl font-bold text-slate-50 mb-3 flex items-center gap-2 sm:mb-4 sm:text-2xl">
-            <AlertCircle className="h-5 w-5 text-amber-400 sm:h-6 sm:w-6" />
-            The problem
-          </h2>
-          <p className="text-sm text-slate-300 leading-relaxed sm:text-base lg:text-lg mb-3">
-            {project.problem}
-          </p>
-          {project.whyNow && (
-            <p className="text-sm text-slate-400 leading-relaxed sm:text-base">
-              <span className="font-medium text-slate-400">Why now:</span> {project.whyNow}
-            </p>
-          )}
-        </div>
-
-        {/* Insight / approach */}
-        <div className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-5 sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
-          <h2 className="text-xl font-bold text-slate-50 mb-3 flex items-center gap-2 sm:mb-4 sm:text-2xl">
-            <Lightbulb className="h-5 w-5 text-sky-400 sm:h-6 sm:w-6" />
-            Insight & approach
-          </h2>
-          <p className="text-sm text-slate-300 leading-relaxed sm:text-base lg:text-lg mb-4">
-            {project.solution}
-          </p>
-          <ul className="space-y-2 text-sm text-slate-400 sm:text-base">
-            {project.responsibilities.slice(0, 3).map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-400" />
-                {item}
-              </li>
+      {/* ── METRICS ──────────────────────────────────────────── */}
+      {project.metrics && project.metrics.length > 0 && (
+        <Reveal delay={0.05}>
+          <div className="grid grid-cols-3 gap-px bg-slate-700/50 rounded-xl overflow-hidden mb-16 sm:mb-20">
+            {project.metrics.map(metric => (
+              <div key={metric.label} className="bg-slate-900 px-4 py-6 text-center sm:px-6 sm:py-8">
+                <p className="font-display font-black text-sky-400 leading-none mb-2 text-2xl sm:text-4xl">
+                  {metric.value}
+                </p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-slate-300 leading-tight mt-2">
+                  {metric.label}
+                </p>
+              </div>
             ))}
-          </ul>
-        </div>
+          </div>
+        </Reveal>
+      )}
 
-        {/* What I built / shipped */}
-        <div className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-5 sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
-          <h2 className="text-xl font-bold text-slate-50 mb-3 flex items-center gap-2 sm:mb-4 sm:text-2xl">
-            <Layers className="h-5 w-5 text-violet-400 sm:h-6 sm:w-6" />
-            What I built
-          </h2>
-          <p className="text-sm text-slate-300 leading-relaxed sm:text-base lg:text-lg mb-4">
-            {project.architecture.overview}
-          </p>
-          <ul className="space-y-2 text-sm text-slate-400 sm:text-base">
-            {project.architecture.bullets.map((bullet, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" />
-                {bullet}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* ── CHAPTERS ─────────────────────────────────────────── */}
+      <div className="space-y-16 sm:space-y-20">
+        {chapters.map((ch) => (
+          <Reveal key={ch.num} delay={0.04}>
+            <div>
+              {/* Chapter heading */}
+              <div className="flex items-center gap-3 mb-6">
+                <span className={`font-mono text-xs uppercase tracking-[0.2em] shrink-0 font-medium ${ch.accent}`}>
+                  {ch.num}
+                </span>
+                <div className="flex-1 h-px bg-slate-800" />
+                <span className="font-mono text-xs uppercase tracking-[0.15em] text-slate-300 shrink-0">
+                  {ch.label}
+                </span>
+              </div>
 
-        {/* Results (outcomes + metrics) */}
-        <div className="mb-8 rounded-xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-5 sm:mb-12 sm:rounded-2xl sm:p-6 lg:p-8">
-          <h2 className="text-xl font-bold text-slate-50 mb-3 flex items-center gap-2 sm:mb-4 sm:text-2xl">
-            <TrendingUp className="h-5 w-5 text-emerald-400 sm:h-6 sm:w-6" />
-            Result
-          </h2>
-          <ul className="space-y-2 text-sm text-slate-300 leading-relaxed sm:text-base mb-6">
-            {project.outcomes.map((outcome, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
-                {outcome}
-              </li>
-            ))}
-          </ul>
-          {project.metrics && project.metrics.length > 0 && (
-            <div className="grid gap-4 sm:grid-cols-3 sm:gap-6 pt-4 border-t border-slate-700/50">
-              {project.metrics.map((metric) => (
-                <div
-                  key={metric.label}
-                  className="rounded-lg bg-slate-800/50 p-4 text-center"
-                >
-                  <div className="text-2xl font-bold text-emerald-400 mb-1 sm:text-3xl">
-                    {metric.value}
-                  </div>
-                  <div className="text-xs text-slate-400 sm:text-sm">{metric.label}</div>
-                </div>
-              ))}
+              {/* Body text */}
+              {ch.body && (
+                <p className="text-slate-200 leading-relaxed mb-5 text-base sm:text-lg">
+                  {ch.body}
+                </p>
+              )}
+
+              {/* Side note */}
+              {ch.note && (
+                <p className="text-slate-400 text-sm leading-relaxed mb-5 border-l-2 border-slate-700 pl-4 italic">
+                  {ch.note}
+                </p>
+              )}
+
+              {/* Bullets */}
+              {ch.bullets && ch.bullets.length > 0 && (
+                <ul className="space-y-3.5">
+                  {ch.bullets.map((bullet, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className={`mt-[9px] h-px w-5 shrink-0 ${ch.bar}`} />
+                      <span className="text-slate-300 text-sm leading-relaxed sm:text-base">
+                        {bullet}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-          )}
-        </div>
+          </Reveal>
+        ))}
+      </div>
 
-        {/* Tech Stack */}
-        <div className="mb-8 sm:mb-12">
-          <h2 className="text-xl font-bold text-slate-50 mb-4 flex items-center gap-2 sm:mb-6 sm:text-2xl">
-            <Zap className="h-5 w-5 text-violet-400 sm:h-6 sm:w-6" />
-            Tech Stack
+      {/* ── TECH STACK ───────────────────────────────────────── */}
+      <Reveal>
+        <div className="mt-16 pt-12 border-t border-slate-800/60 sm:mt-20">
+          <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400 mb-5">
+            Tech stack
           </h2>
-          <div className="flex flex-wrap gap-2 sm:gap-3">
+          <div className="flex flex-wrap gap-2">
             {project.stack.map(tech => (
               <span
                 key={tech}
-                className="rounded-full bg-slate-800 px-3 py-1.5 text-xs font-medium text-slate-300 border border-slate-700 hover:border-sky-500/50 transition-colors sm:px-4 sm:py-2 sm:text-sm"
+                className="font-mono text-xs text-slate-300 border border-slate-600 px-3 py-1.5 rounded-sm hover:border-sky-500/50 hover:text-sky-300 transition-all duration-200"
               >
                 {tech}
               </span>
             ))}
           </div>
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 }
