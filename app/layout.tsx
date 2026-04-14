@@ -4,6 +4,10 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageTransition } from '@/components/PageTransition';
 import { ParallaxBackground } from '@/components/ParallaxBackground';
+import { IntroGate } from '@/components/IntroGate';
+import { SocialRail } from '@/components/SocialRail';
+import { OpenToWork } from '@/components/OpenToWork';
+import { ScrollProgress } from '@/components/ScrollProgress';
 import { Sora, JetBrains_Mono } from 'next/font/google';
 
 const sora = Sora({
@@ -56,17 +60,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${jetbrains.variable}`}>
       <body className="bg-zinc-950 text-zinc-50 antialiased">
-        <a href="#main-content" className="skip-to-content">
-          Skip to main content
-        </a>
-        <ParallaxBackground />
-        <div className="relative min-h-screen flex flex-col bg-[#080d1a]" style={{ zIndex: 1 }}>
-          <Navbar />
-          <main id="main-content" className="flex-1">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-        </div>
+        <IntroGate>
+          <ScrollProgress />
+          <SocialRail />
+          <OpenToWork />
+          <a href="#main-content" className="skip-to-content">
+            Skip to main content
+          </a>
+          <ParallaxBackground />
+          <div className="relative min-h-screen flex flex-col bg-[#080d1a]" style={{ zIndex: 1 }}>
+            <Navbar />
+            <main id="main-content" className="flex-1">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <Footer />
+          </div>
+        </IntroGate>
       </body>
     </html>
   );
