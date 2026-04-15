@@ -8,6 +8,7 @@ import { IntroGate } from '@/components/IntroGate';
 import { SocialRail } from '@/components/SocialRail';
 import { OpenToWork } from '@/components/OpenToWork';
 import { ScrollProgress } from '@/components/ScrollProgress';
+import { Analytics } from '@vercel/analytics/react';
 import { Sora, JetBrains_Mono } from 'next/font/google';
 
 const sora = Sora({
@@ -76,6 +77,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </IntroGate>
+        <Analytics />
       </body>
     </html>
   );
