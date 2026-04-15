@@ -63,7 +63,7 @@ function MetricsSection() {
           <MetricCard num={3} label="Live Products" context="Solo-built" sub="Real users. No co-founder." duration={800} />
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-600 mr-2">Experience at</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-sky-400 mr-2">Experience at</span>
           {['AWS', 'Meta', 'Zoox', 'Apple'].map(co => (
             <span key={co} className="font-display font-bold text-slate-500 text-sm tracking-tight hover:text-slate-300 transition-colors duration-200">
               {co}
@@ -150,10 +150,10 @@ export default function HomePage() {
       <section className="mb-24 sm:mb-32">
         <Reveal>
           <div className="flex items-center justify-between mb-10">
-            <span className="font-mono text-xs uppercase tracking-[0.22em] text-slate-500">Selected work</span>
+            <span className="font-mono text-xs uppercase tracking-[0.22em] text-sky-400">Selected work</span>
             <Link
               href="/work"
-              className="group font-mono text-xs uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 flex items-center gap-1.5"
+              className="group font-mono text-xs uppercase tracking-[0.18em] text-sky-400 hover:text-purple-400 transition-colors duration-200 flex items-center gap-1.5"
             >
               All projects <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
             </Link>

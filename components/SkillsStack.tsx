@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const SKILLS = [
@@ -24,7 +24,7 @@ export function SkillsStack() {
     <section ref={ref} className="mb-24 sm:mb-32 -mx-4 sm:mx-0">
       {/* Section label */}
       <div className="px-4 sm:px-0 mb-8">
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-slate-500">
+        <span className="font-mono text-sm sm:text-xs uppercase tracking-[0.22em] text-sky-400">
           What I build
         </span>
       </div>
@@ -38,7 +38,6 @@ export function SkillsStack() {
             tooltip={skill.tooltip}
             index={i}
             isInView={isInView}
-            isBright={i % 2 === 0}
           />
         ))}
       </div>
@@ -46,27 +45,46 @@ export function SkillsStack() {
   );
 }
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return isMobile;
+}
+
 function SkillRow({
   word,
   tooltip,
   index,
   isInView,
-  isBright,
 }: {
   word: string;
   tooltip: string;
   index: number;
   isInView: boolean;
-  isBright: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
+  const isMobile = useIsMobile();
+  const rowRef = useRef<HTMLDivElement>(null);
 
-  const baseColor = isBright ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.2)';
-  const activeColor = hovered ? 'rgba(255,255,255,1)' : baseColor;
-  const glowShadow = hovered ? '0 0 40px rgba(124,58,237,0.4)' : 'none';
+  // Scroll-based highlight for mobile: activate when row is in center 30% of viewport
+  const isScrollActive = useInView(rowRef, {
+    margin: '-35% 0px -35% 0px',
+  });
+
+  const active = isMobile ? isScrollActive : hovered;
+  const baseColor = 'rgba(255,255,255,0.2)';
+  const activeColor = active ? 'rgba(255,255,255,1)' : baseColor;
+  const glowShadow = active ? '0 0 60px rgba(124,58,237,0.5), 0 0 120px rgba(124,58,237,0.2)' : 'none';
 
   return (
     <motion.div
+      ref={rowRef}
       initial={prefersReduced ? false : { x: -30, opacity: 0 }}
       animate={
         prefersReduced || isInView
@@ -96,12 +114,12 @@ function SkillRow({
         {word}
       </span>
 
-      {/* Tooltip on hover — right-aligned */}
+      {/* Tooltip — shows on hover (desktop) or scroll-active (mobile) */}
       <motion.span
         initial={{ opacity: 0, x: -8 }}
-        animate={hovered ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
+        animate={active ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
         transition={{ duration: 0.2 }}
-        className="font-mono text-xs text-purple-400 tracking-wide hidden sm:block"
+        className="font-mono text-xs text-purple-400 tracking-wide"
       >
         {tooltip}
       </motion.span>
