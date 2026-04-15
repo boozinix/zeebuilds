@@ -182,8 +182,8 @@ export default function ContactPage() {
                 Availability
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed">
-                Actively interviewing. Available to start within 2–4 weeks.
-                Typical reply time: same day.
+                Actively interviewing for Senior/Staff AI PM roles. Open to SF Bay Area or remote.
+                Available within 2–4 weeks.
               </p>
             </div>
           </div>

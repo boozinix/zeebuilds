@@ -58,9 +58,9 @@ function MetricsSection() {
     <Reveal>
       <section className="mb-24 sm:mb-32">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <MetricCard num={157} suffix="%" label="Revenue Growth" context="AWS Marketplace" sub="$84M → $216M" duration={1800} />
+          <MetricCard num={157} suffix="%" label="Revenue Growth" context="GTM Strategy · AWS" sub="$84M → $216M" duration={1800} />
           <MetricCard num={250} prefix="$" suffix="M+" label="Cost Savings" context="Meta · Digital Twin" sub="Per-region infrastructure" duration={2000} />
-          <MetricCard num={3} label="Live Products" context="Solo-built" sub="Real users. No co-founder." duration={800} />
+          <MetricCard num={3} label="Live Products" context="Solo-built" sub="Full-stack. Real users. Paying customers." duration={800} />
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-sky-400 mr-2">Experience at</span>
@@ -114,8 +114,8 @@ export default function HomePage() {
 
         <RevealText className="relative z-10 mx-auto max-w-xl mb-10">
           <p className="text-slate-400 text-base leading-relaxed">
-            Built and shipped at AWS, Meta, Zoox, and Apple — plus three live consumer
-            AI tools solo. Code, taste, and relentless follow-through.
+            8 years shipping AI products at AWS, Meta, Zoox, and Apple — plus 3 live
+            consumer tools, solo. Code, taste, and relentless follow-through.
           </p>
         </RevealText>
 
@@ -192,7 +192,7 @@ export default function HomePage() {
                     </p>
 
                     <p className="text-slate-500 text-sm leading-relaxed mb-5">
-                      Multi-agent AI across OpenAI, Anthropic & Gemini — 20+ jobs processed in parallel.
+                      7 AI tools in one platform — resume, cover letter, LinkedIn, job fit, and more. Results in under 30 seconds.
                     </p>
 
                     <div className="flex flex-wrap gap-2 mb-5">
@@ -212,7 +212,7 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-center justify-end">
                       <span className="font-mono text-xs uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors duration-200 flex items-center gap-1.5">
-                        Case study <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                        View case study <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                       </span>
                     </div>
                   </div>
@@ -258,7 +258,7 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-center justify-end">
                       <span className="font-mono text-xs uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors flex items-center gap-1.5">
-                        Case study <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                        View case study <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                       </span>
                     </div>
                   </div>
@@ -301,7 +301,7 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-center justify-end">
                       <span className="font-mono text-xs uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors flex items-center gap-1.5">
-                        Case study <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                        View case study <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                       </span>
                     </div>
                   </div>
@@ -319,9 +319,9 @@ export default function HomePage() {
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">For recruiters</span>
             <div className="flex-1 h-px bg-slate-800" />
           </div>
-          <RevealText className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <RevealText className="grid grid-cols-1 gap-6 sm:grid-cols-[1.3fr_1fr_1fr]">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-purple-400 mb-2">Target role</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-sky-400 font-bold mb-2">Target role</p>
               <p className="text-slate-200 text-sm leading-relaxed">Senior or Staff AI PM — where AI is core to the product, not a feature bolt-on.</p>
             </div>
             <div>
@@ -343,7 +343,7 @@ export default function HomePage() {
       <Reveal>
         <p className="font-mono text-xs text-slate-500 border-t border-slate-800/40 pt-8">
           <span className="text-violet-500/60">●</span>{' '}
-          Currently shipping: ApplyStudio v2 — interview prep + agent memory
+          Currently shipping: ApplyStudio v2 · Interview Coach · Agent memory
         </p>
       </Reveal>
     </div>

@@ -12,7 +12,7 @@ const experiences = [
     role: 'Senior Partner Manager',
     period: 'May 2025 – Present',
     description:
-      'Led product strategy for AWS Marketplace partnerships. Drove 157% revenue growth ($84M → $216M) and improved customer retention by 20% through a new License Switching feature. Owned partner roadmap across 50+ ISV relationships.',
+      'Grew AWS Marketplace revenue 157% YoY ($84M → $216M) by launching CRM propensity-to-buy campaigns and a cash-back credits program. Improved customer retention 20% by shipping the License Switching feature end-to-end.',
     logo: '/aws.svg.png',
   },
   {
@@ -30,7 +30,7 @@ const experiences = [
     role: 'Senior Technical Product Manager',
     period: 'Feb 2022 – Jun 2024',
     description:
-      'Built 0→1 robotaxi tools: remote vehicle diagnostics, autonomous emergency braking UI, and a 3D rider visualization app. Cut ML infrastructure costs by 25% across a 200+ engineer org.',
+      'Shipped autonomous emergency braking feature (40% ops cost reduction). Built 3D rider visualization app (30% trust increase). Cut ML infra costs 25% across 200+ engineers.',
     logo: '/zoox.png',
   },
   {
@@ -39,7 +39,7 @@ const experiences = [
     role: 'Product Design Lead',
     period: 'May 2015 – Feb 2022',
     description:
-      "Led NPI programs across four iPhone generations and Vision Pro's 4K display testing line. Built Apple's first OLED chip-level testing platform — improved manufacturing yield by 50%, secured $2M in internal investment.",
+      "Tech Lead across iPhone X, XS, 11, and 12. Built Apple's first OLED chip-level test platform (50% yield improvement), secured $2M in robotics investment, and led a cross-functional taskforce eliminating a defect that could have impacted 200K+ customers.",
     logo: '/apple.png',
   },
 ];
@@ -47,16 +47,16 @@ const experiences = [
 const skills = [
   'Problem discovery & validation',
   'Product strategy & roadmapping',
-  'Multi-agent AI orchestration',
-  'LLM APIs — OpenAI, Anthropic, Gemini',
-  'TypeScript & Next.js',
-  'AI dev tooling — Claude, Cursor, Codex',
-  'Web scraping & data pipelines',
-  'Postgres & database design',
-  'Vercel & AWS deployment',
   'Consumer AI product strategy',
   'B2C growth & retention',
+  'Multi-agent AI orchestration',
+  'LLM APIs — OpenAI, Anthropic, Gemini',
+  'AI dev tooling — Cursor, Claude, Codex',
+  'TypeScript & Next.js',
   'Fintech & rewards optimization',
+  'Vercel & AWS deployment',
+  'Web scraping & data pipelines',
+  'Postgres & database design',
 ];
 
 export default function AboutPage() {
@@ -147,6 +147,48 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── EDUCATION ────────────────────────────────────────── */}
+      <section className="mb-20 sm:mb-28">
+        <Reveal>
+          <h2 className="font-mono text-xs uppercase tracking-[0.22em] text-slate-500 mb-10">
+            Education
+          </h2>
+        </Reveal>
+
+        <div className="divide-y divide-slate-800/50">
+          <Reveal>
+            <div className="group grid grid-cols-[3rem_1fr] sm:grid-cols-[4rem_1fr] gap-4 sm:gap-8 py-8 -mx-4 px-4 rounded">
+              <div className="pt-1 shrink-0">
+                <span className="font-mono text-xs text-slate-400">2020</span>
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-bold text-white sm:text-2xl">
+                  UC Berkeley, Haas School of Business
+                </h3>
+                <p className="font-mono text-xs uppercase tracking-[0.15em] text-slate-500 mt-1">
+                  MBA
+                </p>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.04}>
+            <div className="group grid grid-cols-[3rem_1fr] sm:grid-cols-[4rem_1fr] gap-4 sm:gap-8 py-8 -mx-4 px-4 rounded">
+              <div className="pt-1 shrink-0">
+                <span className="font-mono text-xs text-slate-400">2015</span>
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-bold text-white sm:text-2xl">
+                  University of Illinois Urbana-Champaign
+                </h3>
+                <p className="font-mono text-xs uppercase tracking-[0.15em] text-slate-500 mt-1">
+                  MS, Mechanical Engineering
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── SKILLS ───────────────────────────────────────────── */}
       <section className="mb-20 sm:mb-28">
         <Reveal>
@@ -173,8 +215,8 @@ export default function AboutPage() {
             Looking for my next role.
           </h2>
           <p className="text-slate-300 text-sm leading-relaxed mb-8 max-w-md">
-            Actively interviewing for AI PM roles. Available to start within 2–4 weeks.
-            Response time: same day.
+            Actively interviewing for Senior/Staff AI PM roles. Open to SF Bay Area or remote.
+            Available within 2–4 weeks.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <Link
