@@ -46,3 +46,6 @@ scripts/
 
 # local git tracker (personal, not for remote)
 git_tracker.csv
+
+# IDE settings
+.vscode/

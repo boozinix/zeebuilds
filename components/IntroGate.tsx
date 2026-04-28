@@ -76,7 +76,7 @@ export function IntroGate({ children }: { children: React.ReactNode }) {
               <span className="relative z-10">Enter</span>
             </button>
 
-            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.25em] text-slate-600">
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.25em] text-slate-400">
               Zubair Nizami · Portfolio
             </p>
           </motion.div>

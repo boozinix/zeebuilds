@@ -36,27 +36,45 @@ const experiences = [
   {
     year: '2015',
     company: 'Apple',
-    role: 'Product Design Lead',
+    role: 'Product Design Lead · 7 years · iPhone → Vision Pro',
     period: 'May 2015 – Feb 2022',
     description:
-      "Tech Lead across iPhone X, XS, 11, and 12. Built Apple's first OLED chip-level test platform (50% yield improvement), secured $2M in robotics investment, and led a cross-functional taskforce eliminating a defect that could have impacted 200K+ customers.",
+      "Tech Lead across iPhone X, XS, 11, and 12. Built Apple's first OLED chip-level test platform (50% yield improvement), secured $2M in robotics investment, led a cross-functional taskforce eliminating a defect that could have impacted 200K+ customers, and contributed to Vision Pro display system design.",
     logo: '/apple.png',
   },
 ];
 
-const skills = [
-  'Problem discovery & validation',
-  'Product strategy & roadmapping',
-  'Consumer AI product strategy',
-  'B2C growth & retention',
-  'Multi-agent AI orchestration',
-  'LLM APIs — OpenAI, Anthropic, Gemini',
-  'AI dev tooling — Cursor, Claude, Codex',
-  'TypeScript & Next.js',
-  'Fintech & rewards optimization',
-  'Vercel & AWS deployment',
-  'Web scraping & data pipelines',
-  'Postgres & database design',
+const skillGroups = [
+  {
+    label: 'AI / ML',
+    skills: [
+      'Multi-agent AI orchestration',
+      'LLM APIs — OpenAI, Anthropic, Gemini',
+      'AI dev tooling — Cursor, Claude, Codex',
+    ],
+  },
+  {
+    label: 'Product',
+    skills: [
+      'Problem discovery & validation',
+      'Product strategy & roadmapping',
+      'Consumer AI product strategy',
+      'B2C growth & retention',
+    ],
+  },
+  {
+    label: 'Engineering',
+    skills: [
+      'TypeScript & Next.js',
+      'Vercel & AWS deployment',
+      'Web scraping & data pipelines',
+      'Postgres & database design',
+    ],
+  },
+  {
+    label: 'Domain',
+    skills: ['Fintech & rewards optimization'],
+  },
 ];
 
 export default function AboutPage() {
@@ -113,13 +131,13 @@ export default function AboutPage() {
                 <div>
                   <div className="flex items-start gap-3 mb-3">
                     {/* Logo */}
-                    <div className="relative h-8 w-8 shrink-0 rounded bg-zinc-900 border border-slate-700 overflow-hidden mt-0.5">
+                    <div className="relative h-10 w-10 shrink-0 rounded-md bg-zinc-900 border border-slate-600 overflow-hidden mt-0.5">
                       <Image
                         src={exp.logo}
                         alt={`${exp.company} logo`}
                         fill
-                        className="object-contain p-1"
-                        sizes="32px"
+                        className="object-contain p-1.5"
+                        sizes="40px"
                       />
                     </div>
 
@@ -192,17 +210,26 @@ export default function AboutPage() {
       {/* ── SKILLS ───────────────────────────────────────────── */}
       <section className="mb-20 sm:mb-28">
         <Reveal>
-          <h2 className="font-mono text-xs uppercase tracking-[0.22em] text-slate-500 mb-6">
+          <h2 className="font-mono text-xs uppercase tracking-[0.22em] text-slate-500 mb-8">
             Skills
           </h2>
-          <div className="flex flex-wrap gap-2">
-            {skills.map(skill => (
-              <span
-                key={skill}
-                className="font-mono text-xs uppercase tracking-[0.1em] text-slate-300 border border-slate-700 px-3 py-1.5 rounded-sm hover:border-sky-500/50 hover:text-sky-300 transition-all duration-200 cursor-default"
-              >
-                {skill}
-              </span>
+          <div className="space-y-6">
+            {skillGroups.map(group => (
+              <div key={group.label}>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-sky-400 mb-2.5">
+                  {group.label}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map(skill => (
+                    <span
+                      key={skill}
+                      className="font-mono text-xs uppercase tracking-[0.1em] text-slate-300 border border-slate-700 px-3 py-1.5 rounded-sm hover:border-sky-500/50 hover:text-sky-300 transition-all duration-200 cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </Reveal>

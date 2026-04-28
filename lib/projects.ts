@@ -72,7 +72,7 @@ export const projects: Record<ProjectId, Project> = {
     metrics: [
       { value: '20+', label: 'Jobs processed simultaneously' },
       { value: '<90s', label: 'Per-application time' },
-      { value: 'Real-time', label: 'ATS fit scoring' }
+      { value: '30+', label: 'Applications per hour' }
     ],
     description:
       'ApplyStudio is a full-stack job application platform that replaces hours of manual work with a multi-agent AI workflow wired to leading LLM APIs (OpenAI, Anthropic, Google Gemini). It scrapes job postings, tailors resumes bullet-by-bullet, generates cover letters and application answers, and scores ATS fit across 20+ simultaneous jobs — giving candidates full control over every output.',
@@ -121,9 +121,9 @@ export const projects: Record<ProjectId, Project> = {
     whyItMatters: 'Proves the core AI PM skill — multi-agent orchestration, scoring non-deterministic outputs, building trust through transparency.',
     keyResult: 'N agents debate in parallel; scored reasoning surfaces the strongest answer',
     metrics: [
-      { value: 'N agents', label: 'Parallel model debate' },
-      { value: 'Scored', label: 'Reasoning traces ranked' },
-      { value: 'Live', label: 'Production deployed' }
+      { value: '3', label: 'Models debate in parallel' },
+      { value: '1', label: 'Scoring agent picks the winner' },
+      { value: '100%', label: 'Reasoning traces visible' }
     ],
     description:
       'A multi-agent AI debate engine — multiple models argue a question, score each other, and surface the strongest answer.',
