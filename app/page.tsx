@@ -60,7 +60,7 @@ function MetricsSection() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <MetricCard num={157} suffix="%" label="Revenue Growth" context="GTM Strategy · AWS" sub="$84M → $216M" duration={1800} />
           <MetricCard num={250} prefix="$" suffix="M+" label="Cost Savings" context="Meta · Digital Twin" sub="Per-region infrastructure" duration={2000} />
-          <MetricCard num={3} label="Live Products" context="Solo-built" sub="Full-stack. Real users. Paying customers." duration={800} />
+          <MetricCard num={4} label="Live Products" context="Solo-built" sub="Full-stack. Real users. Paying customers." duration={800} />
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-sky-400 mr-2">Experience at</span>
@@ -77,9 +77,10 @@ function MetricsSection() {
 
 /* ── Page ──────────────────────────────────────────────────────── */
 export default function HomePage() {
-  const applyStudio = projects['apply-studio'];
-  const cardScout   = projects['card-scout'];
-  const neuralMob   = projects['neural-mob'];
+  const applyStudio  = projects['apply-studio'];
+  const cardScout    = projects['card-scout'];
+  const neuralMob    = projects['neural-mob'];
+  const stockTracker = projects['stock-tracker'];
 
   return (
     <div className="mx-auto max-w-5xl px-4 pb-24 pt-16 sm:pt-24">
@@ -114,8 +115,8 @@ export default function HomePage() {
 
         <RevealText className="relative z-10 mx-auto max-w-xl mb-10">
           <p className="text-slate-400 text-base leading-relaxed">
-            8 years shipping AI products at AWS, Meta, Zoox, and Apple — plus 3 live
-            consumer tools, solo. Code, taste, and relentless follow-through.
+            8 years shipping AI products at AWS, Meta, Zoox, and Apple — plus 4 live
+            products, solo. Code, taste, and relentless follow-through.
           </p>
         </RevealText>
 
@@ -222,8 +223,8 @@ export default function HomePage() {
           </Link>
         </Reveal>
 
-        {/* Card Scout + Neural Mob */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        {/* Card Scout + Neural Mob + StockTracker */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <Reveal delay={0.06}>
             <Link href="/work/card-scout" className="group block h-full">
               <TiltCard className="overflow-hidden rounded-xl border-2 border-slate-700/70 bg-slate-900/60 group-hover:border-violet-500/60 group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
@@ -298,6 +299,52 @@ export default function HomePage() {
                     <div className="flex items-center gap-2 mb-3">
                       <span className="text-purple-400 text-sm font-bold shrink-0">→</span>
                       <p className="font-mono text-xs text-purple-300">{neuralMob.keyResult}</p>
+                    </div>
+                    <div className="flex items-center justify-end">
+                      <span className="font-mono text-xs uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors flex items-center gap-1.5">
+                        View case study <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </TiltCard>
+            </Link>
+          </Reveal>
+
+          <Reveal delay={0.14}>
+            <Link href="/work/stock-tracker" className="group block h-full">
+              <TiltCard className="overflow-hidden rounded-xl border-2 border-slate-700/70 bg-slate-900/60 group-hover:border-violet-500/60 group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                <div className="h-48 border-b border-slate-800 shrink-0">
+                  <ImageCarousel
+                    images={stockTracker.screenshots ?? [stockTracker.screenshot!]}
+                    alt="StockTracker AI financial intelligence dashboard"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex flex-wrap items-center gap-2.5 mb-4">
+                    <span aria-hidden="true" className="relative flex h-1.5 w-1.5 shrink-0">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-500 opacity-75" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-purple-500" />
+                    </span>
+                    <span className="font-mono text-xs uppercase tracking-[0.15em] text-slate-400">Live · 2026</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-emerald-300 bg-emerald-500/10 border border-emerald-500/40 px-2.5 py-1 rounded-sm">
+                      Markets AI
+                    </span>
+                  </div>
+                  <h3 className="font-display text-2xl font-black text-white group-hover:text-purple-400 transition-colors duration-300 mb-2">
+                    {stockTracker.name}
+                  </h3>
+                  <p className="text-slate-200 text-sm font-medium leading-relaxed mb-2">
+                    {stockTracker.whyItMatters}
+                  </p>
+                  <p className="text-slate-500 text-sm leading-relaxed mb-4">
+                    20 live data sources synthesized by Claude + Kimi K2 — with credit billing and a full admin console.
+                  </p>
+                  <div className="mt-auto pt-4 border-t border-slate-800">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-purple-400 text-sm font-bold shrink-0">→</span>
+                      <p className="font-mono text-xs text-purple-300">{stockTracker.keyResult}</p>
                     </div>
                     <div className="flex items-center justify-end">
                       <span className="font-mono text-xs uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors flex items-center gap-1.5">

@@ -75,6 +75,7 @@ Every time a `git commit` is made, the `git_tracker.csv` file in the project roo
 | **ApplyStudio** | Next.js, GPT-5.1, Multi-agent AI | applystudio.net |
 | **Neural Mob** | Next.js, TypeScript, AI-forward site | neuralmob.xyz |
 | **Card Scout** | Next.js, GPT-5, Claude, DeepSeek, Postgres | thecardscout.app |
+| **StockTracker** | Next.js 15, Neon Postgres, Claude Haiku 4.5 + Kimi K2 | stock-tracker-chi-one.vercel.app |
 
 ---
 

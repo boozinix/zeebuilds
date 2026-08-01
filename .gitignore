@@ -49,3 +49,6 @@ git_tracker.csv
 
 # IDE settings
 .vscode/
+
+# graphify knowledge graph (generated artifact, rebuild with graphify .)
+graphify-out/

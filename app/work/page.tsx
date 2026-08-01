@@ -13,8 +13,8 @@ const categories = ['All', 'AI Tools', 'Fintech', 'Career Tools'] as const;
 
 function filterProjects(list: Project[], filter: string): Project[] {
   if (filter === 'All') return list;
-  if (filter === 'AI Tools')    return list.filter(p => p.id === 'apply-studio' || p.id === 'neural-mob');
-  if (filter === 'Fintech')     return list.filter(p => p.id === 'card-scout');
+  if (filter === 'AI Tools')    return list.filter(p => ['apply-studio', 'neural-mob', 'stock-tracker'].includes(p.id));
+  if (filter === 'Fintech')     return list.filter(p => ['card-scout', 'stock-tracker'].includes(p.id));
   if (filter === 'Career Tools') return list.filter(p => p.id === 'apply-studio');
   return list;
 }

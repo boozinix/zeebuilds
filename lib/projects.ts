@@ -1,5 +1,5 @@
 // lib/projects.ts
-export type ProjectId = 'apply-studio' | 'card-scout' | 'neural-mob';
+export type ProjectId = 'apply-studio' | 'card-scout' | 'neural-mob' | 'stock-tracker';
 
 export type Project = {
   id: ProjectId;
@@ -154,6 +154,76 @@ export const projects: Record<ProjectId, Project> = {
         'Failure Handling: graceful degradation when individual agents time out or return malformed outputs.'
       ]
     }
+  },
+  'stock-tracker': {
+    id: 'stock-tracker',
+    name: 'StockTracker',
+    tagline: 'AI market intelligence — real-time data from 20 sources, synthesized by Claude and Kimi K2 into a 90-second daily brief.',
+    role: 'Product Manager & Solo Builder',
+    timeframe: '2026 – Present',
+    stack: [
+      'Next.js 15',
+      'React 19',
+      'TypeScript',
+      'Neon Postgres',
+      'Drizzle ORM',
+      'NextAuth.js',
+      'OpenRouter (Claude Haiku 4.5 + Kimi K2)',
+      'Recharts',
+      'Vercel',
+      'Stripe',
+    ],
+    links: [
+      { label: 'Live app', href: 'https://stock-tracker-chi-one.vercel.app' },
+    ],
+    screenshot: '/screenshots/stock-tracker-1.jpg',
+    screenshots: [
+      '/screenshots/stock-tracker-1.jpg',
+      '/screenshots/stock-tracker-2.jpg',
+      '/screenshots/stock-tracker-3.jpg',
+      '/screenshots/stock-tracker-4.jpg',
+      '/screenshots/stock-tracker-5.jpg',
+    ],
+    impact: 'Production fintech platform — 49 API routes, 6 AI features, shipped solo',
+    whyItMatters: '200+ articles/day compressed into a 90-second AI brief — credit billing, admin console, and immutable audit ledger included.',
+    keyResult: '49 API routes, 22-table Postgres schema, 6 AI features — shipped solo, 65/65 tests green',
+    metrics: [
+      { value: '49', label: 'API routes' },
+      { value: '22', label: 'Postgres tables' },
+      { value: '6', label: 'AI features' },
+    ],
+    description:
+      'StockTracker is a production-grade financial intelligence dashboard. It ingests real-time market data from Finnhub, Yahoo Finance, SEC EDGAR, Polymarket, and 20 tiered RSS feeds, then uses a two-model AI pipeline (Claude Haiku 4.5 for tagging, Kimi K2 for synthesis, via OpenRouter) to turn 200+ daily articles into a 90-second brief. It ships multi-tier access, credit-based AI billing, a full admin console with user impersonation, and an immutable billing ledger.',
+    problem:
+      'Retail investors drown in market data but starve for synthesis. Prices, filings, analyst ratings, and 24/7 news arrive faster than any human can read them, and the tools that aggregate them either dump raw feeds or hide the reasoning behind a paywalled black box. The result: information without judgment, and no way to tell what the market has already priced in.',
+    whyNow:
+      'Cheap, fast inference (Haiku at ~$0.0001/call) plus prompt caching finally make it economical to run AI synthesis over hundreds of articles per day per user — turning "read everything" into a solvable cost-engineering problem rather than a research one.',
+    solution:
+      'The hard part isn\'t fetching data — it\'s trust and cost. The system leans on two ideas. First, source-tier weighting: Reuters/AP (tier 1) outrank blogs (tier 5) in every synthesis, and a "priced-in" heuristic (news age × price move × sentiment) tells the user whether a headline is already reflected in the price. Second, cost as a first-class product surface: every AI call is metered to a Postgres ledger, gated by env-var feature flags, and billed against credits — so the AI can scale without silently blowing a budget.',
+    outcomes: [
+      '200+ articles per day compressed into a readable 90-second AI brief.',
+      '49 API routes and a 22-table Postgres schema, shipped and deployed solo.',
+      'Every AI call metered, budgeted, and billed — with a per-route cost audit trail.',
+      '65/65 CI tests passing on GitHub Actions; live on Vercel with 3 scheduled cron jobs.',
+    ],
+    responsibilities: [
+      'Designed and built a two-model AI pipeline (Claude Haiku tagging → Kimi K2 synthesis) across 6 end-to-end features, all cost-metered to a Postgres audit table.',
+      'Built a durable Postgres sliding-window rate limiter (no Redis) with admin bypass that works on Vercel serverless.',
+      'Shipped a credit-based billing system with an immutable append-only ledger and per-user balance snapshots.',
+      'Built a full admin console: user suspension, credit grants, tier changes, and password-less impersonation for support debugging.',
+      'Engineered a few-shot natural-language → FilterSpec compiler that turns English screening queries into Drizzle predicates at ~90% accuracy.',
+    ],
+    architecture: {
+      overview:
+        'StockTracker is a Vercel-serverless Next.js 15 app on Neon Postgres via Drizzle ORM. Data ingestion runs on scheduled cron: a 6am digest job tags 200 articles with Haiku and synthesizes them with Kimi K2; an 8pm job pre-warms the screener cache to kill cold-starts. Reads are de-duplicated with a shared-promise pattern and protected by a Postgres sliding-window rate limiter. Every AI route is gated by env-var feature flags and metered to an ai_usage table. Billing runs on an immutable append-only ledger with per-transaction balance snapshots.',
+      bullets: [
+        'Ingestion: cron-scheduled pulls from Finnhub, Yahoo Finance, SEC EDGAR, Polymarket, and 20 tiered RSS feeds into a structured Postgres schema.',
+        'AI pipeline: OpenRouter routes to Claude Haiku 4.5 (tagging, TL;DR, explain, NL-parse) and Kimi K2 (long-form synthesis), with prompt caching for ~25% cost reduction.',
+        'Reliability: shared-promise request de-duplication, Postgres sliding-window rate limiting, and /tmp → seed fallback for always-on rendering.',
+        'Billing & governance: immutable billing ledger with balance snapshots, env-var feature flags to flip AI access mid-deploy, and AES-256-GCM-encrypted BYOK key storage.',
+        'Trust surfaces: source-tier weighting, a "priced-in" news heuristic, and a forecast_claims table that scores AI predictions ex-post against realized returns.',
+      ],
+    },
   },
   'card-scout': {
     id: 'card-scout',

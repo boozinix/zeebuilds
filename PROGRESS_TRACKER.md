@@ -1,19 +1,17 @@
-# Progress Tracker — Portfolio Improvements Batch 1
-Last updated: 2026-04-27 01:00
+# Progress Tracker — StockTracker Portfolio Addition
+Last updated: 2026-08-01 00:00
 
 ## Chunks
-- [x] Chunk 1 — Create plan file and progress tracker — completed
-- [x] Chunk 2 — Fix 1.1: ApplyStudio 3rd metric → 30+ / APPLICATIONS PER HOUR — completed
-- [x] Chunk 3 — Fix 1.2: Neural Mob metrics → real numbers — completed
-- [x] Chunk 4 — Fix 1.3: Work page featured banner → blur+darken screenshot — completed
-- [x] Chunk 5 — Fix 1.4: Splash screen text opacity increase — completed
-- [x] Chunk 6 — Fix 2.2 + 2.3: About page Apple → Vision Pro + updated role tag — completed
-
-- [x] Chunk 7 — Fix 3.1: Work page second featured slot (Card Scout) — completed
-- [x] Chunk 8 — Fix 3.2: About skills grouped by category — completed
-- [x] Chunk 9 — Fix 3.3: Company logos larger in timeline — completed
+- [x] Chunk 1 — Extend Project type + add StockTracker object → lib/projects.ts — completed
+- [x] Chunk 2 — Home page: 4th card, "4 Live Products", hero copy update — completed
+- [x] Chunk 3 — Work index: filter categories update — completed
+- [x] Chunk 4 — Case-study renderer: no changes needed (renders dynamically) — completed
+- [x] Chunk 5 — Misc: CLAUDE.md update, hardcoded copy check — completed
+- [ ] Chunk 6 — QA: npm run build ✓, git commit, Vercel deploy
 
 ## Notes
-- Source: docs/portfolio-improvements.md
-- 2.1 skipped per user. Priority 3 now in scope per user.
-- All metrics confirmed by user before starting.
+- Screenshots are placeholders — 5 images need manual capture before deploy
+- ApplyStudio stays as featured hero
+- All new Project fields use existing type — no type extension needed
+- Sitemap auto-updates (uses Object.keys(projects))
+- Case study renderer is fully dynamic — no changes needed

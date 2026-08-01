@@ -35,3 +35,15 @@ Primary reader: recruiter/hiring manager. Save convo log, commit if not done, de
 Saved this conversation log. Committing all Batch 1 changes and deploying to Vercel.
 
 ---
+
+## User [2026-04-30]
+lets talk about what needs to be in there
+
+## Claude [2026-04-30]
+Resumed strategy conversation. Asked two sets of questions:
+1. Company experience (AWS, Meta, Zoox, Apple) — any shareable artifacts or all NDA? Determines whether story comes from narration or actual artifacts.
+2. Products (ApplyStudio, Card Scout, Neural Mob) — real traction metrics? Interesting product decisions? Live demo or screenshots?
+
+Identified the key gap: portfolio currently shows *what happened* (metrics, outcomes) but not *how Zubair thinks* (discovery, scoping, tradeoffs, stakeholders) — that's what a senior AI PM recruiter needs to see as proof of product discipline. Waiting for user input on NDA/artifacts before suggesting structure.
+
+---
