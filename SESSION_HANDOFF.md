@@ -1,12 +1,12 @@
 # Session Handoff — zubairnizami.com Portfolio
-Last updated: 2026-08-01 00:00
+Last updated: 2026-08-22 19:35
 
 ---
 
 ## Current State
 - **Branch:** main
 - **Deployed:** Yes (Vercel, auto-deploy from main)
-- **Uncommitted changes:** None (all Batch 1 work committed + pushed)
+- **Uncommitted changes (as of 2026-08-22):** `PROGRESS_TRACKER.md` (M); untracked: `portfolio.html`, `docs/card-perks-scraper-reuse-prompt.md`, 4 portfolio/pitch PDFs. Nothing committed this session.
 
 ## What's Done
 - Portfolio Improvements Batch 1: all 9 chunks complete
@@ -32,8 +32,11 @@ Last updated: 2026-08-01 00:00
   - Open question: real traction metrics for products
 
 ## graphify
-- `graphify-out/` does NOT exist — graph has never been built for this project
-- To build: run graphify with OpenRouter/DeepSeek backend (see global CLAUDE.md)
+- `graphify-out/` EXISTS. Semantic build done 2026-08-01; refreshed via `graphify update .` on 2026-08-22.
+- Current graph: 352 nodes · 376 edges · 33 communities · built from commit `69ad562a` (0 token cost on update)
+- Report: `graphify-out/GRAPH_REPORT.md`. Use `graphify query/explain/path` before reading source files.
+- Note: graph now indexes docs/plans/logs too, so top "god nodes" are markdown headings, not code.
+- Warning from last run: `settings.local.json` produced zero nodes (harmless).
 
 ## Model Usage Rules (per user)
 - Haiku: reading files, writing conversation/handoff logs

@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Zubair Nizami, preview</title>
+<meta name="description" content="AI Product Manager. Eight years at AWS, Meta, Zoox and Apple. Four live consumer AI products, all reachable.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Direction A, Instrument panel. Tokens are binding, see DESIGN.md section 1.
+   Bare :root carries the full light palette. No colour is declared for the
+   first time inside a media query or a [data-theme] block. */
+:root{
+  --ground:#F4F5F3;
+  --surface:#EAEBE8;
+  --surface-2:#E0E2DE;
+  --ink:#14171A;
+  --ink-2:#545C63;
+  --ink-3:#7B848C;
+  --rule:#C9CCC7;
+  --rule-soft:#DADCD7;
+  --accent:#C2551F;
+  --accent-soft:#F0DDD0;
+  --ok:#2F6B4F;
+  --warn:#B0871C;
+
+  --measure:66ch;
+  --rail:11.5rem;
+  --gap:2.75rem;
+  --ease-out-quart:cubic-bezier(0.165,0.84,0.44,1);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#131518;
+    --surface:#1A1D21;
+    --surface-2:#22262B;
+    --ink:#E8E9E4;
+    --ink-2:#99A1A8;
+    --ink-3:#79818A;
+    --rule:#2C3036;
+    --rule-soft:#23272C;
+    --accent:#E8783C;
+    --accent-soft:#382214;
+    --ok:#6FA98A;
+    --warn:#D4AC4B;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#131518;
+  --surface:#1A1D21;
+  --surface-2:#22262B;
+  --ink:#E8E9E4;
+  --ink-2:#99A1A8;
+  --ink-3:#79818A;
+  --rule:#2C3036;
+  --rule-soft:#23272C;
+  --accent:#E8783C;
+  --accent-soft:#382214;
+  --ok:#6FA98A;
+  --warn:#D4AC4B;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Newsreader",Georgia,serif;
+  font-size:17.5px;
+  line-height:1.62;
+  font-weight:400;
+  letter-spacing:-0.006em;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+  padding:0 5vw 8rem;
+}
+.sheet{max-width:62rem}
+
+/* rail plus column */
+.row{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:var(--gap);align-items:start}
+@media (max-width:860px){.row{grid-template-columns:1fr;gap:.6rem}:root{--gap:1rem}}
+.rail{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:.66rem;line-height:1.5;letter-spacing:.10em;text-transform:uppercase;
+  color:var(--ink-3);padding-top:.6rem;text-align:right;font-variant-numeric:tabular-nums;
+}
+@media (max-width:860px){.rail{text-align:left;padding-top:0;padding-bottom:.4rem}}
+.rail b{display:block;color:var(--accent);font-weight:600}
+.rail span{display:block;color:var(--ink-2)}
+
+/* type */
+h1,h2,h3,h4{font-family:"Archivo",Helvetica,Arial,sans-serif;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.2rem,5.4vw,3.5rem);font-weight:600;letter-spacing:-.028em;line-height:1.02;margin-bottom:1.1rem;max-width:20ch}
+h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:600;letter-spacing:-.014em;line-height:1.14;margin-bottom:.9rem}
+h3{font-size:1.05rem;font-weight:600;letter-spacing:-.006em;margin-bottom:.35rem}
+h4{font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.10em;text-transform:uppercase;color:var(--ink-2);margin:2rem 0 .6rem}
+p{margin:0 0 1rem;max-width:var(--measure)}
+a{color:inherit;text-decoration-color:var(--rule);text-underline-offset:.18em;text-decoration-thickness:1px;transition:text-decoration-color 140ms var(--ease-out-quart)}
+a:hover{text-decoration-color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+strong{font-weight:600}
+.lede{font-size:1.2rem;line-height:1.5;color:var(--ink);max-width:48ch}
+.sub{color:var(--ink-2);font-size:.95rem;max-width:58ch}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500;margin:0 0 .9rem}
+
+section{padding:2.6rem 0;border-top:1px solid var(--rule)}
+section:first-of-type{border-top:none;padding-top:2rem}
+
+/* measured values */
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.6rem 0 1rem}
+.cell{background:var(--ground);padding:1rem 1.1rem}
+.cell .v{font-family:"Archivo",sans-serif;font-size:1.75rem;font-weight:600;letter-spacing:-.028em;line-height:1;font-variant-numeric:tabular-nums;display:block;margin-bottom:.4rem}
+.cell .l{font-family:"IBM Plex Mono",monospace;font-size:.63rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);line-height:1.5;display:block}
+.cell .base{font-family:"IBM Plex Mono",monospace;font-size:.63rem;letter-spacing:.03em;color:var(--ink-3);display:block;margin-top:.3rem;font-variant-numeric:tabular-nums}
+
+/* product rows */
+.prod{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem;align-items:baseline;padding:1.15rem 0;border-bottom:1px solid var(--rule-soft);max-width:52rem}
+.prod:first-of-type{border-top:1px solid var(--rule)}
+@media (max-width:640px){.prod{grid-template-columns:1fr;gap:.5rem}}
+.prod h3{margin-bottom:.25rem}
+.prod .desc{font-size:.97rem;color:var(--ink-2);margin:0 0 .4rem;max-width:56ch}
+.prod .tradeoff{font-family:"Archivo",sans-serif;font-size:.85rem;line-height:1.5;color:var(--ink-2);margin:0;max-width:56ch}
+.prod .tradeoff b{font-family:"IBM Plex Mono",monospace;font-size:.63rem;letter-spacing:.10em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-right:.5rem}
+.prod .meta{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.06em;color:var(--ink-3);text-align:right;font-variant-numeric:tabular-nums;line-height:1.6;white-space:nowrap}
+@media (max-width:640px){.prod .meta{text-align:left}}
+.prod .meta a{color:var(--accent)}
+.status{display:inline-block;width:.42rem;height:.42rem;background:var(--ok);margin-right:.45rem;vertical-align:.02em}
+
+/* pending marker */
+.pending{border:1px dashed var(--rule);background:var(--surface);padding:1.1rem 1.25rem;max-width:var(--measure);margin:0 0 1rem}
+.pending .tag{font-family:"IBM Plex Mono",monospace;font-size:.63rem;letter-spacing:.10em;text-transform:uppercase;color:var(--warn);font-weight:600;display:block;margin-bottom:.5rem}
+.pending p{font-size:.94rem;color:var(--ink-2);margin-bottom:.5rem}
+.pending p:last-child{margin-bottom:0}
+
+/* experience */
+.exp{max-width:52rem}
+.exp-row{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:1.5rem;padding:1rem 0;border-bottom:1px solid var(--rule-soft)}
+.exp-row:first-of-type{border-top:1px solid var(--rule)}
+@media (max-width:640px){.exp-row{grid-template-columns:1fr;gap:.3rem}}
+.exp-row .when{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-variant-numeric:tabular-nums;padding-top:.25rem}
+.exp-row .what{font-size:.97rem;color:var(--ink-2);margin:0;max-width:58ch}
+.exp-row .who{font-family:"Archivo",sans-serif;font-weight:600;font-size:1rem;color:var(--ink);display:block;margin-bottom:.15rem;letter-spacing:-.006em}
+
+/* actions */
+.actions{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.4rem 0 0}
+.btn{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.10em;text-transform:uppercase;font-weight:600;padding:.6rem 1rem;border:1px solid var(--rule);border-radius:4px;color:var(--ink-2);text-decoration:none;background:none;transition:color 140ms var(--ease-out-quart),border-color 140ms var(--ease-out-quart)}
+.btn:hover{color:var(--accent);border-color:var(--accent)}
+.btn.primary{color:var(--ground);background:var(--accent);border-color:var(--accent)}
+.btn.primary:hover{color:var(--ground);opacity:.9}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<section>
+  <div class="row">
+    <div class="rail"><b>Status</b><span>Open to senior roles</span><span>SF Bay Area</span><span>Updated 22 Aug 2026</span></div>
+    <div>
+      <p class="kicker">Zubair Nizami</p>
+      <h1>I am an AI product manager who ships the product, and I am looking for a senior role where the model is the product.</h1>
+      <p class="lede">Eight years building AI products at AWS, Meta, Zoox and Apple. Four consumer products built solo, all reachable at the links below.</p>
+      <div class="actions">
+        <a class="btn primary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume, one page</a>
+        <a class="btn" href="mailto:zubair.nizami@yahoo.com">Email</a>
+        <a class="btn" href="https://www.linkedin.com/in/zubairnizami/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    <div class="rail"><b>01</b><span>Built solo</span><span>All live</span></div>
+    <div>
+      <h2>Four products you can open right now</h2>
+      <p class="sub">Each one carries the hardest tradeoff I made building it. A product with no stated limitation is not a product I understand.</p>
+
+      <div class="prod">
+        <div>
+          <h3>ApplyStudio</h3>
+          <p class="desc">Turns a job posting into a tailored resume, cover letter and application answers.</p>
+          <p class="tradeoff"><b>Tradeoff</b>Runs up to 20 jobs in parallel across three model providers. Parallelism is what makes it useful and also what makes a bad prompt expensive, so every rewrite is accept or reject at the bullet level rather than applied wholesale.</p>
+        </div>
+        <div class="meta"><span class="status" aria-hidden="true"></span>Live<br><a href="https://applystudio.net" target="_blank" rel="noopener noreferrer">applystudio.net</a><br>usage pending</div>
+      </div>
+
+      <div class="prod">
+        <div>
+          <h3>Card Scout</h3>
+          <p class="desc">Scores credit cards against how a person actually spends, rather than against a marketing page.</p>
+          <p class="tradeoff"><b>Tradeoff</b>Card terms change without notice, so the scraped perk data goes stale faster than the model does. The scoring is only as good as the ingestion, which is the part that needs constant repair.</p>
+        </div>
+        <div class="meta"><span class="status" aria-hidden="true"></span>Live<br><a href="https://thecardscout.app" target="_blank" rel="noopener noreferrer">thecardscout.app</a><br>usage pending</div>
+      </div>
+
+      <div class="prod">
+        <div>
+          <h3>Neural Mob</h3>
+          <p class="desc">Runs several models against each other on one question and scores the disagreement.</p>
+          <p class="tradeoff"><b>Tradeoff</b>Adversarial debate costs one inference per model per round. It produces better answers on ambiguous questions and strictly worse economics on easy ones, so routing by question difficulty matters more than the debate itself.</p>
+        </div>
+        <div class="meta"><span class="status" aria-hidden="true"></span>Live<br><a href="https://neuralmob.xyz" target="_blank" rel="noopener noreferrer">neuralmob.xyz</a><br>usage pending</div>
+      </div>
+
+      <div class="prod">
+        <div>
+          <h3>StockTracker</h3>
+          <p class="desc">Synthesises 20 market data sources into a position view, with credit billing and an admin console.</p>
+          <p class="tradeoff"><b>Tradeoff</b>Cheap models handle summarisation well and handle numeric reasoning badly. Splitting the work between Claude Haiku and Kimi K2 cut cost, and it added a failure mode where the two disagree on the same figure.</p>
+        </div>
+        <div class="meta"><span class="status" aria-hidden="true"></span>Live<br><a href="https://stock-tracker-chi-one.vercel.app" target="_blank" rel="noopener noreferrer">stock-tracker.vercel.app</a><br>usage pending</div>
+      </div>
+
+      <div class="pending" style="margin-top:1.4rem">
+        <span class="tag">Pending, four slots</span>
+        <p>Every one of these needs a real usage number stated honestly, including when it is small. A number like 312 weekly actives at 41 percent fourth week retention is worth more than a vague claim, because the vague version is the recognised signal for a number that disappointed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    <div class="rail"><b>02</b><span>Attributed</span><span>In role</span></div>
+    <div>
+      <h2>Results with a baseline attached</h2>
+      <p class="sub">A percentage with no starting point and no period is not a claim. These carry both.</p>
+      <div class="readout">
+        <div class="cell"><span class="v">157%</span><span class="l">Revenue growth,<br>GTM strategy, AWS</span><span class="base">$84M to $216M, four quarters</span></div>
+        <div class="cell"><span class="v">$250M</span><span class="l">Infrastructure cost<br>reduction, Meta</span><span class="base">Per region, digital twin platform</span></div>
+        <div class="cell"><span class="v">25%</span><span class="l">ML infrastructure<br>cost reduction, Zoox</span><span class="base">Robotaxi training pipeline</span></div>
+        <div class="cell"><span class="v">8</span><span class="l">Years shipping<br>AI products</span><span class="base">2015 to present</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    <div class="rail"><b>03</b><span>Highest signal</span><span>Not written</span></div>
+    <div>
+      <h2>The eval harness</h2>
+      <p class="sub">This is the section that decides whether the rest of the page is believed. Anthropic lists personally built agentic evals as a required qualification, above tenure.</p>
+      <div class="pending">
+        <span class="tag">Pending, written by interview</span>
+        <p>Structure, in this order: the success criterion defined before any metric existed, the metrics kept and the metrics rejected, how the dataset was built and sampled, the failure taxonomy that came out of open coding, the offline evals and how the judge was validated against human labels, the online evals on production traffic, and what the loop caught that would otherwise have shipped.</p>
+        <p>Binary pass or fail rather than a rating scale. True positive and true negative rates reported separately, never blended into one accuracy figure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    <div class="rail"><b>04</b><span>Cheapest</span><span>credibility</span></div>
+    <div>
+      <h2>What did not work</h2>
+      <p class="sub">An absent limitations section is a recognised portfolio red flag. It is also the register a language model cannot produce, because models generate confident vagueness rather than a specific admitted failure.</p>
+      <div class="pending">
+        <span class="tag">Pending</span>
+        <p>One documented failure per product, and one eval that turned out useless after it was built.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    <div class="rail"><b>05</b><span>Safety critical</span><span>2022 to 2024</span></div>
+    <div>
+      <h2>Zoox, where the failure modes were real</h2>
+      <p>Two years building 0 to 1 tooling for a driverless robotaxi. The interesting part was never the model. It was deciding what the system does when it is not sure, who it escalates to, how fast a human can take the decision back, and what the vehicle does in the seconds before anyone answers.</p>
+      <div class="pending">
+        <span class="tag">Pending, 200 words</span>
+        <p>Written for the escalation design and the human in the loop decisions rather than for the shipped feature list. This is the rarest thing on the resume against a field of product managers who moved into AI from software as a service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    <div class="rail"><b>06</b><span>Eleven years</span></div>
+    <div>
+      <h2>Where I have worked</h2>
+      <div class="exp">
+        <div class="exp-row">
+          <div class="when">May 2025<br>present</div>
+          <p class="what"><span class="who">Amazon Web Services</span>Senior Partner Manager. Grew a partner line from $84M to $216M over four quarters through a rebuilt go to market motion.</p>
+        </div>
+        <div class="exp-row">
+          <div class="when">Jun 2024<br>Apr 2025</div>
+          <p class="what"><span class="who">Meta</span>Product Manager, infrastructure and data centres. Shipped a digital twin platform that cut $250M of per region cost.</p>
+        </div>
+        <div class="exp-row">
+          <div class="when">Feb 2022<br>Jun 2024</div>
+          <p class="what"><span class="who">Zoox</span>Senior Technical Program Manager. Built 0 to 1 robotaxi operator tooling and a 3D rider application, and cut ML infrastructure cost by 25 percent.</p>
+        </div>
+        <div class="exp-row">
+          <div class="when">May 2015<br>Feb 2022</div>
+          <p class="what"><span class="who">Apple</span>Product Design Lead. iPhone new product introduction, Vision Pro display bring up, and an OLED test platform.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    <div class="rail"><b>07</b><span>The only part</span><span>that compounds</span></div>
+    <div>
+      <h2>Notes, dated</h2>
+      <p class="sub">Everything above this line is a week of work. This part is the one that cannot be produced in an afternoon, which is exactly why it is the part worth having.</p>
+      <div class="pending">
+        <span class="tag">Empty, by design, for now</span>
+        <p>One dated entry a week. The archive is the argument, not any single post.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    <div class="rail"><b>Contact</b><span>Reply within a day</span></div>
+    <div>
+      <h2>If someone told you to talk to me</h2>
+      <p>Senior or staff AI product management, at a company where the model is the product rather than a feature attached to one. Available within two to four weeks.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:zubair.nizami@yahoo.com">zubair.nizami@yahoo.com</a>
+        <a class="btn" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

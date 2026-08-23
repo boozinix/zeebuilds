@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  @page { size: Letter; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { font-family: 'Helvetica Neue','Arial','DejaVu Sans',sans-serif; color:#ECEAF6; }
+  .serif { font-family: 'Georgia','Times New Roman','DejaVu Serif',serif; }
+  .page { position:relative; width:8.5in; height:11in; overflow:hidden; page-break-after:always;
+          background:#0B0A16; padding:0.62in 0.66in; }
+  .muted { color:#9C99C4; } .accent { color:#B49CFF; } a { color:inherit; text-decoration:none; }
+
+  /* ---------- HERO ---------- */
+  .hero { background:
+      radial-gradient(1100px 520px at 12% -8%, rgba(139,92,246,0.42), transparent 60%),
+      radial-gradient(1000px 560px at 108% 30%, rgba(219,39,119,0.34), transparent 55%),
+      radial-gradient(900px 700px at 60% 120%, rgba(59,130,246,0.28), transparent 60%), #0B0A16; }
+  .kicker { letter-spacing:0.32em; font-size:10.5px; color:#B49CFF; font-weight:700; text-transform:uppercase; }
+  .name { font-size:62px; font-weight:700; line-height:1.0; letter-spacing:-0.5px; margin-top:14px; color:#F4EFFF; }
+  .role { font-size:17px; margin-top:12px; color:#D9D6F2; font-weight:500; } .role b { color:#B49CFF; font-weight:600; }
+  .contact { margin-top:14px; font-size:12.5px; }
+  .chip { display:inline-block; padding:5px 12px; border:1px solid rgba(180,156,255,0.35); border-radius:999px; margin-right:8px; color:#CFC9F0; background:rgba(139,92,246,0.10); }
+  .tag { margin-top:24px; font-size:15px; line-height:1.62; color:#CDCAE6; max-width:6.7in; } .tag b { color:#FFFFFF; font-weight:600; }
+  .flab { font-size:10.5px; letter-spacing:0.3em; color:#7C799E; text-transform:uppercase; font-weight:700; }
+  .fpill { display:inline-block; padding:8px 14px; border-radius:11px; margin:0 8px 9px 0; font-size:12.5px; color:#DAD7F2; background:linear-gradient(160deg, rgba(139,92,246,0.18), rgba(255,255,255,0.03)); border:1px solid rgba(180,156,255,0.22); }
+  .metrics { display:flex; gap:12px; margin-top:26px; }
+  .metric { flex:1; border-radius:16px; padding:16px 14px 14px; border:1px solid rgba(255,255,255,0.08); background:linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)); }
+  .metric .v { font-size:22px; font-weight:800; letter-spacing:-0.3px; } .metric .l { font-size:10.5px; color:#9C99C4; margin-top:6px; line-height:1.35; }
+  .m1 .v{ color:#F0A6D6; } .m2 .v{ color:#7DE3B8; } .m3 .v{ color:#8AB4FF; } .m4 .v{ color:#FBBF77; }
+  .logos { position:absolute; left:0.66in; right:0.66in; bottom:0.55in; }
+  .logos .lab { font-size:10px; letter-spacing:0.3em; color:#6E6B92; text-transform:uppercase; }
+  .logos .row { display:flex; gap:26px; margin-top:12px; align-items:center; }
+  .logos .row div { font-size:19px; font-weight:700; color:#D9D6F2; letter-spacing:0.5px; } .logos .row .sep { color:#4a476b; font-weight:400; }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec { letter-spacing:0.3em; font-size:11px; color:#B49CFF; font-weight:700; text-transform:uppercase; }
+  .sech { font-size:27px; font-weight:700; margin-top:6px; letter-spacing:-0.4px; } .sech .g { color:#F5A9D0; }
+
+  /* ---------- EXPERIENCE ---------- */
+  .xcard { display:flex; gap:16px; border-radius:16px; padding:15px 18px; margin-top:13px; border:1px solid rgba(255,255,255,0.08); background:linear-gradient(160deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015)); }
+  .xlogo { width:50px; height:50px; border-radius:13px; flex:0 0 50px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:18px; color:#fff; }
+  .x-aws{ background:linear-gradient(150deg,#FF9900,#B35900);} .x-meta{ background:linear-gradient(150deg,#0A84FF,#7C3AED);} .x-zoox{ background:linear-gradient(150deg,#12B981,#0EA5A5);} .x-apple{ background:linear-gradient(150deg,#8E8E93,#3A3A3C);}
+  .xbody { flex:1; } .xtop { display:flex; justify-content:space-between; align-items:baseline; }
+  .xco { font-size:17px; font-weight:700; } .xrole { font-size:12.5px; color:#B49CFF; font-weight:600; margin-top:1px; }
+  .xdesc { font-size:12.5px; color:#C6C3E0; line-height:1.5; margin-top:7px; } .xmetric { font-size:12px; font-weight:700; color:#7DE3B8; white-space:nowrap; }
+
+  /* ---------- PRODUCT CASE STUDY ---------- */
+  .cs-ban { border-radius:16px; padding:20px 22px 18px; position:relative; overflow:hidden; }
+  .aps-ban{ background:linear-gradient(120deg,#2b1a5e,#7c3aed 58%,#c026d3); }
+  .crd-ban{ background:linear-gradient(120deg,#0f2f66,#2563eb 55%,#22a2b8); }
+  .nm-ban { background:linear-gradient(120deg,#241a52,#6d28d9 52%,#3b82f6); }
+  .stk-ban{ background:linear-gradient(120deg,#064e3b,#059669 55%,#0891b2); }
+  .cs-live { font-size:8.5px; letter-spacing:0.18em; font-weight:800; padding:3px 8px; border-radius:6px; background:#12F1A8; color:#04241a; display:inline-block; }
+  .cs-url { float:right; font-size:10px; font-family:'DejaVu Sans Mono',monospace; color:rgba(255,255,255,0.75); background:rgba(0,0,0,0.22); padding:4px 9px; border-radius:7px; }
+  .cs-name { font-size:31px; font-weight:700; margin-top:9px; color:#fff; }
+  .cs-tag { font-size:13px; margin-top:5px; color:rgba(255,255,255,0.92); line-height:1.4; }
+  .cs-stats { margin-top:14px; }
+  .spill { display:inline-block; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.25); border-radius:9px; padding:6px 11px; margin-right:8px; font-size:10.5px; color:#fff; }
+  .spill b { font-size:14px; font-weight:800; }
+
+  .cs-h { font-size:10.5px; letter-spacing:0.24em; text-transform:uppercase; font-weight:800; margin-top:17px; }
+  .cs-p { font-size:12px; line-height:1.55; color:#C6C3E0; margin-top:7px; }
+  .personas { display:flex; gap:10px; margin-top:10px; }
+  .persona { flex:1; border-radius:12px; padding:12px 12px 13px; border:1px solid rgba(255,255,255,0.09); background:linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015)); }
+  .persona .pi { font-size:9.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; }
+  .persona .pn { font-size:12.5px; font-weight:700; margin-top:5px; color:#F1EFFA; }
+  .persona .pd { font-size:10px; color:#A6A3C6; line-height:1.4; margin-top:5px; }
+  .solve { list-style:none; margin-top:9px; }
+  .solve li { font-size:11.5px; line-height:1.5; color:#CFCCE6; padding-left:19px; position:relative; margin-bottom:7px; }
+  .solve li:before { content:"\2192"; position:absolute; left:0; font-weight:800; }
+  .solve li b { color:#FFFFFF; font-weight:600; }
+  .results { display:flex; gap:11px; margin-top:10px; }
+  .result { flex:1; border-left:3px solid; padding:7px 0 7px 11px; font-size:11px; color:#DAD7F0; line-height:1.4; }
+  .stackrow { margin-top:15px; }
+  .tchip2 { display:inline-block; padding:4px 10px; border-radius:7px; margin:0 6px 6px 0; font-size:9.5px; font-family:'DejaVu Sans Mono',monospace; background:rgba(255,255,255,0.06); color:#C8C4E6; }
+
+  /* accent per product */
+  .acc-v .cs-h, .acc-v .persona .pi { color:#C0A6FF; } .acc-v .solve li:before { color:#A78BFA; }
+  .acc-b .cs-h, .acc-b .persona .pi { color:#8CBBFF; } .acc-b .solve li:before { color:#5B9BF5; }
+  .acc-i .cs-h, .acc-i .persona .pi { color:#B9A6FF; } .acc-i .solve li:before { color:#8B7CF6; }
+  .acc-g .cs-h, .acc-g .persona .pi { color:#7DE3B8; } .acc-g .solve li:before { color:#34D399; }
+
+  /* ---------- RECRUITER ---------- */
+  .rtable { margin-top:18px; }
+  .rt { display:flex; padding:13px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .rt .k { flex:0 0 2.1in; font-size:13px; font-weight:700; color:#B49CFF; } .rt .v { flex:1; font-size:13px; color:#DAD7F0; line-height:1.5; }
+  .cta { margin-top:30px; border-radius:20px; padding:32px; text-align:center; background:linear-gradient(135deg, rgba(139,92,246,0.30), rgba(219,39,119,0.26)); border:1px solid rgba(180,156,255,0.3); }
+  .cta h2 { font-size:25px; font-weight:700; } .cta p { margin-top:9px; font-size:14px; color:#EDE9FB; } .cta .big { margin-top:6px; font-size:18px; font-weight:700; }
+</style></head>
+<body>
+
+<!-- PAGE 1 : HERO -->
+<div class="page hero">
+  <div class="kicker">Portfolio 2026</div>
+  <div class="name serif">Zubair Nizami</div>
+  <div class="role">Senior AI Product Manager <b>·</b> Consumer <b>·</b> Infrastructure <b>·</b> Fintech</div>
+  <div class="contact"><span class="chip">zubairnizami.com</span><span class="chip">zubair.nizami@yahoo.com</span><span class="chip">SF Bay Area</span></div>
+  <div class="tag">I ship AI products from zero to revenue in <b>weeks, not quarters</b>. Eight years across AWS, Meta, Zoox, and Apple, plus <b>four live products built solo</b>. I work at the intersection of technical depth and product taste: multi-agent orchestration, LLM pipelines, full-stack execution, and GTM strategy in the same week.</div>
+  <div class="metrics">
+    <div class="metric m1"><div class="v">$84M&#8202;&#8594;&#8202;$216M</div><div class="l">Revenue growth, AWS Marketplace</div></div>
+    <div class="metric m2"><div class="v">157%</div><div class="l">Partner-led GTM revenue lift</div></div>
+    <div class="metric m3"><div class="v">4</div><div class="l">Live products, shipped solo</div></div>
+    <div class="metric m4"><div class="v">$2,500+</div><div class="l">Avg value surfaced per Card Scout session</div></div>
+  </div>
+  <div style="margin-top:44px;">
+    <div class="flab">Where I go deep</div>
+    <div style="margin-top:15px;">
+      <span class="fpill">Multi-agent orchestration</span><span class="fpill">LLM pipelines</span><span class="fpill">Search &amp; ranking</span><span class="fpill">Data infrastructure at scale</span><span class="fpill">Full-stack shipping</span><span class="fpill">GTM strategy</span>
+    </div>
+  </div>
+  <div class="logos"><div class="lab">Eight years building at</div>
+    <div class="row"><div>AWS</div><div class="sep">/</div><div>Meta</div><div class="sep">/</div><div>Zoox</div><div class="sep">/</div><div>Apple</div></div></div>
+</div>
+
+<!-- PAGE 2 : EXPERIENCE -->
+<div class="page">
+  <div class="sec">Experience</div>
+  <div class="sech serif">Eight years shipping at <span class="g">scale</span>.</div>
+  <div class="xcard"><div class="xlogo x-aws">aws</div><div class="xbody"><div class="xtop"><div class="xco">AWS</div><div class="xmetric">$84M &#8594; $216M</div></div><div class="xrole">Senior Partner Manager &nbsp;·&nbsp; AI/ML &amp; Cloud GTM</div><div class="xdesc">Drove go-to-market for AI/ML and cloud infrastructure, growing partner-led Marketplace revenue 157% year over year and shaping a roadmap influencing $100M in new revenue.</div></div></div>
+  <div class="xcard"><div class="xlogo x-meta">M</div><div class="xbody"><div class="xtop"><div class="xco">Meta</div><div class="xmetric">$250M / region</div></div><div class="xrole">Product Manager &nbsp;·&nbsp; Infrastructure &amp; Data Centers</div><div class="xdesc">Owned the AI data center Digital Twin platform, using virtual commissioning and simulation to cut infrastructure cost $250M per region and lift adoption 60%.</div></div></div>
+  <div class="xcard"><div class="xlogo x-zoox">Z</div><div class="xbody"><div class="xtop"><div class="xco">Zoox</div><div class="xmetric">0 &#8594; 1</div></div><div class="xrole">Senior Technical Product Manager &nbsp;·&nbsp; Autonomy</div><div class="xdesc">Shipped autonomy and operator products across a safety-critical AV stack, including a custom handheld controller (0 to 1) and an ML platform supporting 200+ engineers.</div></div></div>
+  <div class="xcard"><div class="xlogo x-apple">&#63743;</div><div class="xbody"><div class="xtop"><div class="xco">Apple</div><div class="xmetric">4 iPhone programs</div></div><div class="xrole">Product Design Lead &nbsp;·&nbsp; Hardware</div><div class="xdesc">Tech-led four iPhone programs (X, XS, 11, 12) and Vision Pro display test systems, from concept through mass production, improving manufacturing yield 50%.</div></div></div>
+  <div class="xcard" style="border-style:dashed;"><div class="xlogo" style="background:linear-gradient(150deg,#8B5CF6,#DB2777);">&#9889;</div><div class="xbody"><div class="xtop"><div class="xco">Plus, four products built solo</div><div class="xmetric">Live in production</div></div><div class="xrole">Full-stack AI &nbsp;·&nbsp; Next.js, TypeScript, multi-model LLM</div><div class="xdesc">Apply Studio, Card Scout, Neural Mob, and StockTracker. Problem, users, and results on the next four pages.</div></div></div>
+</div>
+
+<!-- PAGE 3 : APPLY STUDIO -->
+<div class="page acc-v">
+  <div class="sec">Built Solo &nbsp;·&nbsp; Case Study 01</div>
+  <div class="cs-ban aps-ban" style="margin-top:9px;">
+    <span class="cs-live">LIVE</span><span class="cs-url">applystudio.net</span>
+    <div class="cs-name serif">Apply Studio</div>
+    <div class="cs-tag">AI job application platform. From a job post to a tailored resume, cover letter, and answers in under 90 seconds.</div>
+    <div class="cs-stats"><span class="spill"><b>&lt;90s</b> per application</span><span class="spill"><b>20+</b> jobs in parallel</span><span class="spill"><b>100+</b> job boards</span></div>
+  </div>
+  <div class="cs-h">The problem</div>
+  <div class="cs-p">A serious job application takes 2 to 4 hours to do well: a keyword-matched resume, a tailored cover letter, and custom answers for every role. So most candidates either apply generically and get filtered out, or spend days on a handful of roles. Multi-agent orchestration makes it possible to parallelize that rewriting across dozens of postings at once, compressing days of work into minutes.</div>
+  <div class="cs-h">Who it&#8217;s for</div>
+  <div class="personas">
+    <div class="persona"><div class="pi">Early career</div><div class="pn">The broad applier</div><div class="pd">Applying widely and needs to stand out without a long track record.</div></div>
+    <div class="persona"><div class="pi">Career switcher</div><div class="pn">The re-framer</div><div class="pd">Needs existing experience re-positioned for a new domain or function.</div></div>
+    <div class="persona"><div class="pi">Senior IC</div><div class="pn">The selective closer</div><div class="pd">Applies to fewer roles but wants each one tailored, ATS-ready, and fast.</div></div>
+  </div>
+  <div class="cs-h">How I solve it</div>
+  <ul class="solve">
+    <li>An <b>in-house web scraper</b> that outperforms third-party tools on hard job sites, extracting descriptions, requirements, and application questions.</li>
+    <li>A <b>multi-agent workflow</b> across GPT, Claude, and Gemini, with one agent per job running in parallel.</li>
+    <li>A <b>bullet-by-bullet accept, edit, reject UI</b> so the user keeps their voice while the manual grind disappears.</li>
+    <li><b>Real-time ATS scoring</b> and keyword-gap analysis across 20+ jobs before submission. Built and shipped solo in under 6 weeks.</li>
+  </ul>
+  <div class="cs-h">Results</div>
+  <div class="results">
+    <div class="result" style="border-color:#A78BFA;">Per-application time cut from ~3 hours to under 90 seconds.</div>
+    <div class="result" style="border-color:#F472B6;">20+ tailored applications generated in under one hour.</div>
+    <div class="result" style="border-color:#7DE3B8;">ATS keyword coverage surfaced before every submission.</div>
+  </div>
+  <div class="stackrow"><span class="tchip2">Next.js</span><span class="tchip2">TypeScript</span><span class="tchip2">Vercel</span><span class="tchip2">GPT-5.1</span><span class="tchip2">Claude</span><span class="tchip2">Gemini</span><span class="tchip2">Playwright</span></div>
+</div>
+
+<!-- PAGE 4 : CARD SCOUT -->
+<div class="page acc-b">
+  <div class="sec">Built Solo &nbsp;·&nbsp; Case Study 02</div>
+  <div class="cs-ban crd-ban" style="margin-top:9px;">
+    <span class="cs-live">LIVE</span><span class="cs-url">thecardscout.app</span>
+    <div class="cs-name serif">Card Scout</div>
+    <div class="cs-tag">AI credit-card optimizer. Real math on your real spending, not affiliate rankings.</div>
+    <div class="cs-stats"><span class="spill"><b>$2,500+</b> avg annual value</span><span class="spill"><b>100+</b> cards analyzed</span><span class="spill"><b>2 min</b> vs hours</span></div>
+  </div>
+  <div class="cs-h">The problem</div>
+  <div class="cs-p">The average household leaves $1,500 to $3,000 in credit-card rewards unclaimed each year. Most comparison sites are revenue-optimized for banks, not users, surfacing the highest affiliate payout rather than the highest actual value for a given spending profile. Combining a structured valuation engine with multi-model reasoning personalizes recommendations at a level no static site can match.</div>
+  <div class="cs-h">Who it&#8217;s for &nbsp;<span style="font-weight:600;letter-spacing:0;text-transform:none;color:#7C7998;font-size:10px;">(three entry points, mapped to expertise)</span></div>
+  <div class="personas">
+    <div class="persona"><div class="pi">Beginner</div><div class="pn">&#8220;I&#8217;m starting out&#8221;</div><div class="pd">No cards yet. Answers 3 questions and gets ranked matches for goals and spend.</div></div>
+    <div class="persona"><div class="pi">Intermediate</div><div class="pn">&#8220;I have cards already&#8221;</div><div class="pd">Wants to see the gaps in a current wallet and exactly what to add next.</div></div>
+    <div class="persona"><div class="pi">Advanced</div><div class="pn">&#8220;I know what I want&#8221;</div><div class="pd">Browses and filters 100+ cards by issuer, rewards type, and annual fee.</div></div>
+  </div>
+  <div class="cs-h">How I solve it</div>
+  <ul class="solve">
+    <li>Treat rewards as a <b>valuation problem, not a search problem</b>, modeling expected annual value across 100+ cards per user profile.</li>
+    <li>A <b>TypeScript valuation engine</b> computes expected value per card and per card combination from spend and category multipliers.</li>
+    <li><b>Bank-specific crawlers</b> keep card data, APRs, and bonus structures fresh automatically, so nothing goes stale.</li>
+    <li><b>Multi-model orchestration</b> (GPT, Claude, DeepSeek) for reasoning and explanations, with transparent ranked results and full earnings breakdowns.</li>
+  </ul>
+  <div class="cs-h">Results</div>
+  <div class="results">
+    <div class="result" style="border-color:#5B9BF5;">Average session surfaces $2,500+ in net annual card value.</div>
+    <div class="result" style="border-color:#22A2B8;">Research time cut from hours to under 2 minutes.</div>
+    <div class="result" style="border-color:#FBBF77;">100+ cards analyzed per session, with the &#8220;why&#8221; shown for every rank.</div>
+  </div>
+  <div class="stackrow"><span class="tchip2">Next.js</span><span class="tchip2">TypeScript</span><span class="tchip2">Postgres</span><span class="tchip2">GPT-5</span><span class="tchip2">Claude</span><span class="tchip2">DeepSeek</span><span class="tchip2">Playwright</span></div>
+</div>
+
+<!-- PAGE 5 : NEURAL MOB -->
+<div class="page acc-i">
+  <div class="sec">Built Solo &nbsp;·&nbsp; Case Study 03</div>
+  <div class="cs-ban nm-ban" style="margin-top:9px;">
+    <span class="cs-live">LIVE</span><span class="cs-url">neuralmob.xyz</span>
+    <div class="cs-name serif">Neural Mob</div>
+    <div class="cs-tag">Ask once, three minds answer. A multi-model debate engine with a judge and visible reasoning.</div>
+    <div class="cs-stats"><span class="spill"><b>3</b> models debate</span><span class="spill"><b>1</b> scoring judge</span><span class="spill"><b>100%</b> reasoning visible</span></div>
+  </div>
+  <div class="cs-h">The problem</div>
+  <div class="cs-p">A single model optimizes for plausibility, not correctness. There is no forcing function and no adversarial pressure, so you get confident answers that can be subtly wrong. Multi-agent debate is a known research technique but is rarely productized with user-visible transparency. The tooling now exists to route a query to several models in parallel, collect structured outputs, and score reasoning quality at production speed.</div>
+  <div class="cs-h">Who it&#8217;s for</div>
+  <div class="personas">
+    <div class="persona"><div class="pi">Builders &amp; PMs</div><div class="pn">The model comparer</div><div class="pd">Wants to see how GPT, Claude, and Gemini differ before trusting one for a task.</div></div>
+    <div class="persona"><div class="pi">Decision-makers</div><div class="pn">The high-stakes asker</div><div class="pd">Needs a higher-confidence answer on an ambiguous, consequential question.</div></div>
+    <div class="persona"><div class="pi">AI power users</div><div class="pn">The skeptic</div><div class="pd">Does not trust one model and wants a judged, fully transparent consensus.</div></div>
+  </div>
+  <div class="cs-h">How I solve it</div>
+  <ul class="solve">
+    <li><b>Agent roles, system prompts, and model assignments</b> defined for parallel debate routing, so each agent brings distinct priors.</li>
+    <li>A <b>scoring judge</b> evaluates every response against a rubric that penalizes hedging and rewards specificity and evidence.</li>
+    <li><b>Full attribution and reasoning traces</b> on the result surface, so users see exactly why the winning answer won.</li>
+    <li><b>Graceful degradation</b> when an agent times out or returns malformed output. This is core AI PM craft: agent design, failure modes, scoring non-deterministic outputs, and building trust.</li>
+  </ul>
+  <div class="cs-h">Results</div>
+  <div class="results">
+    <div class="result" style="border-color:#8B7CF6;">Adversarial debate surfaces stronger answers than any single model.</div>
+    <div class="result" style="border-color:#3B82F6;">Every answer ships with a traceable scoring rationale.</div>
+    <div class="result" style="border-color:#7DE3B8;">Built and deployed solo. Live product with real users.</div>
+  </div>
+  <div class="stackrow"><span class="tchip2">Next.js</span><span class="tchip2">TypeScript</span><span class="tchip2">Vercel</span><span class="tchip2">GPT-5.1</span><span class="tchip2">Claude</span><span class="tchip2">Gemini</span></div>
+</div>
+
+<!-- PAGE 6 : STOCKTRACKER -->
+<div class="page acc-g">
+  <div class="sec">Built Solo &nbsp;·&nbsp; Case Study 04</div>
+  <div class="cs-ban stk-ban" style="margin-top:9px;">
+    <span class="cs-live">LIVE</span><span class="cs-url">stock-tracker-chi-one.vercel.app</span>
+    <div class="cs-name serif">StockTracker</div>
+    <div class="cs-tag">AI market intelligence. Real-time data from 20 sources, synthesized by Claude and Kimi K2 into a 90-second daily brief.</div>
+    <div class="cs-stats"><span class="spill"><b>20</b> live data sources</span><span class="spill"><b>6</b> AI features</span><span class="spill"><b>49</b> API routes</span></div>
+  </div>
+  <div class="cs-h">The problem</div>
+  <div class="cs-p">Retail investors drown in market data but starve for synthesis. Prices, filings, analyst ratings, and 24/7 news arrive faster than anyone can read them, and the tools that aggregate them either dump raw feeds or hide the reasoning behind a paywalled black box. The result is information without judgment, with no way to tell what the market has already priced in. Cheap, fast inference plus prompt caching finally make it economical to run AI synthesis over hundreds of articles a day per user.</div>
+  <div class="cs-h">Who it&#8217;s for</div>
+  <div class="personas">
+    <div class="persona"><div class="pi">Active trader</div><div class="pn">The signal seeker</div><div class="pd">Wants to know why a stock moved and whether the news is already priced in.</div></div>
+    <div class="persona"><div class="pi">Long-term investor</div><div class="pn">The portfolio watcher</div><div class="pd">Tracks a watchlist and wants a daily brief, not a 24/7 firehose.</div></div>
+    <div class="persona"><div class="pi">Quant-curious</div><div class="pn">The screener</div><div class="pd">Filters the whole market in plain English and backtests ideas fast.</div></div>
+  </div>
+  <div class="cs-h">How I solve it</div>
+  <ul class="solve">
+    <li>A <b>two-model AI pipeline</b>: Claude Haiku tags 200+ articles a day, Kimi K2 synthesizes them into a 90-second brief.</li>
+    <li><b>Source-tier weighting</b> and a <b>&#8220;priced-in&#8221; heuristic</b> (news age &#215; price move &#215; sentiment) so users trust what they read.</li>
+    <li>A <b>natural-language screener</b> that compiles plain English into database filters at ~90% accuracy, zero fine-tuning.</li>
+    <li><b>Cost as a product surface</b>: every AI call metered to a Postgres ledger, gated by feature flags, billed against credits. 49 API routes and a 22-table schema, shipped solo.</li>
+  </ul>
+  <div class="cs-h">Results</div>
+  <div class="results">
+    <div class="result" style="border-color:#34D399;">200+ articles a day compressed into a readable 90-second AI brief.</div>
+    <div class="result" style="border-color:#22D3EE;">49 API routes and a 22-table Postgres schema, deployed solo, 65/65 tests green.</div>
+    <div class="result" style="border-color:#8AB4FF;">Every AI call metered, budgeted, and billed with a full audit trail.</div>
+  </div>
+  <div class="stackrow"><span class="tchip2">Next.js 15</span><span class="tchip2">TypeScript</span><span class="tchip2">Neon Postgres</span><span class="tchip2">Drizzle ORM</span><span class="tchip2">Claude Haiku</span><span class="tchip2">Kimi K2</span><span class="tchip2">Recharts</span></div>
+</div>
+
+<!-- PAGE 7 : RECRUITERS -->
+<div class="page hero">
+  <div class="sec">For Recruiters</div>
+  <div class="sech serif">Let&#8217;s build AI products <span class="g">that ship</span>.</div>
+  <div class="rtable">
+    <div class="rt"><div class="k">Target role</div><div class="v">Senior or Staff AI Product Manager, where AI is the product, not a feature bolt-on.</div></div>
+    <div class="rt"><div class="k">Best-fit areas</div><div class="v">LLM orchestration &nbsp;·&nbsp; AI-native consumer products &nbsp;·&nbsp; Search &amp; ranking &nbsp;·&nbsp; Data infrastructure at scale</div></div>
+    <div class="rt"><div class="k">Strengths</div><div class="v">Multi-agent orchestration, full-stack shipping, technical depth, and GTM, in the same week.</div></div>
+    <div class="rt"><div class="k">Location</div><div class="v">SF Bay Area &nbsp;·&nbsp; Open to remote &nbsp;·&nbsp; Available within 2 to 4 weeks</div></div>
+    <div class="rt"><div class="k">Now shipping</div><div class="v">Apply Studio v2 &nbsp;·&nbsp; Interview Coach &nbsp;·&nbsp; Agent memory systems</div></div>
+  </div>
+  <div class="cta"><h2 class="serif">Ready to build AI products that ship?</h2><p>Let&#8217;s talk.</p><div class="big accent">zubair.nizami@yahoo.com &nbsp;·&nbsp; zubairnizami.com</div></div>
+</div>
+
+</body></html>
